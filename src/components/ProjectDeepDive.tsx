@@ -1,0 +1,100 @@
+import React from 'react';
+import { Layers, TrendingUp, CheckCircle2, Sliders } from 'lucide-react';
+
+interface ProjectDeepDiveProps {
+  title: string;
+  role: string;
+  problem: string;
+  solution: string;
+  parameters?: string[];
+  tags: string[];
+  kpis: string[];
+}
+
+const ProjectDeepDive = ({ 
+  title, 
+  role, 
+  problem, 
+  solution, 
+  parameters, 
+  tags, 
+  kpis 
+}: ProjectDeepDiveProps) => (
+  <div className="flex flex-col h-full space-y-4">
+    {/* Header */}
+    <div className="border-b border-zinc-100 dark:border-zinc-800 pb-4">
+      <h4 className="text-xl font-bold text-zinc-900 dark:text-white mb-1">{title}</h4>
+      <p className="text-xs font-mono text-purple-600 dark:text-purple-400">{role}</p>
+    </div>
+    
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1">
+      {/* Left Col: Narrative */}
+      <div className="space-y-4">
+        <div>
+          <span className="text-[10px] uppercase font-bold text-zinc-400 block mb-1">The Problem</span>
+          <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">{problem}</p>
+        </div>
+        <div>
+          <span className="text-[10px] uppercase font-bold text-zinc-400 block mb-1">The Solution</span>
+          <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">{solution}</p>
+        </div>
+      </div>
+      
+      {/* Right Col: Technical & Impact */}
+      <div className="bg-zinc-50 dark:bg-zinc-900/50 rounded-lg p-4 border border-zinc-100 dark:border-zinc-800 space-y-4 flex flex-col justify-between">
+        
+        {Array.isArray(parameters) && parameters.length > 0 && (
+          <div>
+            <span className="text-[10px] uppercase font-bold text-zinc-400 flex items-center gap-1.5 mb-2">
+              <Sliders size={12}/> Parameters
+            </span>
+            <div className="flex flex-wrap gap-1.5">
+              {parameters.map((param) => (
+                 <span 
+                    key={param} 
+                    className="px-2 py-1 bg-purple-50 dark:bg-purple-900/20 border border-purple-100 dark:border-purple-800 rounded text-[10px] font-medium text-purple-700 dark:text-purple-300" 
+                    title={param}
+                 >
+                  {param}
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Architecture Tags */}
+        <div>
+           <span className="text-[10px] uppercase font-bold text-zinc-400 flex items-center gap-1.5 mb-2">
+             <Layers size={12}/> Architecture Stack
+           </span>
+           <div className="flex flex-wrap gap-1.5">
+             {tags.map((t) => (
+               <span key={t} className="px-2 py-1 bg-purple-50 dark:bg-purple-900/20 border border-purple-100 dark:border-purple-800 rounded text-[10px] font-medium text-purple-700 dark:text-purple-300">
+                 {t}
+               </span>
+             ))}
+           </div>
+        </div>
+
+        {/* Impact KPIs */}
+        <div className="pt-2 border-t border-zinc-200 dark:border-zinc-700">
+           <span className="text-[10px] uppercase font-bold text-zinc-400 flex items-center gap-1.5 mb-2">
+             <TrendingUp size={12}/> Impact Outcomes
+           </span>
+           <ul className="space-y-1.5">
+             {kpis.map((k) => (
+               <li key={k} className="text-xs font-bold text-emerald-600 dark:text-emerald-400 flex items-start gap-1.5">
+                 <CheckCircle2 size={14} className="shrink-0 mt-0.5" /> 
+                 <span>{k}</span>
+               </li>
+             ))}
+           </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+);
+
+export default ProjectDeepDive;
+
