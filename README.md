@@ -2,6 +2,7 @@
 
 A modern **Next.js** portfolio website with an AI-powered resume chatbot, inspired by [thomas-to-bcheme.github.io](https://thomas-to-bcheme-github-io.vercel.app/).
 
+
 ## Features
 
 - **Hero Section** with availability badge, trust signals, and CTAs
