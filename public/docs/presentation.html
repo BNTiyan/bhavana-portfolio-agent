@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhavana Nare - Project Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0a0a;
+      --bg-card: #141414;
+      --accent: #a855f7;
+      --accent-light: #c084fc;
+      --text-primary: #ffffff;
+      --text-secondary: #a1a1aa;
+      --border: #27272a;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      overflow: hidden;
+      height: 100vh;
+    }
+    
+    .presentation {
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 100px;
+      opacity: 0;
+      transform: translateX(100px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    
+    .slide.active {
+      display: flex;
+      opacity: 1;
+      transform: translateX(0);
+    }
+    
+    .slide-content {
+      max-width: 1200px;
+      width: 100%;
+    }
+    
+    /* Title Slide */
+    .title-slide {
+      text-align: center;
+      background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+    }
+    
+    .title-slide h1 {
+      font-size: 4.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff 0%, var(--accent-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .title-slide .subtitle {
+      font-size: 1.5rem;
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+    
+    .title-slide .contact {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      font-size: 1rem;
+      color: var(--accent-light);
+    }
+    
+    /* Project Slides */
+    .project-slide {
+      background: linear-gradient(180deg, var(--bg-dark) 0%, #0d0d15 100%);
+    }
+    
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .project-number {
+      font-size: 5rem;
+      font-weight: 800;
+      color: var(--accent);
+      opacity: 0.3;
+      line-height: 1;
+    }
+    
+    .project-title-group h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .project-title-group .company {
+      font-size: 1.2rem;
+      color: var(--accent-light);
+    }
+    
+    .project-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+    
+    .project-description {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+    
+    .project-highlights {
+      list-style: none;
+    }
+    
+    .project-highlights li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      color: var(--text-secondary);
+    }
+    
+    .project-highlights li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+    
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .tech-tag {
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: var(--accent-light);
+    }
+    
+    .impact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    
+    .impact-card h4 {
+      color: var(--accent);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .impact-card .metric {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .impact-card .label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    /* Navigation */
+    .nav {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 1rem;
+      z-index: 100;
+    }
+    
+    .nav button {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    
+    .nav button:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    
+    .progress {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    
+    .slide-counter {
+      position: fixed;
+      top: 30px;
+      right: 40px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    
+    /* Skills Slide */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    
+    .skill-category {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+    
+    .skill-category h4 {
+      color: var(--accent-light);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    
+    .skill-category ul {
+      list-style: none;
+    }
+    
+    .skill-category li {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Timeline Slide */
+    .timeline {
+      position: relative;
+      padding-left: 3rem;
+    }
+    
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -3rem;
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+      transform: translateX(-5px);
+    }
+    
+    .timeline-item h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+    
+    .timeline-item .date {
+      color: var(--accent-light);
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+    }
+    
+    .timeline-item .company {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    /* Section Title */
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .section-title span {
+      color: var(--accent);
+    }
+    
+    /* Publication Slide */
+    .publication-card {
+      background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      border-radius: 16px;
+      padding: 3rem;
+      text-align: center;
+    }
+    
+    .publication-card h3 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .publication-card .publisher {
+      color: var(--accent-light);
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .publication-card p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    /* Contact Slide */
+    .contact-slide {
+      text-align: center;
+      background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.2) 0%, transparent 60%);
+    }
+    
+    .contact-slide h2 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+    
+    .contact-links {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    
+    .contact-links a {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: all 0.2s;
+    }
+    
+    .contact-links a:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    
+    .final-note {
+      color: var(--text-secondary);
+      font-size: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .slide { padding: 40px 60px; }
+      .title-slide h1 { font-size: 3rem; }
+      .project-body { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+  <div class="presentation">
+    
+    <!-- Slide 1: Title -->
+    <div class="slide title-slide active" data-slide="1">
+      <div class="slide-content">
+        <h1>Bhavana Nare</h1>
+        <p class="subtitle">Software Engineer | MLOps & Cloud Security Analyst</p>
+        <div class="contact">
+          <span>📧 n.bhavana.reddy5@gmail.com</span>
+          <span>📱 +1-706-715-9912</span>
+          <span>🔗 linkedin.com/in/bhavana-nare-60657385</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2: Career Timeline -->
+    <div class="slide" data-slide="2">
+      <div class="slide-content">
+        <div class="section-title">
+          <h2>Career <span>Journey</span></h2>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>Cybersecurity AI Analyst</h4>
+            <div class="date">May 2025 - Present</div>
+            <div class="company">Rivian Automotive, LLC</div>
+          </div>
+          <div class="timeline-item">
+            <h4>Product Owner & System Safety Engineer</h4>
+            <div class="date">Aug 2023 - Apr 2025</div>
+            <div class="company">Robert Bosch, Michigan</div>
+          </div>
+          <div class="timeline-item">
+            <h4>Scrum Master & Tool Architect</h4>
+            <div class="date">May 2019 - Jul 2021</div>
+            <div class="company">Continental Automotive</div>
+          </div>
+          <div class="timeline-item">
+            <h4>Python Developer & Data Analyst</h4>
+            <div class="date">Aug 2018 - May 2019</div>
+            <div class="company">Teradata India</div>
+          </div>
+          <div class="timeline-item">
+            <h4>Senior Software Engineer</h4>
+            <div class="date">Jun 2014 - Aug 2018</div>
+            <div class="company">Tata Consultancy Services</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Project 1 - Beacon -->
+    <div class="slide project-slide" data-slide="3">
+      <div class="slide-content">
+        <div class="project-header">
+          <div class="project-number">01</div>
+          <div class="project-title-group">
+            <h2>Beacon - AI-Assisted SAST Platform</h2>
+            <div class="company">Rivian Automotive | 2025</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div>
+            <p class="project-description">
+              Enterprise-scale AI-powered Static Application Security Testing platform that leverages 
+              Google Vertex AI (Gemini 2.5 Pro) to identify exploitable security vulnerabilities 
+              directly within CI/CD pipelines.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Vertex AI</span>
+              <span class="tech-tag">Gemini 2.5 Pro</span>
+              <span class="tech-tag">GitLab CI</span>
+              <span class="tech-tag">Databricks</span>
+              <span class="tech-tag">GraphQL</span>
+            </div>
+            <div class="impact-card">
+              <h4>Impact</h4>
+              <div class="metric">>30%</div>
+              <div class="label">Reduction in false positives through prompt orchestration</div>
+            </div>
+          </div>
+          <div>
+            <ul class="project-highlights">
+              <li>Designed resilient prompt orchestration with Jira context and Databricks feedback loops</li>
+              <li>Scaled scans across large monorepos via parallel execution</li>
+              <li>Implemented severity-aware reporting and automated MR comment workflows</li>
+              <li>Built real-time Hex dashboards for vulnerability analytics</li>
+              <li>Integrated ML-driven reviewer recommendations and anomaly detection</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 4: Project 2 - Mechanic Patch Manager -->
+    <div class="slide project-slide" data-slide="4">
+      <div class="slide-content">
+        <div class="project-header">
+          <div class="project-number">02</div>
+          <div class="project-title-group">
+            <h2>Mechanic Patch Manager</h2>
+            <div class="company">Rivian Automotive | 2025</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div>
+            <p class="project-description">
+              Automated dependency security patching system that streamlines the identification, 
+              prioritization, and remediation of vulnerable packages across the entire codebase.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Databricks</span>
+              <span class="tech-tag">Hex</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">GitLab</span>
+            </div>
+          </div>
+          <div>
+            <ul class="project-highlights">
+              <li>Built Databricks pipelines for dependency risk prioritization</li>
+              <li>Created Hex dashboards for patch compliance tracking</li>
+              <li>Aggregated vulnerability analytics via GraphQL services</li>
+              <li>Enabled real-time risk assessments for security teams</li>
+              <li>Automated MR workflows for security fix deployment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 5: Project 3 - PR Statistics Dashboard -->
+    <div class="slide project-slide" data-slide="5">
+      <div class="slide-content">
+        <div class="project-header">
+          <div class="project-number">03</div>
+          <div class="project-title-group">
+            <h2>PR Statistics Dashboard</h2>
+            <div class="company">Robert Bosch | 2023-2025</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div>
+            <p class="project-description">
+              Full-stack analytics dashboard that forecasts pull request review SLAs using 
+              machine learning, enabling engineering teams to optimize their code review processes.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Flask</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">AWS SageMaker</span>
+              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">Django REST</span>
+            </div>
+            <div class="impact-card">
+              <h4>Performance</h4>
+              <div class="metric">1K req/sec</div>
+              <div class="label">Containerized and scaled for high throughput</div>
+            </div>
+          </div>
+          <div>
+            <ul class="project-highlights">
+              <li>Built Django REST APIs integrated with ML models</li>
+              <li>Real-time diagnostics and analytics visualization</li>
+              <li>Automated CI/CD pipelines with Azure Pipelines</li>
+              <li>Implemented observability and automated alerts</li>
+              <li>Containerized deployment with Docker and Kubernetes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 6: Project 4 - ADAS Computer Vision -->
+    <div class="slide project-slide" data-slide="6">
+      <div class="slide-content">
+        <div class="project-header">
+          <div class="project-number">04</div>
+          <div class="project-title-group">
+            <h2>ADAS Camera Object Detection</h2>
+            <div class="company">Continental Automotive | 2019-2021</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div>
+            <p class="project-description">
+              Advanced Driver Assistance Systems (ADAS) computer vision solutions for 
+              real-time object detection, 2D-to-3D mapping, and emergency braking systems.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">C++</span>
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">Kalman Filters</span>
+              <span class="tech-tag">3D Mapping</span>
+            </div>
+            <div class="impact-card">
+              <h4>Compliance</h4>
+              <div class="metric">ISO 26262</div>
+              <div class="label">Functional Safety & ASIL requirements met</div>
+            </div>
+          </div>
+          <div>
+            <ul class="project-highlights">
+              <li>Designed scalable computer-vision solutions for ADAS</li>
+              <li>Enhanced models with Kalman filters for tracking</li>
+              <li>Implemented 2D-to-3D mapping algorithms</li>
+              <li>Emergency braking system integration</li>
+              <li>ISO 21434 cybersecurity compliance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 7: Project 5 - AUTOSIM & TM_KPI_PORTAL -->
+    <div class="slide project-slide" data-slide="7">
+      <div class="slide-content">
+        <div class="project-header">
+          <div class="project-number">05</div>
+          <div class="project-title-group">
+            <h2>AUTOSIM & TM_KPI_PORTAL</h2>
+            <div class="company">Continental Automotive | 2019-2021</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div>
+            <p class="project-description">
+              Cloud-integrated dashboard platforms for real-time telemetry visualization, 
+              KPI automation, and configuration management across automotive systems.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">Django</span>
+              <span class="tech-tag">AWS Lambda</span>
+              <span class="tech-tag">AWS S3</span>
+              <span class="tech-tag">DynamoDB</span>
+              <span class="tech-tag">Dash</span>
+            </div>
+            <div class="impact-card">
+              <h4>Efficiency</h4>
+              <div class="metric">70%</div>
+              <div class="label">Reduction in manual effort through automation</div>
+            </div>
+          </div>
+          <div>
+            <ul class="project-highlights">
+              <li>Automated AWS workflows (Lambda, S3, DynamoDB)</li>
+              <li>Large-scale data ingestion and processing pipelines</li>
+              <li>Real-time telemetry visualization dashboards</li>
+              <li>Event-driven workflows for automated reporting</li>
+              <li>Configuration management across distributed systems</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 8: Project 6 - PYTERADATA APIs -->
+    <div class="slide project-slide" data-slide="8">
+      <div class="slide-content">
+        <div class="project-header">
+          <div class="project-number">06</div>
+          <div class="project-title-group">
+            <h2>PYTERADATA APIs</h2>
+            <div class="company">Teradata India | 2018-2019</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div>
+            <p class="project-description">
+              Python API framework enabling seamless integration with Teradata's SQL 
+              analytical functions, bridging the gap between Python data science workflows 
+              and enterprise data warehousing.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">JIRA</span>
+              <span class="tech-tag">Git</span>
+            </div>
+          </div>
+          <div>
+            <ul class="project-highlights">
+              <li>Designed APIs for Python-Teradata SQL integration</li>
+              <li>Enabled analytical functions in Python workflows</li>
+              <li>Automated Python test-file generation from JSON</li>
+              <li>Improved test coverage and consistency</li>
+              <li>Enterprise-grade data processing capabilities</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 9: Project 7 - Telecom Automation -->
+    <div class="slide project-slide" data-slide="9">
+      <div class="slide-content">
+        <div class="project-header">
+          <div class="project-number">07</div>
+          <div class="project-title-group">
+            <h2>Telecom Automation Framework</h2>
+            <div class="company">Tata Consultancy Services | 2014-2018</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div>
+            <p class="project-description">
+              Enterprise automation framework for deploying and managing telecom 
+              components across real and virtual infrastructure nodes, integrated 
+              with CI/CD pipelines for continuous validation.
+            </p>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Linux</span>
+              <span class="tech-tag">Jenkins</span>
+              <span class="tech-tag">VirtualBox</span>
+              <span class="tech-tag">Shell Scripting</span>
+              <span class="tech-tag">SonarQube</span>
+            </div>
+          </div>
+          <div>
+            <ul class="project-highlights">
+              <li>Automated installation across real and virtual nodes</li>
+              <li>Integrated functional test suites with Jenkins CI/CD</li>
+              <li>Continuous validation and deployment automation</li>
+              <li>Linux administration and shell scripting</li>
+              <li>Code quality enforcement with SonarQube</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 10: Publication -->
+    <div class="slide" data-slide="10">
+      <div class="slide-content">
+        <div class="section-title">
+          <h2>Research <span>Publication</span></h2>
+        </div>
+        <div class="publication-card">
+          <h3>Computational Trust Framework for Human-Robot Teams</h3>
+          <div class="publisher">IEEE Xplore (Document 11127674) | May 2023</div>
+          <p>
+            Machine-learning research on dynamic trust scoring and safety alignment 
+            for collaborative robotics. Developed novel approaches for computational 
+            trust modeling in human-robot interaction scenarios, contributing to 
+            the advancement of safe and reliable autonomous systems.
+          </p>
+          <div class="tech-stack" style="justify-content: center; margin-top: 2rem;">
+            <span class="tech-tag">Machine Learning</span>
+            <span class="tech-tag">Trust Modeling</span>
+            <span class="tech-tag">Robotics</span>
+            <span class="tech-tag">Safety Alignment</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 11: Technical Skills -->
+    <div class="slide" data-slide="11">
+      <div class="slide-content">
+        <div class="section-title">
+          <h2>Technical <span>Skills</span></h2>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>Languages</h4>
+            <ul>
+              <li>Python</li>
+              <li>C++</li>
+              <li>JavaScript</li>
+              <li>Java</li>
+              <li>SQL</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h4>ML/AI</h4>
+            <ul>
+              <li>PyTorch</li>
+              <li>TensorFlow</li>
+              <li>scikit-learn</li>
+              <li>OpenCV</li>
+              <li>Vertex AI</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h4>Cloud & DevOps</h4>
+            <ul>
+              <li>AWS</li>
+              <li>Azure</li>
+              <li>Docker</li>
+              <li>Kubernetes</li>
+              <li>Terraform</li>
+            </ul>
+          </div>
+          <div class="skill-category">
+            <h4>Web & APIs</h4>
+            <ul>
+              <li>React</li>
+              <li>Django</li>
+              <li>Flask</li>
+              <li>GraphQL</li>
+              <li>REST APIs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 12: Contact -->
+    <div class="slide contact-slide" data-slide="12">
+      <div class="slide-content">
+        <h2>Let's Connect</h2>
+        <div class="contact-links">
+          <a href="mailto:n.bhavana.reddy5@gmail.com">📧 Email</a>
+          <a href="https://www.linkedin.com/in/bhavana-nare-60657385/" target="_blank">💼 LinkedIn</a>
+          <a href="https://github.com/Bhavana5N" target="_blank">💻 GitHub</a>
+        </div>
+        <p class="final-note">
+          Open for opportunities in MLOps, Cloud Security, AI/ML Engineering, and Full-Stack Development
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Navigation -->
+  <div class="nav">
+    <button onclick="prevSlide()">← Previous</button>
+    <button onclick="nextSlide()">Next →</button>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="progress" id="progress"></div>
+
+  <!-- Slide Counter -->
+  <div class="slide-counter">
+    <span id="current">1</span> / <span id="total">12</span>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 12;
+
+    function showSlide(n) {
+      const slides = document.querySelectorAll('.slide');
+      slides.forEach(slide => slide.classList.remove('active'));
+      
+      if (n > totalSlides) currentSlide = 1;
+      if (n < 1) currentSlide = totalSlides;
+      
+      document.querySelector(`[data-slide="${currentSlide}"]`).classList.add('active');
+      document.getElementById('current').textContent = currentSlide;
+      document.getElementById('progress').style.width = `${(currentSlide / totalSlides) * 100}%`;
+    }
+
+    function nextSlide() {
+      currentSlide++;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide--;
+      showSlide(currentSlide);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault();
+        nextSlide();
+      }
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevSlide();
+      }
+    });
+
+    // Touch navigation
+    let touchStartX = 0;
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+    });
+    document.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].clientX;
+      if (touchStartX - touchEndX > 50) nextSlide();
+      if (touchEndX - touchStartX > 50) prevSlide();
+    });
+
+    // Initialize
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
+
