@@ -276,7 +276,7 @@ export default function Home() {
                 <h3 className="font-bold text-zinc-900 dark:text-white">Visualization</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['Plotly', 'Dash', 'Matplotlib', 'Tableau', 'Hex Dashboards'].map((skill) => (
+                {['Plotly', 'Dash', 'Matplotlib', 'Hex Dashboards'].map((skill) => (
                   <span key={skill} className="px-2.5 py-1 text-xs bg-zinc-100 dark:bg-zinc-800 rounded-full text-zinc-700 dark:text-zinc-300 font-medium">
                     {skill}
                   </span>
