@@ -103,7 +103,7 @@ const PHASES: RoadmapPhase[] = [
   },
   {
     id: 6,
-    title: "Product Owner & System Safety Engineer",
+    title: "Senior Software Engineer & System Integrator",
     organization: "Robert Bosch",
     location: "Michigan, USA",
     period: "2023 - 2025",
