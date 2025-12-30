@@ -4,23 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bhavana Nare - Project Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-dark: #0a0a0a;
-      --bg-card: #141414;
+      --bg-dark: #09090b;
+      --bg-card: #18181b;
+      --bg-card-hover: #1f1f23;
       --accent: #a855f7;
       --accent-light: #c084fc;
-      --text-primary: #ffffff;
+      --accent-dark: #7c3aed;
+      --success: #10b981;
+      --text-primary: #fafafa;
       --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
       --border: #27272a;
     }
     
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body {
       font-family: 'Inter', -apple-system, sans-serif;
@@ -30,391 +30,164 @@
       height: 100vh;
     }
     
-    .presentation {
-      height: 100vh;
-      width: 100vw;
-      overflow: hidden;
-      position: relative;
-    }
+    .presentation { height: 100vh; width: 100vw; overflow: hidden; position: relative; }
     
     .slide {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       display: none;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 60px 100px;
+      padding: 40px 80px;
       opacity: 0;
-      transform: translateX(100px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
+      transform: translateX(50px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      overflow-y: auto;
     }
     
-    .slide.active {
-      display: flex;
-      opacity: 1;
-      transform: translateX(0);
-    }
-    
-    .slide-content {
-      max-width: 1200px;
-      width: 100%;
-    }
+    .slide.active { display: flex; opacity: 1; transform: translateX(0); }
+    .slide-content { max-width: 1300px; width: 100%; }
     
     /* Title Slide */
     .title-slide {
       text-align: center;
-      background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
+      background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.12) 0%, transparent 60%);
     }
     
     .title-slide h1 {
-      font-size: 4.5rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
+      font-size: 4rem;
+      font-weight: 900;
+      margin-bottom: 0.5rem;
       background: linear-gradient(135deg, #fff 0%, var(--accent-light) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
     
-    .title-slide .subtitle {
-      font-size: 1.5rem;
-      color: var(--text-secondary);
-      margin-bottom: 2rem;
-    }
+    .title-slide .subtitle { font-size: 1.4rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+    .title-slide .contact { display: flex; gap: 2rem; justify-content: center; font-size: 0.9rem; color: var(--accent-light); flex-wrap: wrap; }
     
-    .title-slide .contact {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      font-size: 1rem;
-      color: var(--accent-light);
-    }
+    /* Section Headers */
+    .section-header { text-align: center; margin-bottom: 2rem; }
+    .section-header h2 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .section-header h2 span { color: var(--accent); }
+    .section-header p { color: var(--text-secondary); font-size: 1rem; }
     
-    /* Project Slides */
-    .project-slide {
-      background: linear-gradient(180deg, var(--bg-dark) 0%, #0d0d15 100%);
-    }
-    
-    .project-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    
-    .project-number {
-      font-size: 5rem;
-      font-weight: 800;
-      color: var(--accent);
-      opacity: 0.3;
-      line-height: 1;
-    }
-    
-    .project-title-group h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    
-    .project-title-group .company {
-      font-size: 1.2rem;
-      color: var(--accent-light);
-    }
-    
-    .project-body {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-    
-    .project-description {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      color: var(--text-secondary);
-    }
-    
-    .project-highlights {
-      list-style: none;
-    }
-    
-    .project-highlights li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      color: var(--text-secondary);
-    }
-    
-    .project-highlights li::before {
-      content: "→";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-    
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1.5rem;
-    }
-    
-    .tech-tag {
-      background: rgba(168, 85, 247, 0.15);
-      border: 1px solid rgba(168, 85, 247, 0.3);
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      color: var(--accent-light);
-    }
-    
-    .impact-card {
+    /* Cards */
+    .card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 16px;
       padding: 1.5rem;
-      margin-top: 1.5rem;
+      transition: all 0.2s;
+    }
+    .card:hover { border-color: var(--accent); background: var(--bg-card-hover); }
+    
+    /* Grid Layouts */
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    
+    @media (max-width: 1024px) {
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .slide { padding: 30px 40px; }
+      .title-slide h1 { font-size: 2.5rem; }
     }
     
-    .impact-card h4 {
-      color: var(--accent);
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 0.5rem;
-    }
+    /* Project Card */
+    .project-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.3rem; color: var(--text-primary); }
+    .project-card .company { font-size: 0.8rem; color: var(--accent-light); margin-bottom: 0.75rem; }
+    .project-card .tech { font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0.75rem; font-family: monospace; }
+    .project-card ul { font-size: 0.8rem; color: var(--text-secondary); padding-left: 1rem; margin-bottom: 0.75rem; }
+    .project-card li { margin-bottom: 0.3rem; }
     
-    .impact-card .metric {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--text-primary);
+    .achievement-box {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(16, 185, 129, 0.05) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 8px;
+      padding: 0.75rem;
+      margin-top: 0.5rem;
     }
+    .achievement-box .label { font-size: 0.65rem; color: var(--success); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.25rem; }
+    .achievement-box .value { font-size: 0.8rem; color: var(--text-primary); }
     
-    .impact-card .label {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-    }
+    /* Experience Card */
+    .exp-card { position: relative; padding-left: 1rem; border-left: 2px solid var(--accent); }
+    .exp-card h3 { font-size: 1rem; font-weight: 700; color: var(--text-primary); }
+    .exp-card .role { font-size: 0.85rem; color: var(--accent-light); margin-bottom: 0.25rem; }
+    .exp-card .meta { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .exp-card .tech-stack { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-bottom: 0.5rem; }
+    .exp-card .tech-tag { font-size: 0.65rem; background: var(--bg-card); border: 1px solid var(--border); padding: 0.2rem 0.5rem; border-radius: 4px; color: var(--text-secondary); }
+    .exp-card ul { font-size: 0.75rem; color: var(--text-secondary); padding-left: 1rem; }
+    .exp-card li { margin-bottom: 0.2rem; }
+    
+    /* Skills */
+    .skill-category h4 { font-size: 0.9rem; color: var(--accent-light); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .skill-category .items { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+    .skill-category .item { font-size: 0.7rem; background: var(--bg-dark); border: 1px solid var(--border); padding: 0.25rem 0.5rem; border-radius: 4px; color: var(--text-secondary); }
+    
+    /* Timeline */
+    .timeline { position: relative; }
+    .timeline-item { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+    .timeline-dot { width: 12px; height: 12px; background: var(--accent); border-radius: 50%; margin-top: 4px; flex-shrink: 0; }
+    .timeline-dot.education { background: #6366f1; }
+    .timeline-content h4 { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); }
+    .timeline-content .org { font-size: 0.8rem; color: var(--accent-light); }
+    .timeline-content .period { font-size: 0.7rem; color: var(--text-muted); }
+    
+    /* Metrics */
+    .metric { text-align: center; }
+    .metric .value { font-size: 2.5rem; font-weight: 800; color: var(--accent); }
+    .metric .label { font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; }
+    .metric .desc { font-size: 0.7rem; color: var(--text-muted); margin-top: 0.25rem; }
     
     /* Navigation */
     .nav {
       position: fixed;
-      bottom: 30px;
+      bottom: 20px;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
-      gap: 1rem;
+      gap: 0.75rem;
       z-index: 100;
+      background: var(--bg-card);
+      padding: 0.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
     }
     
     .nav button {
-      background: var(--bg-card);
+      background: transparent;
       border: 1px solid var(--border);
       color: var(--text-primary);
-      padding: 0.8rem 1.5rem;
+      padding: 0.5rem 1rem;
       border-radius: 8px;
       cursor: pointer;
       font-family: inherit;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       transition: all 0.2s;
     }
+    .nav button:hover { background: var(--accent); border-color: var(--accent); }
     
-    .nav button:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-    }
+    .progress { position: fixed; bottom: 0; left: 0; height: 3px; background: var(--accent); transition: width 0.3s ease; }
+    .slide-counter { position: fixed; top: 20px; right: 30px; font-size: 0.8rem; color: var(--text-muted); }
     
-    .progress {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      height: 3px;
-      background: var(--accent);
-      transition: width 0.3s ease;
-    }
+    /* Publication */
+    .pub-card { text-align: center; padding: 2rem; }
+    .pub-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .pub-card .publisher { color: var(--accent-light); margin-bottom: 1rem; }
+    .pub-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; max-width: 600px; margin: 0 auto; }
     
-    .slide-counter {
-      position: fixed;
-      top: 30px;
-      right: 40px;
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-    }
+    /* Contact */
+    .contact-slide { text-align: center; background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.15) 0%, transparent 50%); }
+    .contact-slide h2 { font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem; }
+    .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .contact-links a { background: var(--bg-card); border: 1px solid var(--border); padding: 0.75rem 1.5rem; border-radius: 10px; color: var(--text-primary); text-decoration: none; font-size: 1rem; transition: all 0.2s; }
+    .contact-links a:hover { background: var(--accent); border-color: var(--accent); }
     
-    /* Skills Slide */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-    }
-    
-    .skill-category {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-    }
-    
-    .skill-category h4 {
-      color: var(--accent-light);
-      margin-bottom: 1rem;
-      font-size: 1rem;
-    }
-    
-    .skill-category ul {
-      list-style: none;
-    }
-    
-    .skill-category li {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-    }
-    
-    /* Timeline Slide */
-    .timeline {
-      position: relative;
-      padding-left: 3rem;
-    }
-    
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--accent), transparent);
-    }
-    
-    .timeline-item {
-      position: relative;
-      margin-bottom: 2rem;
-    }
-    
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -3rem;
-      top: 0.5rem;
-      width: 12px;
-      height: 12px;
-      background: var(--accent);
-      border-radius: 50%;
-      transform: translateX(-5px);
-    }
-    
-    .timeline-item h4 {
-      font-size: 1.2rem;
-      margin-bottom: 0.3rem;
-    }
-    
-    .timeline-item .date {
-      color: var(--accent-light);
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-    }
-    
-    .timeline-item .company {
-      color: var(--text-secondary);
-      font-size: 0.9rem;
-    }
-    
-    /* Section Title */
-    .section-title {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    
-    .section-title h2 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-    
-    .section-title span {
-      color: var(--accent);
-    }
-    
-    /* Publication Slide */
-    .publication-card {
-      background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
-      border: 1px solid rgba(168, 85, 247, 0.3);
-      border-radius: 16px;
-      padding: 3rem;
-      text-align: center;
-    }
-    
-    .publication-card h3 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    
-    .publication-card .publisher {
-      color: var(--accent-light);
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .publication-card p {
-      color: var(--text-secondary);
-      font-size: 1.1rem;
-      line-height: 1.8;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    
-    /* Contact Slide */
-    .contact-slide {
-      text-align: center;
-      background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.2) 0%, transparent 60%);
-    }
-    
-    .contact-slide h2 {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 2rem;
-    }
-    
-    .contact-links {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-    
-    .contact-links a {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      padding: 1rem 2rem;
-      border-radius: 12px;
-      color: var(--text-primary);
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: all 0.2s;
-    }
-    
-    .contact-links a:hover {
-      background: var(--accent);
-      border-color: var(--accent);
-    }
-    
-    .final-note {
-      color: var(--text-secondary);
-      font-size: 1.2rem;
-      margin-top: 2rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .slide { padding: 40px 60px; }
-      .title-slide h1 { font-size: 3rem; }
-      .project-body { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: repeat(2, 1fr); }
-    }
+    .highlight-text { color: var(--success); font-weight: 600; }
   </style>
 </head>
 <body>
@@ -425,406 +198,539 @@
       <div class="slide-content">
         <h1>Bhavana Nare</h1>
         <p class="subtitle">Software Engineer | MLOps & Cloud Security Analyst</p>
+        <p style="color: var(--success); font-size: 0.9rem; margin-bottom: 1rem;">🟢 Available for Hire | 11+ Years Experience</p>
         <div class="contact">
           <span>📧 n.bhavana.reddy5@gmail.com</span>
           <span>📱 +1-706-715-9912</span>
           <span>🔗 linkedin.com/in/bhavana-nare-60657385</span>
+          <span>💻 github.com/Bhavana5N</span>
         </div>
       </div>
     </div>
 
-    <!-- Slide 2: Career Timeline -->
+    <!-- Slide 2: Impact Metrics -->
     <div class="slide" data-slide="2">
       <div class="slide-content">
-        <div class="section-title">
+        <div class="section-header">
+          <h2>Measurable <span>Impact</span></h2>
+          <p>Key achievements across my career</p>
+        </div>
+        <div class="grid-4">
+          <div class="card metric">
+            <div class="value">70%</div>
+            <div class="label">Effort Reduction</div>
+            <div class="desc">CI/CD & Docker automation</div>
+          </div>
+          <div class="card metric">
+            <div class="value">>30%</div>
+            <div class="label">False Positives Cut</div>
+            <div class="desc">Beacon AI-SAST Platform</div>
+          </div>
+          <div class="card metric">
+            <div class="value">1K</div>
+            <div class="label">Requests/Second</div>
+            <div class="desc">PR Dashboard Scale</div>
+          </div>
+          <div class="card metric">
+            <div class="value">75%</div>
+            <div class="label">Deployment Time Cut</div>
+            <div class="desc">CSW Pipeline Automation</div>
+          </div>
+          <div class="card metric">
+            <div class="value">60%</div>
+            <div class="label">PR Review Time Cut</div>
+            <div class="desc">5 days → 2 days</div>
+          </div>
+          <div class="card metric">
+            <div class="value">20%</div>
+            <div class="label">Accuracy Improved</div>
+            <div class="desc">ADAS Localization</div>
+          </div>
+          <div class="card metric">
+            <div class="value">90%</div>
+            <div class="label">Trust Scoring</div>
+            <div class="desc">Human-Robot Framework</div>
+          </div>
+          <div class="card metric">
+            <div class="value">$2K+</div>
+            <div class="label">Monthly Savings</div>
+            <div class="desc">Automation ROI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3: Career Timeline -->
+    <div class="slide" data-slide="3">
+      <div class="slide-content">
+        <div class="section-header">
           <h2>Career <span>Journey</span></h2>
+          <p>From academia to industry leadership</p>
         </div>
-        <div class="timeline">
-          <div class="timeline-item">
-            <h4>Cybersecurity AI Analyst</h4>
-            <div class="date">May 2025 - Present</div>
-            <div class="company">Rivian Automotive, LLC</div>
+        <div class="grid-2">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot education"></div>
+              <div class="timeline-content">
+                <h4>BTech Computer Science</h4>
+                <div class="org">Sree Vidyanikethan Engineering College</div>
+                <div class="period">2010 - 2014 | Tirupati, India</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>Senior Software Engineer</h4>
+                <div class="org">Tata Consultancy Services</div>
+                <div class="period">2014 - 2018 | Hyderabad, India</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>Python Developer & Data Analyst</h4>
+                <div class="org">Teradata India</div>
+                <div class="period">2018 - 2019 | Hyderabad, India</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>Scrum Master & Tool Architect</h4>
+                <div class="org">Continental Automotive</div>
+                <div class="period">2019 - 2021 | Bangalore, India</div>
+              </div>
+            </div>
           </div>
-          <div class="timeline-item">
-            <h4>Product Owner & System Safety Engineer</h4>
-            <div class="date">Aug 2023 - Apr 2025</div>
-            <div class="company">Robert Bosch, Michigan</div>
-          </div>
-          <div class="timeline-item">
-            <h4>Scrum Master & Tool Architect</h4>
-            <div class="date">May 2019 - Jul 2021</div>
-            <div class="company">Continental Automotive</div>
-          </div>
-          <div class="timeline-item">
-            <h4>Python Developer & Data Analyst</h4>
-            <div class="date">Aug 2018 - May 2019</div>
-            <div class="company">Teradata India</div>
-          </div>
-          <div class="timeline-item">
-            <h4>Senior Software Engineer</h4>
-            <div class="date">Jun 2014 - Aug 2018</div>
-            <div class="company">Tata Consultancy Services</div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot education"></div>
+              <div class="timeline-content">
+                <h4>MS Computer Science (Thesis)</h4>
+                <div class="org">University of Georgia</div>
+                <div class="period">2021 - 2023 | Athens, GA | GPA: 3.7/4.0</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h4>Product Owner & System Safety Engineer</h4>
+                <div class="org">Robert Bosch</div>
+                <div class="period">2023 - 2025 | Michigan, USA</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot" style="background: var(--success); box-shadow: 0 0 10px var(--success);"></div>
+              <div class="timeline-content">
+                <h4>Cybersecurity AI Analyst</h4>
+                <div class="org">Rivian Automotive</div>
+                <div class="period">2025 - Present | Remote, USA</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Slide 3: Project 1 - Beacon -->
-    <div class="slide project-slide" data-slide="3">
+    <!-- Slide 4: Current Role - Rivian -->
+    <div class="slide" data-slide="4">
       <div class="slide-content">
-        <div class="project-header">
-          <div class="project-number">01</div>
-          <div class="project-title-group">
-            <h2>Beacon - AI-Assisted SAST Platform</h2>
-            <div class="company">Rivian Automotive | 2025</div>
-          </div>
+        <div class="section-header">
+          <h2>Current: <span>Rivian Automotive</span></h2>
+          <p>Cybersecurity AI Analyst | May 2025 - Present</p>
         </div>
-        <div class="project-body">
-          <div>
-            <p class="project-description">
-              Enterprise-scale AI-powered Static Application Security Testing platform that leverages 
-              Google Vertex AI (Gemini 2.5 Pro) to identify exploitable security vulnerabilities 
-              directly within CI/CD pipelines.
-            </p>
-            <div class="tech-stack">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Vertex AI</span>
-              <span class="tech-tag">Gemini 2.5 Pro</span>
-              <span class="tech-tag">GitLab CI</span>
-              <span class="tech-tag">Databricks</span>
-              <span class="tech-tag">GraphQL</span>
-            </div>
-            <div class="impact-card">
-              <h4>Impact</h4>
-              <div class="metric">>30%</div>
-              <div class="label">Reduction in false positives through prompt orchestration</div>
-            </div>
-          </div>
-          <div>
-            <ul class="project-highlights">
-              <li>Designed resilient prompt orchestration with Jira context and Databricks feedback loops</li>
+        <div class="grid-2">
+          <div class="card project-card">
+            <h3>🛡️ Beacon - AI-Assisted SAST Platform</h3>
+            <div class="tech">Vertex AI | Gemini 2.5 Pro | GraphQL | Databricks | GitLab CI</div>
+            <ul>
+              <li>Architected AI-assisted SAST platform using Google Vertex AI</li>
+              <li>Delivers exploitable security findings directly in CI/CD pipelines</li>
+              <li>Designed prompt orchestration with Jira context & Databricks feedback</li>
               <li>Scaled scans across large monorepos via parallel execution</li>
-              <li>Implemented severity-aware reporting and automated MR comment workflows</li>
-              <li>Built real-time Hex dashboards for vulnerability analytics</li>
-              <li>Integrated ML-driven reviewer recommendations and anomaly detection</li>
+              <li>Automated GitLab MR comment workflows for severity-aware reporting</li>
             </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 4: Project 2 - Mechanic Patch Manager -->
-    <div class="slide project-slide" data-slide="4">
-      <div class="slide-content">
-        <div class="project-header">
-          <div class="project-number">02</div>
-          <div class="project-title-group">
-            <h2>Mechanic Patch Manager</h2>
-            <div class="company">Rivian Automotive | 2025</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div>
-            <p class="project-description">
-              Automated dependency security patching system that streamlines the identification, 
-              prioritization, and remediation of vulnerable packages across the entire codebase.
-            </p>
-            <div class="tech-stack">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Databricks</span>
-              <span class="tech-tag">Hex</span>
-              <span class="tech-tag">SQL</span>
-              <span class="tech-tag">GitLab</span>
+            <div class="achievement-box">
+              <div class="label">Impact</div>
+              <div class="value">Cut false positives <span class="highlight-text">>30%</span> for regulated product teams</div>
             </div>
           </div>
-          <div>
-            <ul class="project-highlights">
-              <li>Built Databricks pipelines for dependency risk prioritization</li>
+          <div class="card project-card">
+            <h3>🔧 Mechanic Patch Manager</h3>
+            <div class="tech">Python | Databricks | Hex | SQL | GitLab</div>
+            <ul>
+              <li>Automated dependency security patching workflows</li>
+              <li>Built Databricks pipelines for high-risk dependency prioritization</li>
               <li>Created Hex dashboards for patch compliance tracking</li>
-              <li>Aggregated vulnerability analytics via GraphQL services</li>
-              <li>Enabled real-time risk assessments for security teams</li>
-              <li>Automated MR workflows for security fix deployment</li>
+              <li>Aggregated vulnerability analytics via GraphQL for real-time risk</li>
+              <li>Implemented ML-driven reviewer recommendations</li>
+              <li>Integrated Slack bot notifications for MR status updates</li>
             </ul>
+            <div class="achievement-box">
+              <div class="label">Impact</div>
+              <div class="value">Real-time risk assessments across enterprise codebase</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Slide 5: Project 3 - PR Statistics Dashboard -->
-    <div class="slide project-slide" data-slide="5">
+    <!-- Slide 5: Bosch Projects -->
+    <div class="slide" data-slide="5">
       <div class="slide-content">
-        <div class="project-header">
-          <div class="project-number">03</div>
-          <div class="project-title-group">
-            <h2>PR Statistics Dashboard</h2>
-            <div class="company">Robert Bosch | 2023-2025</div>
-          </div>
+        <div class="section-header">
+          <h2>Robert <span>Bosch</span> Projects</h2>
+          <p>Product Owner & System Safety Engineer | 2023 - 2025</p>
         </div>
-        <div class="project-body">
-          <div>
-            <p class="project-description">
-              Full-stack analytics dashboard that forecasts pull request review SLAs using 
-              machine learning, enabling engineering teams to optimize their code review processes.
-            </p>
-            <div class="tech-stack">
-              <span class="tech-tag">Flask</span>
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">AWS SageMaker</span>
-              <span class="tech-tag">Docker</span>
-              <span class="tech-tag">Django REST</span>
-            </div>
-            <div class="impact-card">
-              <h4>Performance</h4>
-              <div class="metric">1K req/sec</div>
-              <div class="label">Containerized and scaled for high throughput</div>
+        <div class="grid-2">
+          <div class="card project-card">
+            <h3>📊 PR Statistics Dashboard with MLOps</h3>
+            <div class="tech">Flask | React JS | AWS SageMaker | DynamoDB | Docker</div>
+            <ul>
+              <li>Built dashboard tracking PRs by component, team, and feature</li>
+              <li>Integrated SageMaker predictions for real-time review time insights</li>
+              <li>React frontend with bar charts, pie charts, and tables</li>
+              <li>Random Forest Regressor (R² = 0.85) for PR time prediction</li>
+              <li>Containerized with Docker, scaling to 1K requests/sec</li>
+            </ul>
+            <div class="achievement-box">
+              <div class="label">Achievements</div>
+              <div class="value">
+                <span class="highlight-text">60%</span> faster PR reviews (5→2 days) | 
+                <span class="highlight-text">30%</span> more PRs/month | 
+                <span class="highlight-text">$2K+</span> monthly savings
+              </div>
             </div>
           </div>
-          <div>
-            <ul class="project-highlights">
-              <li>Built Django REST APIs integrated with ML models</li>
-              <li>Real-time diagnostics and analytics visualization</li>
-              <li>Automated CI/CD pipelines with Azure Pipelines</li>
-              <li>Implemented observability and automated alerts</li>
-              <li>Containerized deployment with Docker and Kubernetes</li>
+          <div class="card project-card">
+            <h3>⚙️ CSW Integration & Pipeline Automation</h3>
+            <div class="tech">Python | Azure Pipelines | Docker | Git API</div>
+            <ul>
+              <li>Automated integration of driving, parking, and VIPER components</li>
+              <li>Automated build and PR processes using Git API</li>
+              <li>Containerized for parallel builds with zero-downtime updates</li>
+              <li>Smoke tests in simulated bench for ISO 26262 compliance</li>
             </ul>
+            <div class="achievement-box">
+              <div class="label">Achievements</div>
+              <div class="value">
+                <span class="highlight-text">75%</span> deployment time cut | 
+                Features delivered <span class="highlight-text">2 weeks early</span> | 
+                <span class="highlight-text">60%</span> manual effort saved
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Slide 6: Project 4 - ADAS Computer Vision -->
-    <div class="slide project-slide" data-slide="6">
+    <!-- Slide 6: Continental Projects -->
+    <div class="slide" data-slide="6">
       <div class="slide-content">
-        <div class="project-header">
-          <div class="project-number">04</div>
-          <div class="project-title-group">
-            <h2>ADAS Camera Object Detection</h2>
-            <div class="company">Continental Automotive | 2019-2021</div>
-          </div>
+        <div class="section-header">
+          <h2>Continental <span>Automotive</span> Projects</h2>
+          <p>Scrum Master & Tool Architect | 2019 - 2021</p>
         </div>
-        <div class="project-body">
-          <div>
-            <p class="project-description">
-              Advanced Driver Assistance Systems (ADAS) computer vision solutions for 
-              real-time object detection, 2D-to-3D mapping, and emergency braking systems.
-            </p>
-            <div class="tech-stack">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">C++</span>
-              <span class="tech-tag">OpenCV</span>
-              <span class="tech-tag">Kalman Filters</span>
-              <span class="tech-tag">3D Mapping</span>
-            </div>
-            <div class="impact-card">
-              <h4>Compliance</h4>
-              <div class="metric">ISO 26262</div>
-              <div class="label">Functional Safety & ASIL requirements met</div>
+        <div class="grid-3">
+          <div class="card project-card">
+            <h3>📷 Camera Object Detection (ADAS)</h3>
+            <div class="tech">Python | OpenCV | Oracle | AWS Lambda/S3</div>
+            <ul>
+              <li>Vision system for driving/parking assistance</li>
+              <li>2D-to-3D mapping with Kalman filters</li>
+              <li>Automated 1TB data ingestion with AWS</li>
+            </ul>
+            <div class="achievement-box">
+              <div class="label">Impact</div>
+              <div class="value"><span class="highlight-text">20%</span> accuracy improvement | <span class="highlight-text">99%</span> reliability</div>
             </div>
           </div>
-          <div>
-            <ul class="project-highlights">
-              <li>Designed scalable computer-vision solutions for ADAS</li>
-              <li>Enhanced models with Kalman filters for tracking</li>
-              <li>Implemented 2D-to-3D mapping algorithms</li>
-              <li>Emergency braking system integration</li>
-              <li>ISO 21434 cybersecurity compliance</li>
+          <div class="card project-card">
+            <h3>🔄 AUTOSIM Automation</h3>
+            <div class="tech">Python | AWS | Jenkins | Docker | REST API</div>
+            <ul>
+              <li>End-to-end automation for ADAS simulation</li>
+              <li>React UI for simulation status & debugging</li>
+              <li>Dockerized workloads with Jenkins CI</li>
             </ul>
+            <div class="achievement-box">
+              <div class="label">Impact</div>
+              <div class="value"><span class="highlight-text">70%</span> less manual testing | <span class="highlight-text">60%</span> faster debugging</div>
+            </div>
+          </div>
+          <div class="card project-card">
+            <h3>📈 TM_KPI_PORTAL</h3>
+            <div class="tech">Dash | Flask | SQLite | DynamoDB</div>
+            <ul>
+              <li>Detection accuracy visualization portal</li>
+              <li>Hybrid storage for low-latency analytics</li>
+              <li>Supports 20+ scenarios</li>
+            </ul>
+            <div class="achievement-box">
+              <div class="label">Impact</div>
+              <div class="value"><span class="highlight-text">60%</span> better tracking | <span class="highlight-text">99.9%</span> uptime</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Slide 7: Project 5 - AUTOSIM & TM_KPI_PORTAL -->
-    <div class="slide project-slide" data-slide="7">
+    <!-- Slide 7: Early Career & Research -->
+    <div class="slide" data-slide="7">
       <div class="slide-content">
-        <div class="project-header">
-          <div class="project-number">05</div>
-          <div class="project-title-group">
-            <h2>AUTOSIM & TM_KPI_PORTAL</h2>
-            <div class="company">Continental Automotive | 2019-2021</div>
-          </div>
+        <div class="section-header">
+          <h2>Early Career & <span>Research</span></h2>
+          <p>Foundation building at Teradata, TCS, and University of Georgia</p>
         </div>
-        <div class="project-body">
-          <div>
-            <p class="project-description">
-              Cloud-integrated dashboard platforms for real-time telemetry visualization, 
-              KPI automation, and configuration management across automotive systems.
-            </p>
-            <div class="tech-stack">
-              <span class="tech-tag">React</span>
-              <span class="tech-tag">Django</span>
-              <span class="tech-tag">AWS Lambda</span>
-              <span class="tech-tag">AWS S3</span>
-              <span class="tech-tag">DynamoDB</span>
-              <span class="tech-tag">Dash</span>
-            </div>
-            <div class="impact-card">
-              <h4>Efficiency</h4>
-              <div class="metric">70%</div>
-              <div class="label">Reduction in manual effort through automation</div>
-            </div>
-          </div>
-          <div>
-            <ul class="project-highlights">
-              <li>Automated AWS workflows (Lambda, S3, DynamoDB)</li>
-              <li>Large-scale data ingestion and processing pipelines</li>
-              <li>Real-time telemetry visualization dashboards</li>
-              <li>Event-driven workflows for automated reporting</li>
-              <li>Configuration management across distributed systems</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 8: Project 6 - PYTERADATA APIs -->
-    <div class="slide project-slide" data-slide="8">
-      <div class="slide-content">
-        <div class="project-header">
-          <div class="project-number">06</div>
-          <div class="project-title-group">
-            <h2>PYTERADATA APIs</h2>
+        <div class="grid-3">
+          <div class="card project-card">
+            <h3>🐍 PYTERADATA</h3>
             <div class="company">Teradata India | 2018-2019</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div>
-            <p class="project-description">
-              Python API framework enabling seamless integration with Teradata's SQL 
-              analytical functions, bridging the gap between Python data science workflows 
-              and enterprise data warehousing.
-            </p>
-            <div class="tech-stack">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">SQL</span>
-              <span class="tech-tag">Java</span>
-              <span class="tech-tag">JIRA</span>
-              <span class="tech-tag">Git</span>
+            <div class="tech">Python | SQL | JSON</div>
+            <ul>
+              <li>APIs connecting Python with Teradata SQL analytics</li>
+              <li>Automated test case generation from JSON</li>
+              <li>ML algorithms: NTREE, DecisionTree, KNN</li>
+            </ul>
+            <div class="achievement-box">
+              <div class="label">Impact</div>
+              <div class="value"><span class="highlight-text">50%</span> less manual testing | 10+ teams benefitted</div>
             </div>
           </div>
-          <div>
-            <ul class="project-highlights">
-              <li>Designed APIs for Python-Teradata SQL integration</li>
-              <li>Enabled analytical functions in Python workflows</li>
-              <li>Automated Python test-file generation from JSON</li>
-              <li>Improved test coverage and consistency</li>
-              <li>Enterprise-grade data processing capabilities</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Slide 9: Project 7 - Telecom Automation -->
-    <div class="slide project-slide" data-slide="9">
-      <div class="slide-content">
-        <div class="project-header">
-          <div class="project-number">07</div>
-          <div class="project-title-group">
-            <h2>Telecom Automation Framework</h2>
+          <div class="card project-card">
+            <h3>🛠️ DX Tool & ESM</h3>
             <div class="company">Tata Consultancy Services | 2014-2018</div>
-          </div>
-        </div>
-        <div class="project-body">
-          <div>
-            <p class="project-description">
-              Enterprise automation framework for deploying and managing telecom 
-              components across real and virtual infrastructure nodes, integrated 
-              with CI/CD pipelines for continuous validation.
-            </p>
-            <div class="tech-stack">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Linux</span>
-              <span class="tech-tag">Jenkins</span>
-              <span class="tech-tag">VirtualBox</span>
-              <span class="tech-tag">Shell Scripting</span>
-              <span class="tech-tag">SonarQube</span>
+            <div class="tech">Python | Linux | Jenkins | Docker</div>
+            <ul>
+              <li>Telecom component installation automation</li>
+              <li>VirtualBox deployment simulation</li>
+              <li>YAML-driven Artifactory package management</li>
+            </ul>
+            <div class="achievement-box">
+              <div class="label">Impact</div>
+              <div class="value"><span class="highlight-text">40%</span> faster deployment | 20+ systems supported</div>
             </div>
           </div>
-          <div>
-            <ul class="project-highlights">
-              <li>Automated installation across real and virtual nodes</li>
-              <li>Integrated functional test suites with Jenkins CI/CD</li>
-              <li>Continuous validation and deployment automation</li>
-              <li>Linux administration and shell scripting</li>
-              <li>Code quality enforcement with SonarQube</li>
+          <div class="card project-card">
+            <h3>🤖 Human-Robot Trust Framework</h3>
+            <div class="company">University of Georgia | 2021-2023</div>
+            <div class="tech">Python | ML | Bayesian Models</div>
+            <ul>
+              <li>Computational trust modeling for collaboration</li>
+              <li>ML + Bayesian reasoning approach</li>
+              <li>Published in IEEE Xplore</li>
             </ul>
+            <div class="achievement-box">
+              <div class="label">Impact</div>
+              <div class="value"><span class="highlight-text">90%</span> trust scoring accuracy | IEEE Publication</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Slide 10: Publication -->
+    <!-- Slide 8: Technical Skills -->
+    <div class="slide" data-slide="8">
+      <div class="slide-content">
+        <div class="section-header">
+          <h2>Technical <span>Skills</span></h2>
+          <p>Technologies and tools across my career</p>
+        </div>
+        <div class="grid-3">
+          <div class="card skill-category">
+            <h4>💻 Languages</h4>
+            <div class="items">
+              <span class="item">Python</span>
+              <span class="item">C++</span>
+              <span class="item">JavaScript</span>
+              <span class="item">Java</span>
+              <span class="item">SQL</span>
+              <span class="item">Shell Scripting</span>
+            </div>
+          </div>
+          <div class="card skill-category">
+            <h4>🧠 AI/ML</h4>
+            <div class="items">
+              <span class="item">PyTorch</span>
+              <span class="item">TensorFlow</span>
+              <span class="item">Keras</span>
+              <span class="item">OpenCV</span>
+              <span class="item">scikit-learn</span>
+              <span class="item">Pandas</span>
+              <span class="item">NumPy</span>
+              <span class="item">MLflow</span>
+              <span class="item">Vertex AI</span>
+            </div>
+          </div>
+          <div class="card skill-category">
+            <h4>☁️ Cloud & DevOps</h4>
+            <div class="items">
+              <span class="item">AWS (S3, Lambda, SageMaker)</span>
+              <span class="item">Azure Pipelines</span>
+              <span class="item">Docker</span>
+              <span class="item">Kubernetes</span>
+              <span class="item">Terraform</span>
+              <span class="item">Jenkins</span>
+            </div>
+          </div>
+          <div class="card skill-category">
+            <h4>🗄️ Data</h4>
+            <div class="items">
+              <span class="item">PostgreSQL</span>
+              <span class="item">DynamoDB</span>
+              <span class="item">Oracle</span>
+              <span class="item">SQLite</span>
+              <span class="item">GraphQL</span>
+              <span class="item">Databricks</span>
+            </div>
+          </div>
+          <div class="card skill-category">
+            <h4>🌐 Web & APIs</h4>
+            <div class="items">
+              <span class="item">Django</span>
+              <span class="item">Flask</span>
+              <span class="item">React JS</span>
+              <span class="item">REST APIs</span>
+              <span class="item">GraphQL</span>
+              <span class="item">Dash</span>
+            </div>
+          </div>
+          <div class="card skill-category">
+            <h4>🛡️ Security & Compliance</h4>
+            <div class="items">
+              <span class="item">SAST</span>
+              <span class="item">ISO 26262</span>
+              <span class="item">ISO 21434</span>
+              <span class="item">ASPICE</span>
+              <span class="item">Vulnerability Scanning</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 9: Skill Evolution -->
+    <div class="slide" data-slide="9">
+      <div class="slide-content">
+        <div class="section-header">
+          <h2>Skill <span>Evolution</span></h2>
+          <p>How my expertise grew across companies</p>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h4 style="color: var(--accent-light); margin-bottom: 1rem;">🔄 Automation & CI/CD</h4>
+            <p style="font-family: monospace; font-size: 0.85rem; color: var(--accent); margin-bottom: 0.5rem;">
+              Jenkins @ TCS → Azure Pipelines @ Bosch → GitLab CI @ Rivian
+            </p>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              Consistent focus on automating deployments, reducing manual effort, and enabling zero-downtime releases across every role.
+            </p>
+          </div>
+          <div class="card">
+            <h4 style="color: var(--accent-light); margin-bottom: 1rem;">🐍 Python Mastery</h4>
+            <p style="font-family: monospace; font-size: 0.85rem; color: var(--accent); margin-bottom: 0.5rem;">
+              Scripting @ TCS → APIs @ Teradata → ML @ UGA → AI @ Rivian
+            </p>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              Python as core language, evolving from shell scripting to enterprise APIs to cutting-edge ML/AI applications.
+            </p>
+          </div>
+          <div class="card">
+            <h4 style="color: var(--accent-light); margin-bottom: 1rem;">🧠 Data & Machine Learning</h4>
+            <p style="font-family: monospace; font-size: 0.85rem; color: var(--accent); margin-bottom: 0.5rem;">
+              SQL @ Teradata → Computer Vision @ Continental → Deep Learning @ UGA → LLMs @ Rivian
+            </p>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              Progressive deepening of ML skills from data analytics to computer vision to production LLM systems.
+            </p>
+          </div>
+          <div class="card">
+            <h4 style="color: var(--accent-light); margin-bottom: 1rem;">☁️ Cloud Architecture</h4>
+            <p style="font-family: monospace; font-size: 0.85rem; color: var(--accent); margin-bottom: 0.5rem;">
+              AWS Lambda @ Continental → Azure @ Bosch → Vertex AI @ Rivian
+            </p>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              Multi-cloud experience across AWS, Azure, and Google Cloud, building serverless and ML-powered systems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 10: Publications -->
     <div class="slide" data-slide="10">
       <div class="slide-content">
-        <div class="section-title">
+        <div class="section-header">
           <h2>Research <span>Publication</span></h2>
+          <p>Academic contribution to human-robot collaboration</p>
         </div>
-        <div class="publication-card">
+        <div class="card pub-card" style="background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%); border-color: rgba(168, 85, 247, 0.3);">
           <h3>Computational Trust Framework for Human-Robot Teams</h3>
           <div class="publisher">IEEE Xplore (Document 11127674) | May 2023</div>
           <p>
-            Machine-learning research on dynamic trust scoring and safety alignment 
-            for collaborative robotics. Developed novel approaches for computational 
-            trust modeling in human-robot interaction scenarios, contributing to 
-            the advancement of safe and reliable autonomous systems.
+            Machine-learning research on dynamic trust scoring, Bayesian reasoning, and safety alignment 
+            for collaborative robotics. Developed novel approaches for computational trust modeling in 
+            human-robot interaction scenarios, contributing to the advancement of safe and reliable autonomous systems.
           </p>
-          <div class="tech-stack" style="justify-content: center; margin-top: 2rem;">
-            <span class="tech-tag">Machine Learning</span>
-            <span class="tech-tag">Trust Modeling</span>
-            <span class="tech-tag">Robotics</span>
-            <span class="tech-tag">Safety Alignment</span>
+          <div style="display: flex; gap: 0.5rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap;">
+            <span class="item" style="background: var(--bg-dark); border: 1px solid var(--border); padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.8rem;">Machine Learning</span>
+            <span class="item" style="background: var(--bg-dark); border: 1px solid var(--border); padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.8rem;">Bayesian Models</span>
+            <span class="item" style="background: var(--bg-dark); border: 1px solid var(--border); padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.8rem;">Trust Modeling</span>
+            <span class="item" style="background: var(--bg-dark); border: 1px solid var(--border); padding: 0.4rem 0.8rem; border-radius: 6px; font-size: 0.8rem;">Robotics</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Slide 11: Technical Skills -->
+    <!-- Slide 11: Why Hire Me -->
     <div class="slide" data-slide="11">
       <div class="slide-content">
-        <div class="section-title">
-          <h2>Technical <span>Skills</span></h2>
+        <div class="section-header">
+          <h2>Why Hire <span>Bhavana</span>?</h2>
+          <p>Unique combination of skills and experience</p>
         </div>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h4>Languages</h4>
-            <ul>
-              <li>Python</li>
-              <li>C++</li>
-              <li>JavaScript</li>
-              <li>Java</li>
-              <li>SQL</li>
-            </ul>
+        <div class="grid-3">
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">End-to-End Ownership</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              From architecture to deployment, I own the full lifecycle. Built systems scaling to 1K req/sec with 99.9% uptime.
+            </p>
           </div>
-          <div class="skill-category">
-            <h4>ML/AI</h4>
-            <ul>
-              <li>PyTorch</li>
-              <li>TensorFlow</li>
-              <li>scikit-learn</li>
-              <li>OpenCV</li>
-              <li>Vertex AI</li>
-            </ul>
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
+            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Security-First Mindset</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              ISO 26262, ISO 21434, ASPICE compliance. Leading AI governance and security automation at Rivian.
+            </p>
           </div>
-          <div class="skill-category">
-            <h4>Cloud & DevOps</h4>
-            <ul>
-              <li>AWS</li>
-              <li>Azure</li>
-              <li>Docker</li>
-              <li>Kubernetes</li>
-              <li>Terraform</li>
-            </ul>
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🚀</div>
+            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Measurable Impact</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              70% effort reduction, 60% faster reviews, 30% fewer false positives. I quantify and deliver results.
+            </p>
           </div>
-          <div class="skill-category">
-            <h4>Web & APIs</h4>
-            <ul>
-              <li>React</li>
-              <li>Django</li>
-              <li>Flask</li>
-              <li>GraphQL</li>
-              <li>REST APIs</li>
-            </ul>
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🧠</div>
+            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">ML/AI Expertise</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              From computer vision to LLMs. PyTorch, TensorFlow, Vertex AI, SageMaker. IEEE-published researcher.
+            </p>
+          </div>
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">☁️</div>
+            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Multi-Cloud Experience</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              AWS, Azure, GCP. Docker, Kubernetes, Terraform. Built and scaled production systems across all major clouds.
+            </p>
+          </div>
+          <div class="card" style="text-align: center; padding: 2rem;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">🏎️</div>
+            <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Automotive Domain</h4>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              Continental, Bosch, Rivian. Deep experience in ADAS, safety-critical systems, and EV technology.
+            </p>
           </div>
         </div>
       </div>
@@ -833,14 +739,21 @@
     <!-- Slide 12: Contact -->
     <div class="slide contact-slide" data-slide="12">
       <div class="slide-content">
-        <h2>Let's Connect</h2>
+        <h2>Let's <span style="color: var(--accent);">Connect</span></h2>
         <div class="contact-links">
           <a href="mailto:n.bhavana.reddy5@gmail.com">📧 Email</a>
           <a href="https://www.linkedin.com/in/bhavana-nare-60657385/" target="_blank">💼 LinkedIn</a>
           <a href="https://github.com/Bhavana5N" target="_blank">💻 GitHub</a>
+          <a href="https://ieeexplore.ieee.org/document/11127674" target="_blank">📄 IEEE Paper</a>
         </div>
-        <p class="final-note">
-          Open for opportunities in MLOps, Cloud Security, AI/ML Engineering, and Full-Stack Development
+        <p style="color: var(--text-secondary); font-size: 1.1rem; margin-top: 1rem;">
+          Open for opportunities in <strong style="color: var(--text-primary);">MLOps</strong>, 
+          <strong style="color: var(--text-primary);">Cloud Security</strong>, 
+          <strong style="color: var(--text-primary);">AI/ML Engineering</strong>, and 
+          <strong style="color: var(--text-primary);">Full-Stack Development</strong>
+        </p>
+        <p style="color: var(--success); margin-top: 1.5rem; font-size: 1rem;">
+          🟢 Available Now | Remote USA
         </p>
       </div>
     </div>
@@ -849,7 +762,7 @@
 
   <!-- Navigation -->
   <div class="nav">
-    <button onclick="prevSlide()">← Previous</button>
+    <button onclick="prevSlide()">← Prev</button>
     <button onclick="nextSlide()">Next →</button>
   </div>
 
@@ -877,42 +790,23 @@
       document.getElementById('progress').style.width = `${(currentSlide / totalSlides) * 100}%`;
     }
 
-    function nextSlide() {
-      currentSlide++;
-      showSlide(currentSlide);
-    }
+    function nextSlide() { currentSlide++; showSlide(currentSlide); }
+    function prevSlide() { currentSlide--; showSlide(currentSlide); }
 
-    function prevSlide() {
-      currentSlide--;
-      showSlide(currentSlide);
-    }
-
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === ' ') {
-        e.preventDefault();
-        nextSlide();
-      }
-      if (e.key === 'ArrowLeft') {
-        e.preventDefault();
-        prevSlide();
-      }
+      if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); nextSlide(); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
     });
 
-    // Touch navigation
     let touchStartX = 0;
-    document.addEventListener('touchstart', (e) => {
-      touchStartX = e.touches[0].clientX;
-    });
+    document.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
     document.addEventListener('touchend', (e) => {
       const touchEndX = e.changedTouches[0].clientX;
       if (touchStartX - touchEndX > 50) nextSlide();
       if (touchEndX - touchStartX > 50) prevSlide();
     });
 
-    // Initialize
     showSlide(currentSlide);
   </script>
 </body>
 </html>
-
