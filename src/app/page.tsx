@@ -368,9 +368,9 @@ export default function Home() {
               role="Cybersecurity AI Analyst @ Rivian"
               problem="Manual security scanning generated high false positive rates, slowing down developer velocity and creating alert fatigue in regulated product teams."
               solution="Architected 'Beacon' using Google Vertex AI (Gemini 2.5 Pro) to deliver exploitable security findings directly in CI/CD pipelines with context-aware prompt orchestration."
-              parameters={['Jira Context', 'Databricks Feedback', 'Severity Scoring', 'GitLab MR Comments']}
-              tags={['Python', 'Vertex AI', 'GraphQL', 'Databricks', 'Hex', 'GitLab CI/CD']}
-              kpis={['Cut false positives >30%', 'Parallel monorepo scanning', 'Automated MR workflows']}
+              parameters={['Jira Context', 'Databricks Feedback', 'Severity Scoring', 'GitLab MR Comments', 'Slack Bot Notifications']}
+              tags={['Python', 'Vertex AI', 'GraphQL', 'Databricks', 'Hex', 'GitLab CI/CD', 'Slack API']}
+              kpis={['Cut false positives >30%', 'Parallel monorepo scanning', 'Automated MR workflows', 'Manager auto-notifications']}
             />
           </BentoCard>
 
@@ -440,15 +440,7 @@ export default function Home() {
                     >
                       <FileText size={16} /> IEEE Publication <ExternalLink size={12} className="opacity-50" />
                     </a>
-                    <a 
-                      href="/presentation.html" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-300 hover:text-purple-600 transition-colors"
-                    >
-                      <Presentation size={16} /> Project Slides <ExternalLink size={12} className="opacity-50" />
-                    </a>
-                  </div>
+                    </div>
 
                   {/* Presentation CTA */}
                   <a 
