@@ -1,11 +1,21 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import AiSystemInformation from "@/data/AiSystemInformation";
 
-const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY || '');
-
 export async function POST(req: Request) {
   try {
+    // Check for API key
+    const apiKey = process.env.GOOGLE_API_KEY;
+    if (!apiKey) {
+      console.error("GOOGLE_API_KEY is not set");
+      return new Response(JSON.stringify({ error: 'API key not configured' }), { status: 500 });
+    }
+
+    const genAI = new GoogleGenerativeAI(apiKey);
     const { messages } = await req.json();
+
+    if (!messages || messages.length === 0) {
+      return new Response(JSON.stringify({ error: 'No messages provided' }), { status: 400 });
+    }
 
     const history = messages.map((m: { role: string; content: string }) => ({
       role: m.role === 'user' ? 'user' : 'model',
@@ -13,7 +23,7 @@ export async function POST(req: Request) {
     }));
 
     const model = genAI.getGenerativeModel({ 
-      model: "gemini-2.0-flash",
+      model: "gemini-2.0-flash-exp",
       systemInstruction: AiSystemInformation 
     });
 
@@ -34,6 +44,7 @@ export async function POST(req: Request) {
           }
           controller.close();
         } catch (err) {
+          console.error("Stream error:", err);
           controller.error(err);
         }
       },
@@ -45,7 +56,8 @@ export async function POST(req: Request) {
 
   } catch (error) {
     console.error("API Error:", error);
-    return new Response(JSON.stringify({ error: 'Server Error' }), { status: 500 });
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    return new Response(JSON.stringify({ error: 'Server Error', details: errorMessage }), { status: 500 });
   }
 }
 
