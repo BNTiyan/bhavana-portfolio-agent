@@ -25,7 +25,6 @@ type BentoCardProps = {
 
 export const BentoCard = ({ children, className, colSpan = 1, rowSpan = 1, title, icon: Icon, href, id, noFade = true }: BentoCardProps) => {
   const Wrapper = href ? 'a' : 'div';
-  // @ts-expect-error - dynamic component wrapper typing
   const wrapperProps = href ? { href, target: "_blank" } : {};
 
   return (
@@ -58,4 +57,3 @@ export const BentoCard = ({ children, className, colSpan = 1, rowSpan = 1, title
     </motion.div>
   );
 };
-
