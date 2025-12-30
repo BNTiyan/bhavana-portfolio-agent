@@ -6,7 +6,8 @@ import {
   Workflow, ClipboardCheck, Bot, PiggyBank, 
   BookOpenCheck, Copyright, GitFork, Globe, Linkedin, Github, 
   CheckCircle2, GraduationCap, FileText, ExternalLink,
-  Code2, Database, Cloud, Shield, Brain, BarChart3, Terminal, Cpu
+  Code2, Database, Cloud, Shield, Brain, BarChart3, Terminal, Cpu,
+  Presentation
 } from 'lucide-react';
 
 import HeroSection from '@/components/HeroSection';
@@ -56,6 +57,15 @@ export default function Home() {
                 {link.label}
               </a>
             ))}
+            <a 
+              href="/presentation.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 hover:text-purple-600 transition-colors duration-200"
+            >
+              <Presentation size={14} />
+              Slides
+            </a>
           </nav>
           
           <a 
@@ -430,7 +440,29 @@ export default function Home() {
                     >
                       <FileText size={16} /> IEEE Publication <ExternalLink size={12} className="opacity-50" />
                     </a>
+                    <a 
+                      href="/presentation.html" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-300 hover:text-purple-600 transition-colors"
+                    >
+                      <Presentation size={16} /> Project Slides <ExternalLink size={12} className="opacity-50" />
+                    </a>
                   </div>
+
+                  {/* Presentation CTA */}
+                  <a 
+                    href="/presentation.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-center py-3 px-4 rounded-xl font-semibold text-sm mb-6 transition-all hover:shadow-lg hover:shadow-purple-500/25 hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    <span className="flex items-center justify-center gap-2">
+                      <Presentation size={18} />
+                      View Full Presentation
+                      <ArrowRight size={16} />
+                    </span>
+                  </a>
                 </div>
 
                 {/* Education */}
