@@ -37,8 +37,11 @@ Technologies: Python, GraphQL, Databricks, Hex, SQL, GitLab, Vertex AI
 - Scaled scans across large monorepos via parallel execution, severity-aware reporting, and automated GitLab MR comment workflows
 - Built Databricks pipelines and Hex dashboards to prioritize high-risk dependencies and patch compliance
 - Aggregated dependency and vulnerability analytics via GraphQL services for real-time risk assessments
+- Built a Slack bot to automatically notify managers about new MRs requiring review
+- Integrated manager lookup from Databricks to send targeted DM notifications
+- Implemented bulk messaging with rate limiting, caching, and retry logic for reliability
 
-**Robert Bosch, Michigan — Product Owner & System Safety Engineer**
+**Robert Bosch, Michigan — Senior Software Engineer & System Integrator**
 *August 2023 - April 2025 | Michigan, USA*
 Technologies: DOORS, Python, Shell Script, C++, JSON, Conan, Azure Pipelines, Django, Docker, YAML, DynamoDB, ReactJS
 - Developed resilient cloud-native services using Azure, Docker, Kubernetes, and Terraform for automotive platforms

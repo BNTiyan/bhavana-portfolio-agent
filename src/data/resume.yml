@@ -71,9 +71,11 @@ work:
       - Partnered with security, ML, and platform teams to align tooling with AI governance and compliance standards.
       - Led cross-functional ceremonies to clarify requirements, unblock delivery, and track continuous improvement.
       - Added graphs and plots to Databricks dashboards to visualize security fixes and MR status (Open, Merged).
+      - Built Slack bot to automatically notify managers about new MRs requiring review with manager lookup from Databricks.
+      - Implemented bulk DM messaging system with rate limiting, user caching, and retry logic for reliability.
 
   - company: "Robert Bosch, Michigan"
-    position: "Product Owner – Python Engineer | System Safety Engineer & Software Integrator (CSW)"
+    position: "Senior Software Engineer & System Integrator"
     location: Michigan, USA
     startDate: "August 2023"
     endDate: "April 2025"
