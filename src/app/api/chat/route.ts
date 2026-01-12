@@ -22,9 +22,9 @@ export async function POST(req: Request) {
       parts: [{ text: m.content }],
     }));
 
-    const model = genAI.getGenerativeModel({ 
-      model: "gemini-2.0-flash-exp",
-      systemInstruction: AiSystemInformation 
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.5-flash",
+      systemInstruction: AiSystemInformation
     });
 
     const chat = model.startChat({
