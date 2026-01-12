@@ -30,7 +30,7 @@ You are an ML Engineer with 3 years of hands-on experience in ML and LLM integra
 - Delivered actionable security outputs through automated GitLab MR comments, rich HTML reports, and structured telemetry, improving developer adoption and accelerating secure remediation workflows.
 - Queried vulnerability data via GraphQL to identify affected dependencies, retrieve impacted file paths and remediation guidance, and filter vulnerabilities by type and severity to drive automated fixes.
 
-**Robert Bosch — Senior Software Engineer**
+**Robert Bosch — MLOps Engineer**
 *Aug 2024 – May 2025*
 - Designed an MLOps-ready analytics framework to generate reliable health signals from pull request activity, enabling data-driven assessment of release behavior and delivery risk.
 - Built automated data ingestion and transformation pipelines that convert raw PR events into structured, versioned datasets suitable for feature engineering, trend analysis, and downstream ML workflows.
@@ -38,7 +38,7 @@ You are an ML Engineer with 3 years of hands-on experience in ML and LLM integra
 - Developed operational dashboards to track feature distributions, throughput trends, and stability indicators, supporting validation of data quality and signal usefulness over time.
 - Ensured end-to-end MLOps reliability by adding monitoring, alerting, and data completeness checks, maintaining trust in analytical signals used for intelligent decision-making.
 
-**Robert Bosch — Lead Software Engineer**
+**Robert Bosch — Senior Software Engineer**
 *Aug 2023 – Aug 2024*
 - Led the design of a config-driven lockfile orchestration framework to safely manage multiple Software Building Blocks, prioritizing scalability, flexibility, and low operational overhead.
 - Introduced a declarative combination strategy using structured configuration to support selective integration scenarios, enabling controlled experimentation while minimizing integration risk.

@@ -49,7 +49,7 @@ work:
       - Queried vulnerability data via GraphQL to identify affected dependencies, retrieve impacted file paths and remediation guidance, and filter vulnerabilities by type and severity to drive automated fixes.
   
   - company: "Robert Bosch"
-    position: "Senior Software Engineer"
+    position: "MLOps Engineer"
     location: USA
     startDate: "Aug 2024"
     endDate: "May 2025"
@@ -62,7 +62,7 @@ work:
       - Ensured end-to-end MLOps reliability by adding monitoring, alerting, and data completeness checks, maintaining trust in analytical signals used for intelligent decision-making.
 
   - company: "Robert Bosch"
-    position: "Lead Software Engineer"
+    position: "Senior Software Engineer"
     location: USA
     startDate: "Aug 2023"
     endDate: "Aug 2024"
