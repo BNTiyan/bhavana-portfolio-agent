@@ -1,11 +1,11 @@
 "use client";
 
 import React from 'react';
-import { 
-  CheckCircle2, 
-  Circle, 
-  Loader2, 
-  Milestone, 
+import {
+  CheckCircle2,
+  Circle,
+  Loader2,
+  Milestone,
   Layers,
   Server,
   LayoutTemplate,
@@ -44,8 +44,8 @@ const PHASES: RoadmapPhase[] = [
     status: 'completed',
     stakeholder: "Engineering Teams",
     icon: Server,
-    description: "Applied ML and safety engineering at Bosch and Continental. Built ADAS systems, automated CI/CD pipelines, and ensured ISO 26262 compliance.",
-    goal: "End-to-end experience in automotive software development and safety certification."
+    description: "Applied ML and safety engineering at Bosch and Continental. Built ADAS systems, automated CI/CD pipelines, and MLOps frameworks.",
+    goal: "End-to-end experience in automotive software development and MLOps."
   },
   {
     id: 3,
@@ -90,7 +90,7 @@ const PhaseCard = ({ phase, isLast }: { phase: RoadmapPhase; isLast: boolean }) 
 
   return (
     <div className="relative pl-8 md:pl-0">
-      
+
       {/* DESKTOP Timeline */}
       <div className="hidden md:flex flex-col items-center absolute left-[50%] -translate-x-1/2 h-full top-0">
         <div className={cn(
@@ -109,7 +109,7 @@ const PhaseCard = ({ phase, isLast }: { phase: RoadmapPhase; isLast: boolean }) 
       {/* MOBILE Timeline */}
       <div className="md:hidden absolute left-2 top-0 h-full w-px bg-zinc-200 dark:bg-zinc-800">
         <div className="absolute top-8 left-1/2 -translate-x-1/2 bg-white dark:bg-zinc-950 py-2">
-           <StatusIcon status={phase.status} />
+          <StatusIcon status={phase.status} />
         </div>
       </div>
 
@@ -117,36 +117,36 @@ const PhaseCard = ({ phase, isLast }: { phase: RoadmapPhase; isLast: boolean }) 
         "md:flex items-center justify-between gap-12 py-8 group",
         phase.id % 2 === 0 ? "md:flex-row-reverse" : ""
       )}>
-        
+
         {/* Card */}
         <div className="flex-1 ml-6 md:ml-0">
           <div className={cn(
             "p-6 rounded-2xl border transition-all duration-300 relative overflow-hidden",
-            isActive 
-              ? "bg-white dark:bg-zinc-900 border-purple-500 shadow-xl shadow-purple-500/10 scale-[1.02]" 
+            isActive
+              ? "bg-white dark:bg-zinc-900 border-purple-500 shadow-xl shadow-purple-500/10 scale-[1.02]"
               : isCompleted
                 ? "bg-zinc-50 dark:bg-zinc-900/50 border-purple-200 dark:border-purple-900/30 opacity-90 hover:opacity-100"
                 : "bg-white dark:bg-zinc-950 border-zinc-200 dark:border-zinc-800 opacity-60 grayscale hover:grayscale-0 transition-all"
           )}>
-            
+
             {isActive && (
               <div className="absolute top-0 left-0 w-1 h-full bg-purple-500" />
             )}
 
             <div className="flex justify-between items-start mb-4">
               <div>
-                 <span className={cn(
-                   "text-[10px] font-bold uppercase tracking-widest mb-1 block",
-                   isActive || isCompleted ? "text-purple-600 dark:text-purple-400" : "text-zinc-400"
-                 )}>
-                   {phase.subtitle}
-                 </span>
-                 <h3 className={cn(
-                   "text-lg font-bold",
-                   isActive ? "text-zinc-900 dark:text-white" : "text-zinc-700 dark:text-zinc-300"
-                 )}>
-                   {phase.title}
-                 </h3>
+                <span className={cn(
+                  "text-[10px] font-bold uppercase tracking-widest mb-1 block",
+                  isActive || isCompleted ? "text-purple-600 dark:text-purple-400" : "text-zinc-400"
+                )}>
+                  {phase.subtitle}
+                </span>
+                <h3 className={cn(
+                  "text-lg font-bold",
+                  isActive ? "text-zinc-900 dark:text-white" : "text-zinc-700 dark:text-zinc-300"
+                )}>
+                  {phase.title}
+                </h3>
               </div>
               <div className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800">
                 <phase.icon size={18} className={cn(
@@ -161,7 +161,7 @@ const PhaseCard = ({ phase, isLast }: { phase: RoadmapPhase; isLast: boolean }) 
 
             <div className={cn(
               "rounded-lg p-3 text-xs border",
-              isActive 
+              isActive
                 ? "bg-purple-50/50 dark:bg-purple-900/10 border-purple-100 dark:border-purple-800 text-purple-800 dark:text-purple-200"
                 : "bg-zinc-100 dark:bg-zinc-800/50 border-zinc-200 dark:border-zinc-700 text-zinc-500"
             )}>
@@ -193,12 +193,12 @@ const Roadmap = () => {
   return (
     <section id="roadmap" className="py-24 relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-6">
-        
+
         {/* Header */}
         <div className="text-center mb-20 space-y-8">
-          
+
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 text-purple-700 dark:text-purple-300 text-xs font-medium uppercase tracking-wide">
-             <Milestone size={12} /> Career Journey
+            <Milestone size={12} /> Career Journey
           </div>
 
           <h2 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-white tracking-tight leading-tight">
@@ -209,22 +209,22 @@ const Roadmap = () => {
             <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/10 to-indigo-600/10 dark:from-purple-600/20 dark:to-indigo-600/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
 
             <div className="relative bg-white dark:bg-zinc-900/50 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 p-8 rounded-2xl shadow-sm">
-                <div className="flex items justify-center gap-2 mb-6 opacity-50">
-                    <div className="h-px w-8 bg-zinc-300 dark:bg-zinc-700"></div>
-                    <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
-                      Engineering Philosophy
-                    </span>
-                    <div className="h-px w-8 bg-zinc-300 dark:bg-zinc-700"></div>
-                </div>
+              <div className="flex items justify-center gap-2 mb-6 opacity-50">
+                <div className="h-px w-8 bg-zinc-300 dark:bg-zinc-700"></div>
+                <span className="text-[10px] font-mono uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+                  Engineering Philosophy
+                </span>
+                <div className="h-px w-8 bg-zinc-300 dark:bg-zinc-700"></div>
+              </div>
 
-                <div className="text-sm text-left md:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed space-y-4">
-                  <p>
-                    Building <strong className="text-zinc-900 dark:text-white font-semibold">secure, scalable AI/ML systems</strong> that bridge the gap between cutting-edge research and production-ready solutions.
-                  </p>
-                  <p>
-                    From automotive safety systems to cybersecurity AI, I focus on delivering <span className="text-purple-600 dark:text-purple-400 font-medium">measurable impact</span> through robust engineering practices and cross-functional collaboration.
-                  </p>
-                </div>
+              <div className="text-sm text-left md:text-base text-zinc-600 dark:text-zinc-300 leading-relaxed space-y-4">
+                <p>
+                  Building <strong className="text-zinc-900 dark:text-white font-semibold">secure, scalable AI/ML systems</strong> that bridge the gap between cutting-edge research and production-ready solutions.
+                </p>
+                <p>
+                  From automotive safety systems to cybersecurity AI, I focus on delivering <span className="text-purple-600 dark:text-purple-400 font-medium">measurable impact</span> through robust engineering practices and cross-functional collaboration.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -232,10 +232,10 @@ const Roadmap = () => {
         {/* Timeline */}
         <div className="relative">
           {PHASES.map((phase, index) => (
-            <PhaseCard 
-              key={phase.id} 
-              phase={phase} 
-              isLast={index === PHASES.length - 1} 
+            <PhaseCard
+              key={phase.id}
+              phase={phase}
+              isLast={index === PHASES.length - 1}
             />
           ))}
         </div>

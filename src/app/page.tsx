@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { 
-  Users, Mail, ArrowRight,  
-  Workflow, ClipboardCheck, Bot, PiggyBank, 
-  BookOpenCheck, Copyright, GitFork, Globe, Linkedin, Github, 
+import {
+  Users, Mail, ArrowRight,
+  Workflow, ClipboardCheck, Bot, PiggyBank,
+  BookOpenCheck, Copyright, GitFork, Globe, Linkedin, Github,
   CheckCircle2, GraduationCap, FileText, ExternalLink,
   Code2, Database, Cloud, Shield, Brain, BarChart3, Terminal, Cpu
 } from 'lucide-react';
@@ -24,12 +24,12 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-black bg-grid-pattern font-sans text-zinc-900 dark:text-zinc-100 selection:bg-purple-500/20">
-      
+
       {/* HEADER */}
       <header className="sticky top-0 z-50 backdrop-blur-xl bg-white/80 dark:bg-black/80 border-b border-zinc-200 dark:border-zinc-800 transition-all duration-300 supports-[backdrop-filter]:bg-white/60">
         <div className="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
-          
-          <div 
+
+          <div
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="font-bold text-xl tracking-tighter flex items-center gap-2 group cursor-pointer select-none"
             role="button"
@@ -38,7 +38,7 @@ export default function Home() {
           >
             BHAVANA<span className="text-purple-600 dark:text-purple-500 group-hover:text-purple-700 transition-colors duration-300">NARE</span>
           </div>
-          
+
           <nav className="hidden sm:flex gap-8 text-sm font-medium text-zinc-500 dark:text-zinc-400">
             {[
               { label: 'Live Agent', href: '#agent' },
@@ -48,18 +48,18 @@ export default function Home() {
               { label: 'Profile', href: '#about' },
               { label: 'Journey', href: '#roadmap' },
             ].map((link) => (
-              <a 
+              <a
                 key={link.href}
-                href={link.href} 
+                href={link.href}
                 className="hover:text-purple-600 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 rounded-sm"
               >
                 {link.label}
               </a>
             ))}
           </nav>
-          
-          <a 
-            href="mailto:n.bhavana.reddy5@gmail.com" 
+
+          <a
+            href="mailto:n.bhavana.reddy5@gmail.com"
             className="flex items-center gap-2 text-xs bg-purple-600 text-white dark:bg-purple-500 px-4 py-2 rounded-full font-bold 
                        hover:bg-purple-700 dark:hover:bg-purple-400 hover:scale-105 active:scale-95 
                        transition-all duration-200 shadow-sm hover:shadow-purple-500/25 group 
@@ -72,7 +72,7 @@ export default function Home() {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6">
-        
+
         {/* HERO */}
         <HeroSection />
 
@@ -80,11 +80,11 @@ export default function Home() {
         <section id="impact" className="mb-4 scroll-mt-24">
           <div className="relative rounded-2xl bg-zinc-50 dark:bg-zinc-900/30 border border-zinc-200 dark:border-zinc-800 overflow-hidden shadow-sm">
             <div className="absolute top-0 left-0 w-1 h-full bg-purple-500"></div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-zinc-200 dark:divide-zinc-800">
-              
-              <ImpactMetric 
-                value={70} suffix="%" label="Effort Reduction" 
+
+              <ImpactMetric
+                value={70} suffix="%" label="Effort Reduction"
                 subtext={
                   <div className="flex flex-col gap-1.5 w-full mt-2">
                     <div className="flex items-center justify-center md:justify-start gap-2">
@@ -99,8 +99,8 @@ export default function Home() {
                 }
               />
 
-              <ImpactMetric 
-                value={30} prefix=">" suffix="%" label="False Positives Cut" 
+              <ImpactMetric
+                value={30} prefix=">" suffix="%" label="False Positives Cut"
                 subtext={
                   <div className="flex flex-col gap-1.5 w-full mt-2">
                     <div className="flex items-center justify-center md:justify-start gap-2">
@@ -115,8 +115,8 @@ export default function Home() {
                 }
               />
 
-              <ImpactMetric 
-                value={1} suffix="K req/s" label="Dashboard Scale" 
+              <ImpactMetric
+                value={1} suffix="K req/s" label="Dashboard Scale"
                 subtext={
                   <div className="flex flex-col gap-1.5 w-full mt-2">
                     <div className="flex items-center justify-center md:justify-start gap-2">
@@ -131,13 +131,13 @@ export default function Home() {
                 }
               />
 
-              <ImpactMetric 
-                value={11} suffix="+" label="Years Experience" 
+              <ImpactMetric
+                value={10} suffix="+" label="Years Experience"
                 subtext={
                   <div className="flex flex-col gap-1.5 w-full mt-2">
                     <div className="flex items-center justify-center md:justify-start gap-2">
                       <GitFork size={14} className="text-emerald-500 shrink-0" />
-                      <span className="text-xs text-zinc-600 dark:text-zinc-400">TCS → Continental → Bosch → Rivian</span>
+                      <span className="text-xs text-zinc-600 dark:text-zinc-400">TCS → Teradata → Continental → Bosch → Rivian</span>
                     </div>
                   </div>
                 }
@@ -152,9 +152,9 @@ export default function Home() {
             <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-2">Technical Skills</h2>
             <p className="text-zinc-500 dark:text-zinc-400">Technologies and tools I work with</p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            
+
             {/* Programming Languages */}
             <div className="bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:border-purple-300 dark:hover:border-purple-800 transition-colors">
               <div className="flex items-center gap-3 mb-4">
@@ -164,7 +164,7 @@ export default function Home() {
                 <h3 className="font-bold text-zinc-900 dark:text-white">Languages</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['Python', 'C++', 'JavaScript', 'Java', 'SQL', 'Shell'].map((skill) => (
+                {['Python', 'Java', 'C++', 'Bash / Shell', 'JavaScript (React)'].map((skill) => (
                   <span key={skill} className="px-2.5 py-1 text-xs bg-zinc-100 dark:bg-zinc-800 rounded-full text-zinc-700 dark:text-zinc-300 font-medium">
                     {skill}
                   </span>
@@ -178,10 +178,10 @@ export default function Home() {
                 <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
                   <Brain size={20} className="text-blue-600 dark:text-blue-400" />
                 </div>
-                <h3 className="font-bold text-zinc-900 dark:text-white">AI/ML</h3>
+                <h3 className="font-bold text-zinc-900 dark:text-white">Machine Learning</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['PyTorch', 'TensorFlow', 'scikit-learn', 'OpenCV', 'Pandas', 'NumPy', 'MLFlow'].map((skill) => (
+                {['Vertex AI', 'AWS Bedrock', 'PyTorch', 'scikit-learn', 'Pandas', 'NumPy', 'OpenCV'].map((skill) => (
                   <span key={skill} className="px-2.5 py-1 text-xs bg-zinc-100 dark:bg-zinc-800 rounded-full text-zinc-700 dark:text-zinc-300 font-medium">
                     {skill}
                   </span>
@@ -198,7 +198,7 @@ export default function Home() {
                 <h3 className="font-bold text-zinc-900 dark:text-white">Cloud & DevOps</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['AWS', 'Azure', 'Docker', 'Kubernetes', 'Terraform', 'Jenkins', 'CI/CD'].map((skill) => (
+                {['AWS', 'Docker', 'Kubernetes', 'Terraform', 'Jenkins', 'GitHub Actions', 'GitLab CI'].map((skill) => (
                   <span key={skill} className="px-2.5 py-1 text-xs bg-zinc-100 dark:bg-zinc-800 rounded-full text-zinc-700 dark:text-zinc-300 font-medium">
                     {skill}
                   </span>
@@ -212,10 +212,10 @@ export default function Home() {
                 <div className="p-2 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg">
                   <Database size={20} className="text-emerald-600 dark:text-emerald-400" />
                 </div>
-                <h3 className="font-bold text-zinc-900 dark:text-white">Data</h3>
+                <h3 className="font-bold text-zinc-900 dark:text-white">Data & Exploration</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['PostgreSQL', 'DynamoDB', 'GraphQL', 'Databricks', 'Hex', 'SQL'].map((skill) => (
+                {['SQL', 'Databricks', 'DynamoDB', 'PostgreSQL', 'Feature Analysis'].map((skill) => (
                   <span key={skill} className="px-2.5 py-1 text-xs bg-zinc-100 dark:bg-zinc-800 rounded-full text-zinc-700 dark:text-zinc-300 font-medium">
                     {skill}
                   </span>
@@ -223,16 +223,16 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Frameworks */}
+            {/* Frameworks -> ML Deployment */}
             <div className="bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:border-purple-300 dark:hover:border-purple-800 transition-colors">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 bg-rose-100 dark:bg-rose-900/30 rounded-lg">
                   <Terminal size={20} className="text-rose-600 dark:text-rose-400" />
                 </div>
-                <h3 className="font-bold text-zinc-900 dark:text-white">Frameworks</h3>
+                <h3 className="font-bold text-zinc-900 dark:text-white">ML Deployment</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['Django', 'Flask', 'React', 'FastAPI', 'REST APIs', 'GraphQL'].map((skill) => (
+                {['Model Monitoring', 'Inference Pipelines', 'API Gateway', 'SageMaker', 'Step Functions'].map((skill) => (
                   <span key={skill} className="px-2.5 py-1 text-xs bg-zinc-100 dark:bg-zinc-800 rounded-full text-zinc-700 dark:text-zinc-300 font-medium">
                     {skill}
                   </span>
@@ -246,10 +246,10 @@ export default function Home() {
                 <div className="p-2 bg-red-100 dark:bg-red-900/30 rounded-lg">
                   <Shield size={20} className="text-red-600 dark:text-red-400" />
                 </div>
-                <h3 className="font-bold text-zinc-900 dark:text-white">Security</h3>
+                <h3 className="font-bold text-zinc-900 dark:text-white">Security & Governance</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['SAST', 'ISO 26262', 'ISO 21434', 'Vertex AI', 'Vulnerability Scanning'].map((skill) => (
+                {['SAST', 'ISO 26262', 'ISO 21434', 'Vertex AI Security', 'Vulnerability Scanning'].map((skill) => (
                   <span key={skill} className="px-2.5 py-1 text-xs bg-zinc-100 dark:bg-zinc-800 rounded-full text-zinc-700 dark:text-zinc-300 font-medium">
                     {skill}
                   </span>
@@ -263,10 +263,10 @@ export default function Home() {
                 <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">
                   <BarChart3 size={20} className="text-indigo-600 dark:text-indigo-400" />
                 </div>
-                <h3 className="font-bold text-zinc-900 dark:text-white">Visualization</h3>
+                <h3 className="font-bold text-zinc-900 dark:text-white">Observability</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['Plotly', 'Dash', 'Matplotlib', 'Tableau', 'Hex Dashboards'].map((skill) => (
+                {['CloudWatch', 'Splunk', 'Hex', 'Matplotlib', 'Structured Logging'].map((skill) => (
                   <span key={skill} className="px-2.5 py-1 text-xs bg-zinc-100 dark:bg-zinc-800 rounded-full text-zinc-700 dark:text-zinc-300 font-medium">
                     {skill}
                   </span>
@@ -274,16 +274,16 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Tools */}
+            {/* Tools -> Engineering */}
             <div className="bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 rounded-2xl p-6 hover:border-purple-300 dark:hover:border-purple-800 transition-colors">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-2 bg-cyan-100 dark:bg-cyan-900/30 rounded-lg">
                   <Cpu size={20} className="text-cyan-600 dark:text-cyan-400" />
                 </div>
-                <h3 className="font-bold text-zinc-900 dark:text-white">Tools</h3>
+                <h3 className="font-bold text-zinc-900 dark:text-white">Engineering Practices</h3>
               </div>
               <div className="flex flex-wrap gap-2">
-                {['Git', 'GitLab', 'Bitbucket', 'JIRA', 'Confluence', 'SonarQube'].map((skill) => (
+                {['Microservices', 'System Design', 'Agile', 'Performance Opt', 'CI/CD'].map((skill) => (
                   <span key={skill} className="px-2.5 py-1 text-xs bg-zinc-100 dark:bg-zinc-800 rounded-full text-zinc-700 dark:text-zinc-300 font-medium">
                     {skill}
                   </span>
@@ -298,40 +298,39 @@ export default function Home() {
         <section className="py-8 mb-8">
           <div className="relative bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/10 border border-purple-200 dark:border-purple-800 rounded-2xl p-8 overflow-hidden">
             <div className="absolute top-0 left-0 w-1 h-full bg-purple-500"></div>
-            
+
             <div className="max-w-4xl">
               <h2 className="text-2xl font-bold text-zinc-900 dark:text-white mb-6">Professional Summary</h2>
-              
+
               <div className="space-y-4 text-zinc-700 dark:text-zinc-300">
                 <p className="text-lg leading-relaxed">
-                  <strong className="text-purple-700 dark:text-purple-400">Software Engineer</strong> with <strong>11+ years</strong> of experience building secure, scalable AI/ML systems. 
-                  Specializing in <strong>MLOps</strong>, <strong>Cloud Security</strong>, and <strong>full-stack development</strong>.
+                  <strong className="text-purple-700 dark:text-purple-400">ML Engineer</strong> with <strong>3 years</strong> of experience in ML and LLM integration, supported by <strong>10+ years</strong> of overall software engineering experience.
                 </p>
-                
+
                 <div className="grid md:grid-cols-2 gap-4 pt-4">
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-purple-500 shrink-0 mt-1" size={18} />
-                    <span>Lead <strong>AI governance initiatives</strong> using Databricks, Vertex AI, and GitLab to secure developer platforms</span>
+                    <span>Proven impact architecting <strong>AI-driven systems</strong> that reduced operational risk and cut manual effort by 60–70%</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-purple-500 shrink-0 mt-1" size={18} />
-                    <span>Architect <strong>data pipelines</strong> on DynamoDB, PostgreSQL, and AWS serverless services</span>
+                    <span>Experienced in building and deploying <strong>ML- and LLM-powered components</strong> in production workflows</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-purple-500 shrink-0 mt-1" size={18} />
-                    <span>Deploy <strong>AI/ML solutions</strong> integrating PyTorch, TensorFlow, and OpenCV for production</span>
+                    <span>Expertise in system architecture, <strong>performance optimization</strong>, and automation across the full SDLC</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-purple-500 shrink-0 mt-1" size={18} />
-                    <span>Ensure compliance with <strong>ISO 26262</strong> (Functional Safety) and <strong>ISO 21434</strong> (Cybersecurity)</span>
+                    <span>Scaled AI/ML solutions into <strong>enterprise CI/CD environments</strong> with integration of LLM outputs</span>
                   </div>
                 </div>
-                
+
                 <div className="pt-4 flex items-center gap-4 flex-wrap">
                   <span className="text-sm text-zinc-500 dark:text-zinc-400">Published Research:</span>
-                  <a 
-                    href="https://ieeexplore.ieee.org/document/11127674" 
-                    target="_blank" 
+                  <a
+                    href="https://ieeexplore.ieee.org/document/11127674"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-purple-600 dark:text-purple-400 hover:underline font-medium"
                   >
@@ -347,13 +346,13 @@ export default function Home() {
 
         {/* ARCHITECTURE */}
         <div id="projects" className="mt-0 scroll-mt-24">
-           <ArchitectureDiagram />
+          <ArchitectureDiagram />
         </div>
 
         {/* PROJECTS */}
         <BentoGrid className="pb-12">
           <BentoCard colSpan={2} noFade={true} id="proj-1" className="mb-4 scroll-mt-24">
-             <ProjectDeepDive 
+            <ProjectDeepDive
               title="Beacon: AI-Assisted SAST Platform"
               role="Cybersecurity AI Analyst @ Rivian"
               problem="Manual security scanning generated high false positive rates, slowing down developer velocity and creating alert fatigue in regulated product teams."
@@ -365,7 +364,7 @@ export default function Home() {
           </BentoCard>
 
           <BentoCard colSpan={2} noFade={true} id="proj-2">
-             <ProjectDeepDive 
+            <ProjectDeepDive
               title="PR Statistics Dashboard"
               role="Product Owner @ Robert Bosch"
               problem="Engineering teams lacked visibility into code review SLAs and bottlenecks, leading to delayed releases and unpredictable delivery timelines."
@@ -380,7 +379,7 @@ export default function Home() {
         {/* ABOUT */}
         <section id="about" className="mb-4 scroll-mt-24">
           <div className="grid md:grid-cols-3 gap-6">
-            
+
             {/* Left: Profile */}
             <div className="md:col-span-1">
               <div className="bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 p-6 rounded-2xl shadow-sm h-full flex flex-col justify-between">
@@ -390,41 +389,41 @@ export default function Home() {
                   </h3>
                   <div className="mb-4">
                     <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
-                      I am a Software Engineer with expertise in MLOps, Cloud Security, and AI/ML pipelines. 
+                      I am a Software Engineer with expertise in MLOps, Cloud Security, and AI/ML pipelines.
                       I build secure, scalable systems that bridge cutting-edge research with production-ready solutions.
                     </p>
                   </div>
                   <div className="flex gap-2 flex-wrap content-start mb-6">
-                    <a 
-                      href="mailto:n.bhavana.reddy5@gmail.com" 
+                    <a
+                      href="mailto:n.bhavana.reddy5@gmail.com"
                       className="hover:opacity-80 transition-opacity"
                       aria-label="Email Bhavana"
                     >
                       <Badge color="green" pulse icon={Globe}>n.bhavana.reddy5@gmail.com</Badge>
                     </a>
                   </div>
-                  
+
                   {/* Links */}
                   <div className="flex flex-col gap-3 mb-6">
-                    <a 
-                      href="https://www.linkedin.com/in/bhavana-nare-60657385/" 
-                      target="_blank" 
+                    <a
+                      href="https://www.linkedin.com/in/bhavana-nare-60657385/"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-300 hover:text-purple-600 transition-colors"
                     >
                       <Linkedin size={16} /> LinkedIn Profile <ExternalLink size={12} className="opacity-50" />
                     </a>
-                    <a 
-                      href="https://github.com/Bhavana5N" 
-                      target="_blank" 
+                    <a
+                      href="https://github.com/Bhavana5N"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-300 hover:text-purple-600 transition-colors"
                     >
                       <Github size={16} /> GitHub Profile <ExternalLink size={12} className="opacity-50" />
                     </a>
-                    <a 
-                      href="https://ieeexplore.ieee.org/document/11127674" 
-                      target="_blank" 
+                    <a
+                      href="https://ieeexplore.ieee.org/document/11127674"
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-300 hover:text-purple-600 transition-colors"
                     >
@@ -451,36 +450,28 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            
+
             {/* Right: Summary */}
             <div className="md:col-span-2">
               <div className="bg-white dark:bg-black border border-zinc-200 dark:border-zinc-800 p-6 rounded-2xl shadow-sm h-full">
                 <h3 className="text-xl font-bold mb-4 text-zinc-900 dark:text-white">Professional Summary</h3>
-                
+
                 <ul className="space-y-3 text-sm text-zinc-600 dark:text-zinc-300">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 size={16} className="text-purple-500 shrink-0 mt-0.5" />
-                    <span>Proficient in <strong>Python, C++, JavaScript, Django, Flask, React JS</strong>, and cloud services across AWS and Azure</span>
+                    <span>ML Engineer with <strong>3 years</strong> of hands-on experience in ML and LLM integration, supported by <strong>10+ years</strong> of overall software engineering experience</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 size={16} className="text-purple-500 shrink-0 mt-0.5" />
-                    <span>Lead <strong>AI governance and MLOps initiatives</strong> using Databricks, Hex, GitLab, and Vertex AI to secure developer platforms</span>
+                    <span>Experienced in building and deploying <strong>ML- and LLM-powered components</strong> used in production workflows</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 size={16} className="text-purple-500 shrink-0 mt-0.5" />
-                    <span>Deploy robust <strong>AI/ML solutions</strong> integrating PyTorch, TensorFlow, scikit-learn, and OpenCV</span>
+                    <span>Proven impact architecting AI-driven systems that reduced operational risk and cut manual effort by <strong>60–70%</strong></span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 size={16} className="text-purple-500 shrink-0 mt-0.5" />
-                    <span>Architect <strong>data pipelines</strong> on DynamoDB, PostgreSQL, and AWS serverless services</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 size={16} className="text-purple-500 shrink-0 mt-0.5" />
-                    <span>Ensure compliance with <strong>ISO 26262 functional safety</strong> and <strong>ISO 21434 cybersecurity</strong> standards</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle2 size={16} className="text-purple-500 shrink-0 mt-0.5" />
-                    <span>Published <strong>IEEE Xplore research</strong> on computational trust for human-robot collaboration</span>
+                    <span>Expertise in system architecture, <strong>performance optimization</strong>, and automation, with hands-on leadership across the full SDLC</span>
                   </li>
                 </ul>
 
@@ -493,7 +484,7 @@ export default function Home() {
                     Looking for senior engineering roles in <strong>AI/ML Engineering</strong>, <strong>MLOps</strong>, or <strong>Cloud Security</strong>.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['AI/ML Engineer', 'MLOps Engineer', 'Security Engineer', 'Senior Software Engineer'].map((role) => (
+                    {['ML Engineer', 'MLOps Engineer', 'Security AI Analyst', 'Senior Software Engineer'].map((role) => (
                       <span key={role} className="px-3 py-1 text-xs bg-zinc-100 dark:bg-zinc-800 rounded-full text-zinc-700 dark:text-zinc-300">
                         {role}
                       </span>
