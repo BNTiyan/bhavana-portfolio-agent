@@ -14,33 +14,43 @@ import {
 import { cn } from '@/lib/utils';
 
 type PhaseStatus = 'completed' | 'current' | 'upcoming';
+type PhaseType = 'education' | 'work';
 
 interface RoadmapPhase {
   id: number;
   title: string;
-  subtitle: string;
+  organization: string;
+  location: string;
+  period: string;
+  type: PhaseType;
   status: PhaseStatus;
   description: string;
-  goal: string;
-  stakeholder: string;
+  skills: string[];
+  skillsGained: string;
   icon: React.ElementType;
 }
 
 const PHASES: RoadmapPhase[] = [
   {
     id: 1,
-    title: "Phase 1: Academic Foundation",
-    subtitle: "Education & Research",
+    title: "Bachelor of Technology",
+    organization: "Sree Vidyanikethan Engineering College",
+    location: "Tirupati, India",
+    period: "2010 - 2014",
+    type: 'education',
     status: 'completed',
-    stakeholder: "Academic",
-    icon: LayoutTemplate,
-    description: "Master's in Computer Science from University of Georgia with thesis research on computational trust for human-robot collaboration. Published in IEEE Xplore.",
-    goal: "Strong theoretical foundation in ML, computer vision, and safety-critical systems."
+    icon: GraduationCap,
+    description: "Computer Science foundation with focus on programming fundamentals, algorithms, and software engineering principles.",
+    skills: ["C++", "Java", "Data Structures", "Algorithms", "DBMS"],
+    skillsGained: "Strong CS fundamentals and problem-solving approach"
   },
   {
     id: 2,
-    title: "Phase 2: Industry Application",
-    subtitle: "Automotive & Safety",
+    title: "Senior Software Engineer",
+    organization: "Tata Consultancy Services",
+    location: "Hyderabad, India",
+    period: "2014 - 2018",
+    type: 'work',
     status: 'completed',
     stakeholder: "Engineering Teams",
     icon: Server,
@@ -49,44 +59,131 @@ const PHASES: RoadmapPhase[] = [
   },
   {
     id: 3,
-    title: "Phase 3: AI Security & Governance",
-    subtitle: "Current Focus",
-    status: 'current',
-    stakeholder: "Security Teams",
-    icon: Layers,
-    description: "Leading AI governance and MLOps initiatives at Rivian. Architected 'Beacon' AI-assisted SAST platform using Vertex AI for automated security scanning.",
-    goal: "Scaling AI-driven security tooling across enterprise CI/CD pipelines."
+    title: "Python Developer & Data Analyst",
+    organization: "Teradata India",
+    location: "Hyderabad, India",
+    period: "2018 - 2019",
+    type: 'work',
+    status: 'completed',
+    icon: Database,
+    description: "Designed APIs for PYTERADATA, bridging Python with enterprise SQL analytics. Enhanced data engineering skills.",
+    skills: ["Python", "SQL", "APIs", "Data Analytics", "Test Automation"],
+    skillsGained: "Data engineering, API design, enterprise data systems"
   },
   {
     id: 4,
-    title: "Phase 4: Leadership & Innovation",
-    subtitle: "Future Growth",
+    title: "Scrum Master & Tool Architect",
+    organization: "Continental Automotive",
+    location: "Bangalore, India",
+    period: "2019 - 2021",
+    type: 'work',
+    status: 'completed',
+    icon: Cpu,
+    description: "Led ADAS camera object detection projects. Built computer vision solutions with Kalman filters and 3D mapping. Created AWS-powered dashboards.",
+    skills: ["Python", "C++", "OpenCV", "AWS Lambda", "React", "Django", "Flask"],
+    skillsGained: "Computer vision, automotive ADAS, AWS cloud architecture"
+  },
+  {
+    id: 5,
+    title: "Master of Computer Science",
+    organization: "University of Georgia",
+    location: "Athens, Georgia, USA",
+    period: "2021 - 2023",
+    type: 'education',
+    status: 'completed',
+    icon: GraduationCap,
+    description: "Thesis research on computational trust for human-robot collaboration. Published in IEEE Xplore. GPA: 3.7/4.0",
+    skills: ["Machine Learning", "PyTorch", "TensorFlow", "Research", "Trust Modeling"],
+    skillsGained: "ML/AI research, academic publishing, deep learning"
+  },
+  {
+    id: 6,
+    title: "Senior Software Engineer & System Integrator",
+    organization: "Robert Bosch",
+    location: "Michigan, USA",
+    period: "2023 - 2025",
+    type: 'work',
+    status: 'completed',
+    icon: Building2,
+    description: "Led safety-critical automotive software development. Built PR Statistics Dashboard with ML forecasting. Achieved ISO 26262 & ASPICE compliance.",
+    skills: ["Azure", "Docker", "Kubernetes", "Django", "React", "AWS SageMaker", "ISO 26262"],
+    skillsGained: "Functional safety, ML in production, cloud-native architecture"
+  },
+  {
+    id: 7,
+    title: "Cybersecurity AI Analyst",
+    organization: "Rivian Automotive",
+    location: "Remote, USA",
+    period: "2025 - Present",
+    type: 'work',
+    status: 'current',
+    icon: Shield,
+    description: "Leading AI governance and MLOps initiatives. Architected 'Beacon' AI-assisted SAST platform using Vertex AI. Building security automation at scale.",
+    skills: ["Vertex AI", "Gemini", "GraphQL", "Databricks", "Hex", "GitLab CI/CD"],
+    skillsGained: "AI security, LLM integration, enterprise MLOps"
+  },
+  {
+    id: 8,
+    title: "Technical Leadership",
+    organization: "Future Growth",
+    location: "USA",
+    period: "Next Chapter",
+    type: 'work',
     status: 'upcoming',
-    stakeholder: "Organizations",
-    icon: Briefcase,
-    description: "Seeking senior engineering roles where I can drive AI/ML strategy, build high-performing teams, and deliver impactful products.",
-    goal: "Technical leadership combining ML expertise with automotive/security domain knowledge."
+    icon: Rocket,
+    description: "Seeking senior engineering roles to drive AI/ML strategy, build high-performing teams, and deliver impactful products at scale.",
+    skills: ["Team Leadership", "Architecture", "Strategy", "Mentoring"],
+    skillsGained: "Technical leadership combining ML + automotive + security expertise"
+  }
+];
+
+// Common themes across career
+const SKILL_PROGRESSION = [
+  {
+    theme: "Automation & CI/CD",
+    icon: TrendingUp,
+    journey: "Jenkins @ TCS → Azure Pipelines @ Bosch → GitLab CI @ Rivian",
+    description: "Consistent focus on automating deployments and reducing manual effort"
+  },
+  {
+    theme: "Python Expertise",
+    icon: Code2,
+    journey: "Scripting @ TCS → APIs @ Teradata → ML @ UGA → AI @ Rivian",
+    description: "Python as core language, evolving from scripting to ML/AI applications"
+  },
+  {
+    theme: "Data & ML",
+    icon: Brain,
+    journey: "SQL @ Teradata → Computer Vision @ Continental → Deep Learning @ UGA → LLMs @ Rivian",
+    description: "Progressive deepening of ML skills from analytics to cutting-edge AI"
+  },
+  {
+    theme: "Cloud Architecture",
+    icon: Database,
+    journey: "AWS Lambda @ Continental → Azure @ Bosch → Vertex AI @ Rivian",
+    description: "Multi-cloud experience across AWS, Azure, and Google Cloud"
   }
 ];
 
 const StatusIcon = ({ status }: { status: PhaseStatus }) => {
   if (status === 'completed') {
-    return <CheckCircle2 className="w-6 h-6 text-purple-600 dark:text-purple-400 fill-purple-50 dark:fill-purple-900/20" />;
+    return <CheckCircle2 className="w-5 h-5 text-purple-600 dark:text-purple-400" />;
   }
   if (status === 'current') {
     return (
       <div className="relative flex items-center justify-center">
         <div className="absolute w-full h-full bg-purple-400/30 rounded-full animate-ping" />
-        <Loader2 className="w-6 h-6 text-purple-600 dark:text-purple-400 animate-spin relative z-10" />
+        <Loader2 className="w-5 h-5 text-purple-600 dark:text-purple-400 animate-spin relative z-10" />
       </div>
     );
   }
-  return <Circle className="w-6 h-6 text-zinc-300 dark:text-zinc-700" />;
+  return <Circle className="w-5 h-5 text-zinc-300 dark:text-zinc-700" />;
 };
 
 const PhaseCard = ({ phase, isLast }: { phase: RoadmapPhase; isLast: boolean }) => {
   const isActive = phase.status === 'current';
   const isCompleted = phase.status === 'completed';
+  const isEducation = phase.type === 'education';
 
   return (
     <div className="relative pl-8 md:pl-0">
@@ -100,10 +197,12 @@ const PhaseCard = ({ phase, isLast }: { phase: RoadmapPhase; isLast: boolean }) 
         <div className="bg-white dark:bg-zinc-950 p-2 z-10">
           <StatusIcon status={phase.status} />
         </div>
-        <div className={cn(
-          "w-px flex-1 bg-zinc-200 dark:bg-zinc-800",
-          isLast && "opacity-0"
-        )} />
+        {!isLast && (
+          <div className={cn(
+            "w-0.5 flex-1 min-h-[40px]",
+            isCompleted ? "bg-purple-300 dark:bg-purple-700" : "bg-zinc-200 dark:bg-zinc-800"
+          )} />
+        )}
       </div>
 
       {/* MOBILE Timeline */}
@@ -114,8 +213,7 @@ const PhaseCard = ({ phase, isLast }: { phase: RoadmapPhase; isLast: boolean }) 
       </div>
 
       <div className={cn(
-        "md:flex items-center justify-between gap-12 py-8 group",
-        phase.id % 2 === 0 ? "md:flex-row-reverse" : ""
+        "flex-1 pb-8 group",
       )}>
 
         {/* Card */}
@@ -148,42 +246,44 @@ const PhaseCard = ({ phase, isLast }: { phase: RoadmapPhase; isLast: boolean }) 
                   {phase.title}
                 </h3>
               </div>
-              <div className="p-2 rounded-lg bg-zinc-100 dark:bg-zinc-800">
-                <phase.icon size={18} className={cn(
-                  isActive || isCompleted ? "text-purple-600" : "text-zinc-400"
-                )} />
-              </div>
+              <h3 className="text-lg font-bold text-zinc-900 dark:text-white">
+                {phase.title}
+              </h3>
+              <p className="text-sm font-medium text-purple-600 dark:text-purple-400">
+                {phase.organization}
+              </p>
             </div>
-
-            <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-6 leading-relaxed">
-              {phase.description}
-            </p>
-
-            <div className={cn(
-              "rounded-lg p-3 text-xs border",
-              isActive
-                ? "bg-purple-50/50 dark:bg-purple-900/10 border-purple-100 dark:border-purple-800 text-purple-800 dark:text-purple-200"
-                : "bg-zinc-100 dark:bg-zinc-800/50 border-zinc-200 dark:border-zinc-700 text-zinc-500"
-            )}>
-              <span className="font-bold block mb-1 uppercase text-[10px] opacity-70">
-                Primary Goal
-              </span>
-              {phase.goal}
+            <div className="text-right text-xs text-zinc-500">
+              <div className="font-semibold">{phase.period}</div>
+              <div>{phase.location}</div>
             </div>
+          </div>
 
-            <div className="mt-4 flex items-center gap-2">
-              <span className="text-[10px] text-zinc-400 uppercase font-medium">Target:</span>
-              <span className="text-xs font-semibold text-zinc-700 dark:text-zinc-300">
-                {phase.stakeholder}
-              </span>
-            </div>
+          {/* Description */}
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-4 leading-relaxed">
+            {phase.description}
+          </p>
 
+          <div className={cn(
+            "rounded-lg p-3 text-xs border",
+            isActive
+              ? "bg-purple-50/50 dark:bg-purple-900/10 border-purple-100 dark:border-purple-800 text-purple-800 dark:text-purple-200"
+              : "bg-zinc-100 dark:bg-zinc-800/50 border-zinc-200 dark:border-zinc-700 text-zinc-500"
+          )}>
+            <span className="font-bold block mb-1 uppercase text-[10px] opacity-70">
+              Primary Goal
+            </span>
+            {phase.goal}
+          </div>
+
+          {/* Skills Gained */}
+          <div className="flex items-start gap-2 pt-3 border-t border-zinc-100 dark:border-zinc-800">
+            <TrendingUp size={14} className="text-emerald-500 shrink-0 mt-0.5" />
+            <span className="text-xs text-zinc-600 dark:text-zinc-400">
+              <strong className="text-emerald-600 dark:text-emerald-400">Skills Gained:</strong> {phase.skillsGained}
+            </span>
           </div>
         </div>
-
-        <div className="flex-1 hidden md:flex flex-col justify-center items-center text-center opacity-50">
-        </div>
-
       </div>
     </div>
   );
@@ -191,7 +291,7 @@ const PhaseCard = ({ phase, isLast }: { phase: RoadmapPhase; isLast: boolean }) 
 
 const Roadmap = () => {
   return (
-    <section id="roadmap" className="py-24 relative overflow-hidden">
+    <section id="roadmap" className="py-16 relative overflow-hidden scroll-mt-24">
       <div className="max-w-4xl mx-auto px-6">
 
         {/* Header */}
@@ -201,7 +301,7 @@ const Roadmap = () => {
             <Milestone size={12} /> Career Journey
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-black text-zinc-900 dark:text-white tracking-tight leading-tight">
+          <h2 className="text-3xl md:text-4xl font-black text-zinc-900 dark:text-white tracking-tight leading-tight mb-4">
             From Academia to <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-600">Industry Leader</span>
           </h2>
 
@@ -246,4 +346,3 @@ const Roadmap = () => {
 };
 
 export default Roadmap;
-
