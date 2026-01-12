@@ -9,7 +9,16 @@ import {
   Layers,
   Server,
   LayoutTemplate,
-  Briefcase
+  Briefcase,
+  GraduationCap,
+  Database,
+  Cpu,
+  Building2,
+  Shield,
+  Rocket,
+  TrendingUp,
+  Code2,
+  Brain
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -52,10 +61,10 @@ const PHASES: RoadmapPhase[] = [
     period: "2014 - 2018",
     type: 'work',
     status: 'completed',
-    stakeholder: "Engineering Teams",
     icon: Server,
-    description: "Applied ML and safety engineering at Bosch and Continental. Built ADAS systems, automated CI/CD pipelines, and MLOps frameworks.",
-    goal: "End-to-end experience in automotive software development and MLOps."
+    description: "Automated telecom component deployment and validation using Python and Jenkins. Reduced manual testing effort by 40%.",
+    skills: ["Python", "Linux", "Jenkins", "Docker"],
+    skillsGained: "Enterprise automation and DevOps fundamentals"
   },
   {
     id: 3,
@@ -233,12 +242,6 @@ const PhaseCard = ({ phase, isLast }: { phase: RoadmapPhase; isLast: boolean }) 
 
             <div className="flex justify-between items-start mb-4">
               <div>
-                <span className={cn(
-                  "text-[10px] font-bold uppercase tracking-widest mb-1 block",
-                  isActive || isCompleted ? "text-purple-600 dark:text-purple-400" : "text-zinc-400"
-                )}>
-                  {phase.subtitle}
-                </span>
                 <h3 className={cn(
                   "text-lg font-bold",
                   isActive ? "text-zinc-900 dark:text-white" : "text-zinc-700 dark:text-zinc-300"
@@ -264,17 +267,7 @@ const PhaseCard = ({ phase, isLast }: { phase: RoadmapPhase; isLast: boolean }) 
             {phase.description}
           </p>
 
-          <div className={cn(
-            "rounded-lg p-3 text-xs border",
-            isActive
-              ? "bg-purple-50/50 dark:bg-purple-900/10 border-purple-100 dark:border-purple-800 text-purple-800 dark:text-purple-200"
-              : "bg-zinc-100 dark:bg-zinc-800/50 border-zinc-200 dark:border-zinc-700 text-zinc-500"
-          )}>
-            <span className="font-bold block mb-1 uppercase text-[10px] opacity-70">
-              Primary Goal
-            </span>
-            {phase.goal}
-          </div>
+
 
           {/* Skills Gained */}
           <div className="flex items-start gap-2 pt-3 border-t border-zinc-100 dark:border-zinc-800">

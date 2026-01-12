@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bhavana Nare - Project Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --bg-dark: #0a0a0a;
@@ -15,13 +17,13 @@
       --text-secondary: #a1a1aa;
       --border: #27272a;
     }
-    
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       font-family: 'Inter', -apple-system, sans-serif;
       background: var(--bg-dark);
@@ -29,14 +31,14 @@
       overflow: hidden;
       height: 100vh;
     }
-    
+
     .presentation {
       height: 100vh;
       width: 100vw;
       overflow: hidden;
       position: relative;
     }
-    
+
     .slide {
       position: absolute;
       top: 0;
@@ -52,24 +54,24 @@
       transform: translateX(100px);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
-    
+
     .slide.active {
       display: flex;
       opacity: 1;
       transform: translateX(0);
     }
-    
+
     .slide-content {
       max-width: 1200px;
       width: 100%;
     }
-    
+
     /* Title Slide */
     .title-slide {
       text-align: center;
       background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.15) 0%, transparent 70%);
     }
-    
+
     .title-slide h1 {
       font-size: 4.5rem;
       font-weight: 800;
@@ -79,13 +81,13 @@
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
-    
+
     .title-slide .subtitle {
       font-size: 1.5rem;
       color: var(--text-secondary);
       margin-bottom: 2rem;
     }
-    
+
     .title-slide .contact {
       display: flex;
       gap: 2rem;
@@ -93,19 +95,19 @@
       font-size: 1rem;
       color: var(--accent-light);
     }
-    
+
     /* Project Slides */
     .project-slide {
       background: linear-gradient(180deg, var(--bg-dark) 0%, #0d0d15 100%);
     }
-    
+
     .project-header {
       display: flex;
       align-items: center;
       gap: 1rem;
       margin-bottom: 2rem;
     }
-    
+
     .project-number {
       font-size: 5rem;
       font-weight: 800;
@@ -113,34 +115,34 @@
       opacity: 0.3;
       line-height: 1;
     }
-    
+
     .project-title-group h2 {
       font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
     }
-    
+
     .project-title-group .company {
       font-size: 1.2rem;
       color: var(--accent-light);
     }
-    
+
     .project-body {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
     }
-    
+
     .project-description {
       font-size: 1.1rem;
       line-height: 1.8;
       color: var(--text-secondary);
     }
-    
+
     .project-highlights {
       list-style: none;
     }
-    
+
     .project-highlights li {
       position: relative;
       padding-left: 1.5rem;
@@ -148,21 +150,21 @@
       font-size: 1rem;
       color: var(--text-secondary);
     }
-    
+
     .project-highlights li::before {
       content: "→";
       position: absolute;
       left: 0;
       color: var(--accent);
     }
-    
+
     .tech-stack {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
       margin-top: 1.5rem;
     }
-    
+
     .tech-tag {
       background: rgba(168, 85, 247, 0.15);
       border: 1px solid rgba(168, 85, 247, 0.3);
@@ -171,7 +173,7 @@
       font-size: 0.85rem;
       color: var(--accent-light);
     }
-    
+
     .impact-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -179,7 +181,7 @@
       padding: 1.5rem;
       margin-top: 1.5rem;
     }
-    
+
     .impact-card h4 {
       color: var(--accent);
       font-size: 0.9rem;
@@ -187,18 +189,18 @@
       letter-spacing: 1px;
       margin-bottom: 0.5rem;
     }
-    
+
     .impact-card .metric {
       font-size: 2.5rem;
       font-weight: 700;
       color: var(--text-primary);
     }
-    
+
     .impact-card .label {
       color: var(--text-secondary);
       font-size: 0.9rem;
     }
-    
+
     /* Navigation */
     .nav {
       position: fixed;
@@ -209,7 +211,7 @@
       gap: 1rem;
       z-index: 100;
     }
-    
+
     .nav button {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -221,12 +223,12 @@
       font-size: 0.9rem;
       transition: all 0.2s;
     }
-    
+
     .nav button:hover {
       background: var(--accent);
       border-color: var(--accent);
     }
-    
+
     .progress {
       position: fixed;
       bottom: 0;
@@ -235,7 +237,7 @@
       background: var(--accent);
       transition: width 0.3s ease;
     }
-    
+
     .slide-counter {
       position: fixed;
       top: 30px;
@@ -243,43 +245,43 @@
       font-size: 0.9rem;
       color: var(--text-secondary);
     }
-    
+
     /* Skills Slide */
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
     }
-    
+
     .skill-category {
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 1.5rem;
     }
-    
+
     .skill-category h4 {
       color: var(--accent-light);
       margin-bottom: 1rem;
       font-size: 1rem;
     }
-    
+
     .skill-category ul {
       list-style: none;
     }
-    
+
     .skill-category li {
       color: var(--text-secondary);
       font-size: 0.9rem;
       margin-bottom: 0.5rem;
     }
-    
+
     /* Timeline Slide */
     .timeline {
       position: relative;
       padding-left: 3rem;
     }
-    
+
     .timeline::before {
       content: "";
       position: absolute;
@@ -289,12 +291,12 @@
       width: 2px;
       background: linear-gradient(to bottom, var(--accent), transparent);
     }
-    
+
     .timeline-item {
       position: relative;
       margin-bottom: 2rem;
     }
-    
+
     .timeline-item::before {
       content: "";
       position: absolute;
@@ -306,39 +308,39 @@
       border-radius: 50%;
       transform: translateX(-5px);
     }
-    
+
     .timeline-item h4 {
       font-size: 1.2rem;
       margin-bottom: 0.3rem;
     }
-    
+
     .timeline-item .date {
       color: var(--accent-light);
       font-size: 0.9rem;
       margin-bottom: 0.3rem;
     }
-    
+
     .timeline-item .company {
       color: var(--text-secondary);
       font-size: 0.9rem;
     }
-    
+
     /* Section Title */
     .section-title {
       text-align: center;
       margin-bottom: 3rem;
     }
-    
+
     .section-title h2 {
       font-size: 3rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
     }
-    
+
     .section-title span {
       color: var(--accent);
     }
-    
+
     /* Publication Slide */
     .publication-card {
       background: linear-gradient(135deg, rgba(168, 85, 247, 0.1) 0%, rgba(99, 102, 241, 0.1) 100%);
@@ -347,18 +349,18 @@
       padding: 3rem;
       text-align: center;
     }
-    
+
     .publication-card h3 {
       font-size: 2rem;
       margin-bottom: 1rem;
     }
-    
+
     .publication-card .publisher {
       color: var(--accent-light);
       font-size: 1.2rem;
       margin-bottom: 1.5rem;
     }
-    
+
     .publication-card p {
       color: var(--text-secondary);
       font-size: 1.1rem;
@@ -366,26 +368,26 @@
       max-width: 700px;
       margin: 0 auto;
     }
-    
+
     /* Contact Slide */
     .contact-slide {
       text-align: center;
       background: radial-gradient(ellipse at center, rgba(168, 85, 247, 0.2) 0%, transparent 60%);
     }
-    
+
     .contact-slide h2 {
       font-size: 3.5rem;
       font-weight: 700;
       margin-bottom: 2rem;
     }
-    
+
     .contact-links {
       display: flex;
       gap: 2rem;
       justify-content: center;
       margin-bottom: 2rem;
     }
-    
+
     .contact-links a {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -396,12 +398,12 @@
       font-size: 1.1rem;
       transition: all 0.2s;
     }
-    
+
     .contact-links a:hover {
       background: var(--accent);
       border-color: var(--accent);
     }
-    
+
     .final-note {
       color: var(--text-secondary);
       font-size: 1.2rem;
@@ -410,16 +412,28 @@
 
     /* Responsive */
     @media (max-width: 1024px) {
-      .slide { padding: 40px 60px; }
-      .title-slide h1 { font-size: 3rem; }
-      .project-body { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .slide {
+        padding: 40px 60px;
+      }
+
+      .title-slide h1 {
+        font-size: 3rem;
+      }
+
+      .project-body {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="presentation">
-    
+
     <!-- Slide 1: Title -->
     <div class="slide title-slide active" data-slide="1">
       <div class="slide-content">
@@ -482,8 +496,8 @@
         <div class="project-body">
           <div>
             <p class="project-description">
-              Enterprise-scale AI-powered Static Application Security Testing platform that leverages 
-              Google Vertex AI (Gemini 2.5 Pro) to identify exploitable security vulnerabilities 
+              Enterprise-scale AI-powered Static Application Security Testing platform that leverages
+              Google Vertex AI (Gemini 2.5 Pro) to identify exploitable security vulnerabilities
               directly within CI/CD pipelines.
             </p>
             <div class="tech-stack">
@@ -526,7 +540,7 @@
         <div class="project-body">
           <div>
             <p class="project-description">
-              Automated dependency security patching system that streamlines the identification, 
+              Automated dependency security patching system that streamlines the identification,
               prioritization, and remediation of vulnerable packages across the entire codebase.
             </p>
             <div class="tech-stack">
@@ -563,7 +577,7 @@
         <div class="project-body">
           <div>
             <p class="project-description">
-              Full-stack analytics dashboard that forecasts pull request review SLAs using 
+              Full-stack analytics dashboard that forecasts pull request review SLAs using
               machine learning, enabling engineering teams to optimize their code review processes.
             </p>
             <div class="tech-stack">
@@ -605,7 +619,7 @@
         <div class="project-body">
           <div>
             <p class="project-description">
-              Advanced Driver Assistance Systems (ADAS) computer vision solutions for 
+              Advanced Driver Assistance Systems (ADAS) computer vision solutions for
               real-time object detection, 2D-to-3D mapping, and emergency braking systems.
             </p>
             <div class="tech-stack">
@@ -647,7 +661,7 @@
         <div class="project-body">
           <div>
             <p class="project-description">
-              Cloud-integrated dashboard platforms for real-time telemetry visualization, 
+              Cloud-integrated dashboard platforms for real-time telemetry visualization,
               KPI automation, and configuration management across automotive systems.
             </p>
             <div class="tech-stack">
@@ -690,8 +704,8 @@
         <div class="project-body">
           <div>
             <p class="project-description">
-              Python API framework enabling seamless integration with Teradata's SQL 
-              analytical functions, bridging the gap between Python data science workflows 
+              Python API framework enabling seamless integration with Teradata's SQL
+              analytical functions, bridging the gap between Python data science workflows
               and enterprise data warehousing.
             </p>
             <div class="tech-stack">
@@ -728,8 +742,8 @@
         <div class="project-body">
           <div>
             <p class="project-description">
-              Enterprise automation framework for deploying and managing telecom 
-              components across real and virtual infrastructure nodes, integrated 
+              Enterprise automation framework for deploying and managing telecom
+              components across real and virtual infrastructure nodes, integrated
               with CI/CD pipelines for continuous validation.
             </p>
             <div class="tech-stack">
@@ -764,9 +778,9 @@
           <h3>Computational Trust Framework for Human-Robot Teams</h3>
           <div class="publisher">IEEE Xplore (Document 11127674) | May 2023</div>
           <p>
-            Machine-learning research on dynamic trust scoring and safety alignment 
-            for collaborative robotics. Developed novel approaches for computational 
-            trust modeling in human-robot interaction scenarios, contributing to 
+            Machine-learning research on dynamic trust scoring and safety alignment
+            for collaborative robotics. Developed novel approaches for computational
+            trust modeling in human-robot interaction scenarios, contributing to
             the advancement of safe and reliable autonomous systems.
           </p>
           <div class="tech-stack" style="justify-content: center; margin-top: 2rem;">
@@ -837,7 +851,7 @@
         <div class="contact-links">
           <a href="mailto:n.bhavana.reddy5@gmail.com">📧 Email</a>
           <a href="https://www.linkedin.com/in/bhavana-nare-60657385/" target="_blank">💼 LinkedIn</a>
-          <a href="https://github.com/Bhavana5N" target="_blank">💻 GitHub</a>
+          <a href="https://github.com/BNTiyan" target="_blank">💻 GitHub</a>
         </div>
         <p class="final-note">
           Open for opportunities in MLOps, Cloud Security, AI/ML Engineering, and Full-Stack Development
@@ -868,10 +882,10 @@
     function showSlide(n) {
       const slides = document.querySelectorAll('.slide');
       slides.forEach(slide => slide.classList.remove('active'));
-      
+
       if (n > totalSlides) currentSlide = 1;
       if (n < 1) currentSlide = totalSlides;
-      
+
       document.querySelector(`[data-slide="${currentSlide}"]`).classList.add('active');
       document.getElementById('current').textContent = currentSlide;
       document.getElementById('progress').style.width = `${(currentSlide / totalSlides) * 100}%`;
@@ -914,5 +928,5 @@
     showSlide(currentSlide);
   </script>
 </body>
-</html>
 
+</html>

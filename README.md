@@ -107,7 +107,7 @@ The PDF is already included in `src/docs/Bhavana.pdf`.
 ## Links
 
 - **LinkedIn:** [bhavana-nare-60657385](https://www.linkedin.com/in/bhavana-nare-60657385/)
-- **GitHub:** [Bhavana5N](https://github.com/Bhavana5N)
+- **GitHub:** [BNTiyan](https://github.com/BNTiyan)
 - **IEEE Publication:** [Computational Trust Framework](https://ieeexplore.ieee.org/document/11127674)
 
 ## License

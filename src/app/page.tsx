@@ -424,7 +424,7 @@ export default function Home() {
                       <Linkedin size={16} /> LinkedIn Profile <ExternalLink size={12} className="opacity-50" />
                     </a>
                     <a
-                      href="https://github.com/Bhavana5N"
+                      href="https://github.com/BNTiyan"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-300 hover:text-purple-600 transition-colors"
@@ -527,7 +527,7 @@ export default function Home() {
         <footer className="py-12 border-t border-zinc-200 dark:border-zinc-800 mt-12">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <div className="flex items-center gap-4">
-              <a href="https://github.com/Bhavana5N" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-purple-600 transition-colors">
+              <a href="https://github.com/BNTiyan" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-purple-600 transition-colors">
                 <Github size={20} />
               </a>
               <a href="https://www.linkedin.com/in/bhavana-nare-60657385/" target="_blank" rel="noopener noreferrer" className="text-zinc-400 hover:text-purple-600 transition-colors">
