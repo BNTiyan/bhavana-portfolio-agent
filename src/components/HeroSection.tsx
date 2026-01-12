@@ -46,7 +46,7 @@ const HeroSection = () => {
 
           {/* Title */}
           <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-zinc-900 dark:text-white leading-[1.1]">
-            Senior Staff<br />
+            Senior Software<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-500">
               Engineer
             </span>
