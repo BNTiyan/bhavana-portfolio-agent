@@ -314,7 +314,7 @@ export default function Home() {
 
               <div className="space-y-4 text-zinc-700 dark:text-zinc-300">
                 <p className="text-lg leading-relaxed">
-                  <strong className="text-purple-700 dark:text-purple-400">ML Engineer</strong> with <strong>3 years</strong> of experience in ML and LLM integration, supported by <strong>10+ years</strong> of overall software engineering experience.
+                  <strong className="text-purple-700 dark:text-purple-400">ML Engineer</strong> with hands-on experience in ML and LLM integration, supported by <strong>10+ years</strong> of overall software engineering experience.
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-4 pt-4">
@@ -375,13 +375,60 @@ export default function Home() {
 
           <BentoCard colSpan={2} noFade={true} id="proj-2">
             <ProjectDeepDive
-              title="PR Statistics Dashboard"
-              role="Product Owner @ Robert Bosch"
+              title="PR Analytics & Release Health"
+              role="Senior Software Engineer @ Robert Bosch"
               problem="Engineering teams lacked visibility into code review SLAs and bottlenecks, leading to delayed releases and unpredictable delivery timelines."
-              solution="Built a Flask + React dashboard integrated with AWS SageMaker to forecast review SLAs, containerized with Docker and scaling to 1K req/sec."
-              parameters={['Review Time', 'Reviewer Load', 'PR Size', 'Team Velocity']}
-              tags={['Flask', 'React', 'AWS SageMaker', 'Docker', 'Azure Pipelines']}
-              kpis={['70% reduction in manual validation', 'Real-time SLA forecasting', 'Cross-team visibility']}
+              solution="Built an automated AWS pipeline (EventBridge → Lambda → S3/DynamoDB) to collect and process daily PR data with zero manual effort."
+              parameters={['PR Volume', 'Merge Latency', 'Review Bottlenecks', 'Failure Reasons', 'Event-Driven Tracking']}
+              tags={['Python', 'AWS Lambda', 'EventBridge', 'DynamoDB', 'CloudWatch', 'Draw.io']}
+              kpis={['Zero manual effort collection', 'Real-time health trends', 'Automated email alerts']}
+            />
+          </BentoCard>
+          <BentoCard colSpan={2} noFade={true} id="proj-3">
+            <ProjectDeepDive
+              title="Camera Object Detection (ADAS)"
+              role="Senior Software Engineer @ Continental"
+              problem="Safety-critical ADAS functions like Emergency Braking required highly accurate real-time object detection and 2D-to-3D localization."
+              solution="Optimized ML-based object detection pipelines and 3D mapping algorithms, validating model robustness across diverse edge cases (occlusion, lighting)."
+              parameters={['2D/3D Mapping', 'Precision/Recall', 'Confidence Thresholds', 'Occlusion Handling']}
+              tags={['Python', 'Computer Vision', 'OpenCV', 'ML Perception', 'ADAS Logic']}
+              kpis={['Production-ready ML outputs', 'Verified EBA performance', 'ISO 26262 Compliance']}
+            />
+          </BentoCard>
+
+          <BentoCard colSpan={2} noFade={true} id="proj-4">
+            <ProjectDeepDive
+              title="AUTOSIM: E2E Automation Framework"
+              role="Tool Architect & Technical Specialist @ Continental"
+              problem="Manual testing of Camera Object Detection (COD) was slow and error-prone, requiring a modular automation framework for component-level testing."
+              solution="Developed AUTOSIM, a Python-based E2E automation framework that reduced manual effort by 60% with Jenkins CI/CD and automated DOORS reporting."
+              parameters={['Modular Architecture', 'Jenkins CI/CD', 'CSV Test Generation', 'DOORS Integration']}
+              tags={['Python', 'Jenkins', 'Git', 'JIRA', 'Confluence', 'E2E Testing']}
+              kpis={['60% reduction in manual effort', 'Automated DOORS uploads', 'Standardized report generation']}
+            />
+          </BentoCard>
+
+          <BentoCard colSpan={2} noFade={true} id="proj-5">
+            <ProjectDeepDive
+              title="KPI Visualization Portal"
+              role="Python Developer @ Continental"
+              problem="Engineering teams needed a unified way to visualize SQLite-based performance data across different software components."
+              solution="Built a full-stack KPI portal using Dash and Flask to visualize complex data through interactive graphs and automated processing."
+              parameters={['SQLite Data Input', 'Interactive Graphs', 'Automated Processor', 'Cross-component Reporting']}
+              tags={['Python', 'Dash', 'Flask', 'SQLite', 'Data Visualization']}
+              kpis={['Zero-manual visualization', 'Automated data processing', 'Unified team reporting']}
+            />
+          </BentoCard>
+
+          <BentoCard colSpan={2} noFade={true} id="proj-6">
+            <ProjectDeepDive
+              title="Lockfile Orchestration Framework"
+              role="Senior Software Engineer @ Robert Bosch"
+              problem="Managing multiple software building blocks required complex manual coordination for dependency updates and integration."
+              solution="Led design of a config-driven orchestration framework for automated dependency management and stable integration paths in Azure Pipelines."
+              parameters={['Config-driven Architecture', 'Azure Pipelines', 'Traceability', 'Automated PRs', 'Selective Integration']}
+              tags={['Python', 'Azure Pipelines', 'System Design', 'Orchestration']}
+              kpis={['75% deployment time cut', '60% manual effort saved', 'Automated unstable path detection']}
             />
           </BentoCard>
         </BentoGrid>
@@ -483,7 +530,7 @@ export default function Home() {
                 <ul className="space-y-3 text-sm text-zinc-600 dark:text-zinc-300">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 size={16} className="text-purple-500 shrink-0 mt-0.5" />
-                    <span>ML Engineer with <strong>3 years</strong> of hands-on experience in ML and LLM integration, supported by <strong>10+ years</strong> of overall software engineering experience</span>
+                    <span>ML Engineer with hands-on experience in ML and LLM integration, supported by <strong>10+ years</strong> of overall software engineering experience</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 size={16} className="text-purple-500 shrink-0 mt-0.5" />

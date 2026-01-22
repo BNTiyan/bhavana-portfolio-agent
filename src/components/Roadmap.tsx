@@ -81,16 +81,29 @@ const PHASES: RoadmapPhase[] = [
   },
   {
     id: 4,
-    title: "Scrum Master & Tool Architect",
-    organization: "Continental Automotive",
+    title: "Senior Software Engineer",
+    organization: "Continental Automotive India",
     location: "Bangalore, India",
     period: "2019 - 2021",
     type: 'work',
     status: 'completed',
     icon: Cpu,
-    description: "Led ADAS camera object detection projects. Built computer vision solutions with Kalman filters and 3D mapping. Created AWS-powered dashboards.",
-    skills: ["Python", "C++", "OpenCV", "AWS Lambda", "React", "Django", "Flask"],
-    skillsGained: "Computer vision, automotive ADAS, AWS cloud architecture"
+    description: "Contributed to ML-based camera perception systems for ADAS, supporting object detection outputs (2D/3D) used by Emergency Braking Assistance functions.",
+    skills: ["Python", "ML", "Computer Vision", "OpenCV", "ADAS"],
+    skillsGained: "Computer vision, automotive ADAS, ML perception"
+  },
+  {
+    id: 4.5,
+    title: "Framework Developer & Tool Architect",
+    organization: "Continental Automotive India",
+    location: "Bangalore, India",
+    period: "2019 - 2021",
+    type: 'work',
+    status: 'completed',
+    icon: Server,
+    description: "Developed AUTOSIM, a modular testing framework for ADAS COD, reducing manual effort by 60%. Built the KPI Visualization Portal using Dash and Flask.",
+    skills: ["Python", "Jenkins", "Dash", "Flask", "SQLite", "JIRA", "Confluence"],
+    skillsGained: "AWS cloud architecture, automation frameworks, data visualization"
   },
   {
     id: 5,
@@ -101,22 +114,22 @@ const PHASES: RoadmapPhase[] = [
     type: 'education',
     status: 'completed',
     icon: GraduationCap,
-    description: "Thesis research on computational trust for human-robot collaboration. Published in IEEE Xplore. GPA: 3.7/4.0",
+    description: "Thesis research on computational trust for human-robot collaboration. Published in IEEE Xplore (https://ieeexplore.ieee.org/document/11127674). GPA: 3.7/4.0",
     skills: ["Machine Learning", "PyTorch", "TensorFlow", "Research", "Trust Modeling"],
     skillsGained: "ML/AI research, academic publishing, deep learning"
   },
   {
     id: 6,
-    title: "MLOps Engineer",
+    title: "Senior Software Engineer",
     organization: "Robert Bosch",
     location: "Michigan, USA",
     period: "Aug 2024 - May 2025",
     type: 'work',
     status: 'completed',
     icon: Building2,
-    description: "Designed MLOps analytics framework for PR health signals. Built automated data ingestion pipelines and operational dashboards.",
-    skills: ["MLOps", "Python", "Data pipelines", "Dashboards", "Monitoring"],
-    skillsGained: "MLOps architecture, data engineering, operational analytics"
+    description: "Designed PR analytics and release health metrics embedded into CI/CD pipelines. Built automated AWS pipelines (EventBridge, Lambda, DynamoDB) for zero-manual-effort tracking.",
+    skills: ["Python", "AWS", "EventBridge", "Lambda", "DynamoDB", "CloudWatch"],
+    skillsGained: "AWS cloud serverless, operational analytics, CI/CD health metrics"
   },
   {
     id: 7,
@@ -127,9 +140,9 @@ const PHASES: RoadmapPhase[] = [
     type: 'work',
     status: 'completed',
     icon: Building2,
-    description: "Led config-driven orchestration framework design. Automated Azure pipelines for safe software integration and release compliance.",
+    description: "Led config-driven lockfile orchestration framework design for Software Building Blocks. Automated Azure pipelines and PR creation for verified combinations.",
     skills: ["CI/CD", "Azure Pipelines", "Python", "System Design", "Orchestration"],
-    skillsGained: "CI/CD automation, system integration, compliance"
+    skillsGained: "Enterprise orchestration, system integration at scale"
   },
   {
     id: 8,

@@ -11,7 +11,7 @@ basics:
       username: BNTiyan
       url: https://github.com/BNTiyan
   summary:
-    - ML Engineer with 3 years of hands-on experience in ML and LLM integration, supported by 10+ years of overall software engineering experience.
+    - ML Engineer with hands-on experience in ML and LLM integration, supported by 10+ years of overall software engineering experience.
     - Experienced in building and deploying ML- and LLM-powered components used in production workflows, including data preparation, ML-driven reasoning, and integration of LLM outputs into customer-facing systems.
     - Proven impact architecting AI-driven systems that reduced operational risk, cut manual effort by 60–70%, and scaled into enterprise CI/CD environments.
     - Expertise in system architecture, performance optimization, and automation, with hands-on leadership across the full SDLC.
@@ -81,17 +81,34 @@ work:
     endDate: "July 2021"
     technologies: ["ML", "Computer Vision", "ADAS", "Object Detection", "Python"]
     highlights:
-      - Contributed to ML-based computer vision detection systems for ADAS Camera Object Detection (COD), enabling model-driven perception outputs used by downstream Emergency Braking Assistance (EBA) functions.
-      - Integrated labeled training datasets into object detection model pipelines, supporting iterative model development, validation, and performance assessment.
-      - Supported the transition from 2D to 3D bounding box detection, improving spatial understanding and accuracy of perception outputs used by ADAS decision logic.
-      - Collaborated with labeling and software teams to refine model behavior, validating that detection outputs met functional requirements, accuracy thresholds, and production readiness criteria.
+      - Contributed to ML-based camera perception systems for ADAS, supporting object detection outputs used by Emergency Braking Assistance (EBA) and other safety-critical vehicle functions.
+      - Worked on computer vision object detection pipelines, integrating labeled datasets to support iterative model training, validation, and performance assessment across diverse driving scenarios.
+      - Supported the transition from 2D to 3D bounding box detection, improving spatial understanding and localization accuracy of perception outputs consumed by downstream ADAS decision logic.
+      - Collaborated closely with labeling and software teams to analyze detection behavior, identify failure cases, and refine model outputs against functional and accuracy requirements.
+      - Validated perception results using precision/recall trade-offs, confidence thresholds, and scenario-based test cases, ensuring model outputs met production-readiness expectations.
+      - Assisted in evaluating model robustness across edge cases such as occlusion, lighting variation, and complex traffic scenes to support reliable ADAS operation.
+
+  - company: "Continental Automotive India"
+    position: "Framework Developer, Tool Architect & Technical Specialist"
+    location: Bangalore, India
+    startDate: "May 2019"
+    endDate: "July 2021"
+    technologies: ["Python", "AWS Lambda", "AWS S3", "DynamoDB", "Git", "JIRA", "Confluence", "DOORS"]
+    highlights:
+      - Developed **AUTOSIM**, a fully automated testing framework for Camera Object Detection (COD), reducing manual effort by 60%.
+      - Designed the framework to be modular and customizable for different components, integrating Jenkins for CI/CD and Git for version control.
+      - Generated automated reports following predefined templates and enabled automatic CSV generation for test case uploads to DOORS for each release.
+      - Led the project as Tool Architect, managing documentation in Confluence and tracking project milestones in JIRA.
+      - Developed code to visualize SQLite input data through various interactive graphs and tables, enabling data-driven performance tracking.
+      - Worked as a framework developer and technical specialist to automate the complete processor within the portal.
+      - Collaborated with the development team to integrate and test the portal within the enterprise ecosystem.
 
   - company: "Teradata India Pvt. Ltd"
     position: "Python Developer & Data Analyst"
     location: India
     startDate: "August 2018"
     endDate: "May 2019"
-    technologies: ["Python", "Data Analysis"]
+    technologies: ["Python", "Data Analysis", "Jenkins", "Git", "JIRA", "Confluence"]
     highlights:
       - Worked as Python Developer & Data Analyst.
 
@@ -123,4 +140,5 @@ publications:
   - name: "Computational Trust Framework for Human–Robot Teams"
     publisher: "University of Georgia (Master’s Thesis)"
     releaseDate: "2023"
+    url: "https://ieeexplore.ieee.org/document/11127674"
     summary: "Designed a machine-learning-based trust modeling framework for human-robot collaboration. Implemented Bayesian and probabilistic models for dynamic trust scoring under uncertainty. Evaluated system behavior across multiple interaction scenarios using Python ML pipelines."
