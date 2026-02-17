@@ -82,10 +82,20 @@ Bachelor of Technology in Computer Science | Oct 2010 – Apr 2014 | GPA: 7.9 / 
 
 ---
 
-### PUBLICATION- Computational Trust
+### PUBLICATIONS
+
+**Wildfire Prediction and Visualization**
+*Atlantis Press, 2026*
+- Analyzed approximately 1.88 million U.S. wildfire incidents using supervised machine learning and large-scale structured datasets.
+- Performed feature engineering on geospatial and temporal variables to model wildfire occurrence risk and built visualization dashboards.
+
+**Interpretable Deep Learning for Biological Age Prediction**
+*Atlantis Press, 2026*
+- Designed an Explainable Time Series Regression (XTSR) framework integrating deep learning with counterfactual reasoning.
+- Combined hybrid deep learning models (LSTM, Counterfactual Analysis) with explainability layers to provide personalized health insights.
 
 **Computational Trust Framework for Human–Robot Teams**
-*Master’s Thesis, University of Georgia, 2023*
+*IEEE Xplore, 2025*
 - Designed a machine-learning-based trust modeling framework for human-robot collaboration.
 - Implemented Bayesian and probabilistic models for dynamic trust scoring under uncertainty.
 - Evaluated system behavior across multiple interaction scenarios using Python ML pipelines.
