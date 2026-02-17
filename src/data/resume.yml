@@ -40,56 +40,49 @@ work:
     location: Remote, USA
     startDate: "May 2025"
     endDate: "Present"
-    technologies: ["Python", "Google Vertex AI", "Jira", "Databricks", "GraphQL", "GitLab CI"]
+    technologies: ["Python", "Google Vertex AI", "pgvector", "Databricks", "Pydantic", "AWS (Lambda, S3)"]
     highlights:
-      - Developed and integrated LLM-powered analysis components using Google Vertex AI to perform context-aware secure code analysis, delivering reliable, production-ready outputs under regulated system constraints.
-      - Designed a modular scanning architecture that combines LLM-based vulnerability reasoning with Jira and Databricks feedback loops, enabling continuous reduction of false positives and prioritization of proven, exploitable findings.
-      - Implemented production-grade AI orchestration—prompt templating, context injection, concurrency control, retry/backoff, and audit logging—ensuring reliable, explainable, and auditable AI usage in enterprise pipelines.
-      - Delivered actionable security outputs through automated GitLab MR comments, rich HTML reports, and structured telemetry, improving developer adoption and accelerating secure remediation workflows.
-      - Queried vulnerability data via GraphQL to identify affected dependencies, retrieve impacted file paths and remediation guidance, and filter vulnerabilities by type and severity to drive automated fixes.
-  
+      - "Architected and deployed Python tool Beacon, a low-latency AI-powered risk decisioning and automated remediation system operating across ~120 repositories and ~400–600 merge requests per day."
+      - "Designed and optimized a two-stage real-time decisioning pipeline (lightweight ML pre-filter → LLM + RAG deep analysis) achieving ~70% noise reduction while maintaining sub-25s inference latency."
+      - "Implemented production-grade RAG architecture using pgvector embeddings, repository history, CODEOWNERS metadata, and historical exploit patterns to enable context-aware AI risk scoring."
+      - "Reduced inference latency from ~90s to ~18–25s via async orchestration, batched embedding retrieval, and prompt context optimization."
+      - "Delivered automated remediation workflows (MR comments, Slack alerts, policy citations) reducing manual triage effort by ~60–70%."
+      - "Established SLOs, observability, and rollback mechanisms to ensure safe and reliable AI deployment in CI/CD environments."
+      - "Integrated deterministic guardrails (Pydantic schema validation, mandatory policy citation enforcement) to maintain compliance and auditability."
+      - "Built a continuous learning loop via Databricks, re-indexing developer feedback into the RAG pipeline to improve classification accuracy over time."
+
   - company: "Robert Bosch"
     position: "MLOps Engineer"
     location: USA
-    startDate: "Aug 2024"
-    endDate: "May 2025"
-    technologies: ["Python", "MLOps", "Automated Pipelines", "Data Ingestion", "Dashboards"]
-    highlights:
-      - Designed an MLOps-ready analytics framework to generate reliable health signals from pull request activity, enabling data-driven assessment of release behavior and delivery risk.
-      - Built automated data ingestion and transformation pipelines that convert raw PR events into structured, versioned datasets suitable for feature engineering, trend analysis, and downstream ML workflows.
-      - Implemented deterministic labeling and feature extraction logic using PR metadata and file-change patterns, establishing consistent inputs for ML-assisted evaluation and experimentation.
-      - Developed operational dashboards to track feature distributions, throughput trends, and stability indicators, supporting validation of data quality and signal usefulness over time.
-      - Ensured end-to-end MLOps reliability by adding monitoring, alerting, and data completeness checks, maintaining trust in analytical signals used for intelligent decision-making.
-
-  - company: "Robert Bosch"
-    position: "Senior Software Engineer"
-    location: USA
     startDate: "Aug 2023"
-    endDate: "Aug 2024"
-    technologies: ["CI/CD", "Azure Pipelines", "Orchestration Framework", "Python", "Config-driven Architecture"]
+    endDate: "April 2025"
+    technologies: ["Python", "AWS (EventBridge, Lambda, S3, DynamoDB)", "CloudWatch", "MLOps", "Logistic Regression"]
     highlights:
-      - Led the design of a config-driven lockfile orchestration framework to safely manage multiple Software Building Blocks (ACP, BSW, Driving, Parking, DFC), prioritizing scalability, flexibility, and low operational overhead.
-      - Introduced a declarative combination strategy using structured configuration to support selective integration scenarios (e.g., latest ACP with existing Driving), enabling controlled experimentation while minimizing integration risk.
-      - Established strong traceability and auditability guarantees by capturing the source and timing of every dependency update, ensuring releases were reproducible, reviewable, and compliant with regulatory expectations.
-      - Embedded the framework into CI/CD Azure pipelines to execute multiple integration paths automatically, optimizing reliability, repeatability, and early failure detection.
-      - Automated downstream pull request creation once stable combinations were verified, reducing manual coordination, human error, and cycle time.
+      - "Designed and deployed a cloud-native risk signal processing pipeline (EventBridge → Lambda → S3 → DynamoDB) ingesting CI/CD telemetry across ~80+ repositories to generate structured behavioral signals."
+      - "Engineered deterministic and ML-driven risk features (file-diff volatility, failure frequency, integration instability, review latency, historical defect density) to model pull-request risk propensity."
+      - "Developed supervised classification models (logistic regression, tree-based models) for PR risk scoring, categorizing changes into Testing / Pipeline / Software risk domains."
+      - "Implemented rule + model hybrid decision logic combining metadata heuristics with statistical scoring to improve precision and reduce false-positive alerts."
+      - "Built online scoring services using Python to generate near-real-time risk assessments for incoming pull requests."
+      - "Established monitoring pipelines (CloudWatch metrics, structured logging) to track model drift, feature distribution shifts, and scoring stability."
+      - "Delivered risk dashboards visualizing throughput volatility, failure clustering, and release risk concentration, enabling engineering leadership to prioritize high-risk integrations."
 
-  - company: "Continental Automotive India"
-    position: "Senior Software Engineer"
+  - company: "Continental Automotive"
+    position: "Senior Software Engineer – Computer Vision"
     location: Bangalore, India
     startDate: "May 2019"
     endDate: "July 2021"
-    technologies: ["ML", "Computer Vision", "ADAS", "Object Detection", "Python"]
+    technologies: ["Python", "Computer Vision", "YOLO", "ADAS", "Object Detection"]
     highlights:
-      - Contributed to ML-based camera perception systems for ADAS, supporting object detection outputs used by Emergency Braking Assistance (EBA) and other safety-critical vehicle functions.
-      - Worked on computer vision object detection pipelines, integrating labeled datasets to support iterative model training, validation, and performance assessment across diverse driving scenarios.
-      - Supported the transition from 2D to 3D bounding box detection, improving spatial understanding and localization accuracy of perception outputs consumed by downstream ADAS decision logic.
-      - Collaborated closely with labeling and software teams to analyze detection behavior, identify failure cases, and refine model outputs against functional and accuracy requirements.
-      - Validated perception results using precision/recall trade-offs, confidence thresholds, and scenario-based test cases, ensuring model outputs met production-readiness expectations.
-      - Assisted in evaluating model robustness across edge cases such as occlusion, lighting variation, and complex traffic scenes to support reliable ADAS operation.
+      - "Contributed to ML-based computer vision object detection pipelines for ADAS camera systems, delivering perception outputs consumed by Emergency Braking Assistance (EBA) and other safety-critical downstream functions."
+      - "Integrated and curated labeled training datasets into YOLO-based object detection pipelines, enabling iterative model training, validation, and performance evaluation across multiple data versions and operating conditions."
+      - "Supported the transition from 2D to 3D bounding box detection, improving object localization, depth awareness, and spatial accuracy for perception outputs used in ADAS decision-making logic."
+      - "Collaborated cross-functionally with labeling, software engineering teams to analyze detection behavior, identify failure modes, and refine model outputs against functional requirements."
+      - "Validated perception outputs against accuracy, recall/precision thresholds, and production-readiness criteria, ensuring alignment with ADAS safety and performance expectations."
+      - "Assisted in evaluating model performance across diverse scenarios and edge cases, supporting data-driven decisions for model iteration and deployment readiness."
+      - "Built Python-based data processing pipelines to normalize detection outputs and generate longitudinal performance insights for model regression monitoring."
 
-  - company: "Continental Automotive India"
-    position: "Framework Developer, Tool Architect & Technical Specialist"
+  - company: "Continental Automotive"
+    position: "Python Full Stack Engineer-Architect"
     location: Bangalore, India
     startDate: "May 2019"
     endDate: "July 2021"
@@ -137,8 +130,23 @@ education:
     gpa: "7.9 / 10"
 
 publications:
-  - name: "Computational Trust Framework for Human–Robot Teams"
-    publisher: "University of Georgia (Master’s Thesis)"
-    releaseDate: "2023"
+  - name: "A Novel Computational Framework of Robot Trust for Human-Robot Teams"
+    publisher: "IEEE"
+    releaseDate: "2025"
     url: "https://ieeexplore.ieee.org/document/11127674"
-    summary: "Designed a machine-learning-based trust modeling framework for human-robot collaboration. Implemented Bayesian and probabilistic models for dynamic trust scoring under uncertainty. Evaluated system behavior across multiple interaction scenarios using Python ML pipelines."
+    summary: "Proposed a computational trust modeling framework for multi-agent human-robot teams. Formalized psychological trust-building mechanisms into quantifiable variables that dynamically update based on interaction outcomes. Modeled belief state evolution, kinship metrics, and adaptive robot decision-making using trust-aware algorithms."
+    skills: ["Python", "NumPy", "SciPy", "Matplotlib", "Probabilistic Modeling", "Bayesian Updating", "Reinforcement Learning", "Multi-Agent Modeling"]
+
+  - name: "Interpretable Deep Learning for Biological Age Prediction: A Counterfactual Approach to Personalized Health Insights"
+    publisher: "Atlantis Press"
+    releaseDate: "2026"
+    url: "https://www.atlantis-press.com/proceedings/icsiaiml-25/126021226"
+    summary: "Designed an Explainable Time Series Regression (XTSR) framework integrating deep learning with counterfactual reasoning to generate interpretable biological age predictions from wearable sensor data. Combined hybrid deep learning models with explainability layers to provide personalized health insights."
+    skills: ["Python", "PyTorch", "Pandas", "SHAP", "LSTM", "Counterfactual Analysis"]
+
+  - name: "Wildfire Prediction and Visualization: A Machine Learning Approach Using U.S. Data"
+    publisher: "Atlantis Press"
+    releaseDate: "2026"
+    url: "https://www.atlantis-press.com/proceedings/icsiaiml-25/126021208"
+    summary: "Analyzed approximately 1.88 million U.S. wildfire incidents using supervised machine learning and large-scale structured datasets. Performed feature engineering on geospatial and temporal variables to model wildfire occurrence risk and built visualization dashboards to identify patterns and contributing causes."
+    skills: ["Python", "scikit-learn", "Random Forest", "Gradient Boosting", "Plotly", "GeoPandas", "Folium"]

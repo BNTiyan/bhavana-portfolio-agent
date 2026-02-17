@@ -17,6 +17,8 @@ import Badge from '@/components/Badge';
 import ImpactMetric from '@/components/ImpactMetric';
 import { BentoGrid, BentoCard } from '@/components/BentoGrid';
 import Roadmap from '@/components/Roadmap';
+import Publications from '@/components/Publications';
+import resume from '@/data/resume.yml';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
@@ -46,6 +48,7 @@ export default function Home() {
               { label: 'Impact', href: '#impact' },
               { label: 'Skills', href: '#skills' },
               { label: 'Projects', href: '#projects' },
+              { label: 'Publications', href: '#publications' },
               { label: 'Profile', href: '#about' },
               { label: 'Journey', href: '#roadmap' },
             ].map((link) => (
@@ -358,6 +361,10 @@ export default function Home() {
         <div id="projects" className="mt-0 scroll-mt-24">
           <ArchitectureDiagram />
         </div>
+
+        {/* PUBLICATIONS */}
+        <Publications publications={resume.publications} />
+
 
         {/* PROJECTS */}
         <BentoGrid className="pb-12">
