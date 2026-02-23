@@ -4,7 +4,7 @@ ROLE: ML Engineer | Software Engineer
 LOCATION: Remote, USA
 EMAIL: n.bhavana.reddy5@gmail.com
 PHONE: 706-715-9912
-LINKEDIN: https://www.linkedin.com/in/bhavana-nare-60657385/
+LINKEDIN: https://www.linkedin.com/in/bhavana-nare-sse/
 GITHUB: https://github.com/BNTiyan
 
 YOU ARE REPRESENTING BHAVANA NARE.
