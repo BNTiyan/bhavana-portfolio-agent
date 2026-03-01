@@ -18,6 +18,7 @@ import ImpactMetric from '@/components/ImpactMetric';
 import { BentoGrid, BentoCard } from '@/components/BentoGrid';
 import Roadmap from '@/components/Roadmap';
 import Publications from '@/components/Publications';
+import GitHubStats from '@/components/GitHubStats';
 import resume from '@/data/resume.yml';
 
 export default function Home() {
@@ -47,6 +48,7 @@ export default function Home() {
               { label: 'Live Agent', href: '#agent' },
               { label: 'Impact', href: '#impact' },
               { label: 'Skills', href: '#skills' },
+              { label: 'GitHub Analytics', href: '#github-stats' },
               { label: 'Projects', href: '#projects' },
               { label: 'Publications', href: '#publications' },
               { label: 'Profile', href: '#about' },
@@ -362,6 +364,9 @@ export default function Home() {
           <ArchitectureDiagram />
         </div>
 
+        {/* GITHUB ANALYTICS */}
+        <GitHubStats />
+
         {/* PUBLICATIONS */}
         <Publications publications={resume.publications} />
 
@@ -372,6 +377,7 @@ export default function Home() {
             <ProjectDeepDive
               title="Beacon: AI-Assisted SAST Platform"
               role="Cybersecurity AI Analyst @ Rivian"
+              projectType="LLM / AI Security"
               problem="Manual security scanning generated high false positive rates, slowing down developer velocity and creating alert fatigue in regulated product teams."
               solution="Architected 'Beacon' using Google Vertex AI (Gemini 2.5 Pro) to deliver exploitable security findings directly in CI/CD pipelines with context-aware prompt orchestration."
               parameters={['Jira Context', 'Databricks Feedback', 'Severity Scoring', 'GitLab MR Comments', 'Slack Bot Notifications']}
@@ -380,10 +386,24 @@ export default function Home() {
             />
           </BentoCard>
 
+          <BentoCard colSpan={2} noFade={true} id="proj-0">
+            <ProjectDeepDive
+              title="resume_py: AI Job Automation"
+              role="Open Source | Lead Developer"
+              projectType="LLM / Automation"
+              problem="The job application process is tedious and time-consuming, requiring manual scraping, resume tailoring, and portal entry."
+              solution="Intelligent job application agent that scrapes company careers pages, analyzes job descriptions, generates tailored resumes/cover letters using LLMs, and auto-fills application portals."
+              parameters={['Selenium + Playwright', 'OpenAI/Claude/Ollama', 'Keyword Matching', 'ATS Optimization', 'Dash/React UI']}
+              tags={['Python', 'LLM Integration', 'Web Scraping', 'React', 'ATS Scorer']}
+              kpis={['~90% ATS optimization', '60%+ skill matching', 'Autofill Lever/Workday', 'Multi-LLM support']}
+            />
+          </BentoCard>
+
           <BentoCard colSpan={2} noFade={true} id="proj-2">
             <ProjectDeepDive
               title="PR Analytics & Release Health"
               role="Senior Software Engineer @ Robert Bosch"
+              projectType="MLOps / Analytics"
               problem="Engineering teams lacked visibility into code review SLAs and bottlenecks, leading to delayed releases and unpredictable delivery timelines."
               solution="Built an automated AWS pipeline (EventBridge → Lambda → S3/DynamoDB) to collect and process daily PR data with zero manual effort."
               parameters={['PR Volume', 'Merge Latency', 'Review Bottlenecks', 'Failure Reasons', 'Event-Driven Tracking']}
@@ -395,6 +415,7 @@ export default function Home() {
             <ProjectDeepDive
               title="Camera Object Detection (ADAS)"
               role="Senior Software Engineer @ Continental"
+              projectType="Computer Vision / ML"
               problem="Safety-critical ADAS functions like Emergency Braking required highly accurate real-time object detection and 2D-to-3D localization."
               solution="Optimized ML-based object detection pipelines and 3D mapping algorithms, validating model robustness across diverse edge cases (occlusion, lighting)."
               parameters={['2D/3D Mapping', 'Precision/Recall', 'Confidence Thresholds', 'Occlusion Handling']}
@@ -407,6 +428,7 @@ export default function Home() {
             <ProjectDeepDive
               title="AUTOSIM: E2E Automation Framework"
               role="Tool Architect & Technical Specialist @ Continental"
+              projectType="SDET / Automation"
               problem="Manual testing of Camera Object Detection (COD) was slow and error-prone, requiring a modular automation framework for component-level testing."
               solution="Developed AUTOSIM, a Python-based E2E automation framework that reduced manual effort by 60% with Jenkins CI/CD and automated DOORS reporting."
               parameters={['Modular Architecture', 'Jenkins CI/CD', 'CSV Test Generation', 'DOORS Integration']}
@@ -419,6 +441,7 @@ export default function Home() {
             <ProjectDeepDive
               title="KPI Visualization Portal"
               role="Python Developer @ Continental"
+              projectType="Full Stack / Data Viz"
               problem="Engineering teams needed a unified way to visualize SQLite-based performance data across different software components."
               solution="Built a full-stack KPI portal using Dash and Flask to visualize complex data through interactive graphs and automated processing."
               parameters={['SQLite Data Input', 'Interactive Graphs', 'Automated Processor', 'Cross-component Reporting']}
@@ -431,6 +454,7 @@ export default function Home() {
             <ProjectDeepDive
               title="Lockfile Orchestration Framework"
               role="Senior Software Engineer @ Robert Bosch"
+              projectType="DevOps / System Design"
               problem="Managing multiple software building blocks required complex manual coordination for dependency updates and integration."
               solution="Led design of a config-driven orchestration framework for automated dependency management and stable integration paths in Azure Pipelines."
               parameters={['Config-driven Architecture', 'Azure Pipelines', 'Traceability', 'Automated PRs', 'Selective Integration']}
