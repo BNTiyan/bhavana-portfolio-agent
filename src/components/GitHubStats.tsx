@@ -21,17 +21,19 @@ const GitHubStats = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* GitHub Stats Card */}
+                {/* GitHub Stats Card */}
                 <div className="bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-2xl overflow-hidden shadow-sm hover:border-purple-300 dark:hover:border-purple-800 transition-all duration-300 group">
                     <div className="p-4 border-b border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 flex justify-between items-center">
                         <span className="text-sm font-bold text-zinc-700 dark:text-zinc-200 flex items-center gap-2">
                             <Star size={16} className="text-amber-500" /> Repository Metrics
                         </span>
                     </div>
-                    <div className="p-4 flex justify-center bg-zinc-50 dark:bg-zinc-900/50">
+                    <div className="p-4 flex justify-center bg-zinc-50 dark:bg-zinc-900/50 min-h-[195px] items-center">
                         <img
-                            src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=dark&hide_border=true&title_color=a855f7&icon_color=a855f7&bg_color=18181b`}
+                            src={`https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=radical&hide_border=true&title_color=a855f7&icon_color=a855f7`}
                             alt="GitHub Stats"
-                            className="w-full h-auto rounded-lg shadow-inner"
+                            className="w-full h-auto rounded-lg"
+                            loading="lazy"
                         />
                     </div>
                 </div>
@@ -43,11 +45,12 @@ const GitHubStats = () => {
                             <Code2 size={16} className="text-blue-500" /> Language Distribution
                         </span>
                     </div>
-                    <div className="p-4 flex justify-center bg-zinc-50 dark:bg-zinc-900/50">
+                    <div className="p-4 flex justify-center bg-zinc-50 dark:bg-zinc-900/50 min-h-[195px] items-center">
                         <img
-                            src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=dark&hide_border=true&title_color=a855f7&bg_color=18181b&langs_count=10`}
+                            src={`https://github-readme-stats.vercel.app/api/top-langs?username=${username}&layout=compact&theme=radical&hide_border=true&title_color=a855f7&langs_count=15`}
                             alt="Top Languages"
-                            className="w-full h-auto rounded-lg shadow-inner"
+                            className="w-full h-auto rounded-lg"
+                            loading="lazy"
                         />
                     </div>
                 </div>
