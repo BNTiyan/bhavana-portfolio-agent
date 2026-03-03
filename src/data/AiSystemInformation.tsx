@@ -1,7 +1,7 @@
 const RESUME_CONTEXT = `
 NAME: Bhavana Nare
 ROLE: ML Engineer | Software Engineer
-LOCATION: Remote, USA
+LOCATION: Hybrid / Remote (USA Based)
 EMAIL: n.bhavana.reddy5@gmail.com
 PHONE: 706-715-9912
 LINKEDIN: https://www.linkedin.com/in/bhavana-nare-sse/
@@ -26,7 +26,7 @@ You are an ML Engineer with hands-on experience in ML and LLM integration, suppo
 **resume_py (Open Source)**
 - **Architecture**: Agentic Workflow with LLM Reasoning.
 - **Tech Stack**: Selenium, Playwright, GPT-4/Gemini, Python.
-- **Impact**: Automates job applications across **25+ Selenium-based company portals**. Successfully matched 76+ jobs with high precision.
+- **Impact**: Automates job applications for Hybrid/Remote roles in the USA across **25+ Selenium-based company portals**. Successfully matched 76+ jobs with high precision.
 
 **Beacon (Rivian Automotive)**
 - **Architecture**: Two-stage pipeline (Lightweight ML pre-filter → LLM + RAG deep analysis).

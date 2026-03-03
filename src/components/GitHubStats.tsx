@@ -105,7 +105,7 @@ const GitHubStats = () => {
                         <h3 className="text-2xl font-bold text-white mb-1">resume_py</h3>
                         <p className="text-purple-100/60 text-[10px] font-mono mb-3 uppercase tracking-tight">Agentic Architecture • 5,000+ LOC</p>
                         <p className="text-purple-100/90 text-sm leading-relaxed mb-4">
-                            Intelligent job application agent that scrapes 25+ company pages and auto-fills portals using LLM reasoning.
+                            Intelligent job application agent that scrapes 25+ company pages, targeting Hybrid/Remote roles in the USA and auto-filling portals using LLM reasoning.
                         </p>
 
                         <div className="grid grid-cols-2 gap-3 mb-6">

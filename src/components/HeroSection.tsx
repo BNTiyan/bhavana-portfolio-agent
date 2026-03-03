@@ -39,9 +39,9 @@ const HeroSection = () => {
               pulse
               href="mailto:n.bhavana.reddy5@gmail.com"
             >
-              AVAILABLE FOR HIRE
+              OPEN TO HYBRID & REMOTE
             </Badge>
-            <Badge color="zinc">Remote, USA</Badge>
+            <Badge color="zinc">USA Based</Badge>
           </div>
 
           {/* Title */}
