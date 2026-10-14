@@ -330,7 +330,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-purple-500 shrink-0 mt-1" size={18} />
-                    <span>Proven impact building <strong>AI-driven systems</strong> that cut false positives >30% and manual triage by 70% (Beacon)</span>
+                    <span>Proven impact building <strong>AI-driven systems</strong> that cut false positives &gt;30% and manual triage by 70% (Beacon)</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-purple-500 shrink-0 mt-1" size={18} />
