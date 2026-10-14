@@ -146,29 +146,55 @@ const PHASES: RoadmapPhase[] = [
   },
   {
     id: 8,
-    title: "Cybersecurity AI Analyst",
+    title: "AI Engineer / Cybersecurity AI Analyst",
     organization: "Rivian Automotive",
     location: "Remote, USA",
-    period: "2025 - Present",
+    period: "May 2025 - Sep 2026",
     type: 'work',
-    status: 'current',
+    status: 'completed',
     icon: Shield,
     description: "Leading AI governance and MLOps initiatives. Architected 'Beacon' AI-assisted SAST platform using Vertex AI. Building security automation at scale.",
     skills: ["Vertex AI", "Gemini", "GraphQL", "Databricks", "Hex", "GitLab CI/CD"],
     skillsGained: "AI security, LLM integration, enterprise MLOps"
   },
   {
+    id: 8.5,
+    title: "Senior AI / Software Engineer",
+    organization: "Fannie Mae",
+    location: "USA",
+    period: "May 2025 - Sep 2026",
+    type: 'work',
+    status: 'completed',
+    icon: Building2,
+    description: "Engineered enterprise cloud systems, risk automation pipelines, and deployment verification workflows with strict governance.",
+    skills: ["Python", "Cloud Architecture", "CI/CD", "Risk Automation", "Governance"],
+    skillsGained: "Enterprise governance, cloud modernization, risk automation"
+  },
+  {
     id: 9,
-    title: "Technical Leadership",
+    title: "AI Senior Advance Tech Developer",
+    organization: "ADP",
+    location: "USA (Hybrid/Remote)",
+    period: "Sep 2026 - Present",
+    type: 'work',
+    status: 'current',
+    icon: Brain,
+    description: "Building intelligent automation tools to execute system/framework upgrades and architecting autonomous AI agents as part of ADP Assist.",
+    skills: ["Generative AI", "Agentic Workflows", "ADP Assist", "Automation Tools", "Python", "LLMs"],
+    skillsGained: "Autonomous agent orchestration, upgrade automation, enterprise GenAI"
+  },
+  {
+    id: 10,
+    title: "Technical Leadership & AI Strategy",
     organization: "Future Growth",
     location: "USA",
     period: "Next Chapter",
     type: 'work',
     status: 'upcoming',
     icon: Rocket,
-    description: "Seeking senior engineering roles to drive AI/ML strategy, build high-performing teams, and deliver impactful products at scale.",
-    skills: ["Team Leadership", "Architecture", "Strategy", "Mentoring"],
-    skillsGained: "Technical leadership combining ML + automotive + security expertise"
+    description: "Leading high-impact AI/ML teams, driving enterprise agentic strategy, and architecting autonomous systems at global scale.",
+    skills: ["Team Leadership", "AI Architecture", "Strategy", "Mentoring"],
+    skillsGained: "Technical leadership combining GenAI agents + automotive + security"
   }
 ];
 
@@ -177,26 +203,26 @@ const SKILL_PROGRESSION = [
   {
     theme: "Automation & CI/CD",
     icon: TrendingUp,
-    journey: "Jenkins @ TCS → Azure Pipelines @ Bosch → GitLab CI @ Rivian",
+    journey: "Jenkins @ TCS → Azure Pipelines @ Bosch → GitLab CI @ Rivian → Upgrade Automation @ ADP",
     description: "Consistent focus on automating deployments and reducing manual effort"
   },
   {
-    theme: "Python Expertise",
+    theme: "Python & Agentic AI",
     icon: Code2,
-    journey: "Scripting @ TCS → APIs @ Teradata → ML @ UGA → AI @ Rivian",
-    description: "Python as core language, evolving from scripting to ML/AI applications"
+    journey: "Scripting @ TCS → APIs @ Teradata → ML @ UGA → AI @ Rivian → Agentic Workflows @ ADP",
+    description: "Python as core language, evolving from scripting to enterprise AI agents"
   },
   {
-    theme: "Data & ML",
+    theme: "Data & ML Evolution",
     icon: Brain,
-    journey: "SQL @ Teradata → Computer Vision @ Continental → Deep Learning @ UGA → LLMs @ Rivian",
+    journey: "SQL @ Teradata → Computer Vision @ Continental → Deep Learning @ UGA → LLMs @ Rivian → ADP Assist @ ADP",
     description: "Progressive deepening of ML skills from analytics to cutting-edge AI"
   },
   {
-    theme: "Cloud Architecture",
+    theme: "Cloud & Enterprise Architecture",
     icon: Database,
-    journey: "AWS Lambda @ Continental → Azure @ Bosch → Vertex AI @ Rivian",
-    description: "Multi-cloud experience across AWS, Azure, and Google Cloud"
+    journey: "AWS Lambda @ Continental → Azure @ Bosch → Vertex AI @ Rivian → Enterprise GenAI @ ADP",
+    description: "Multi-cloud experience across AWS, Azure, Google Cloud, and enterprise platforms"
   }
 ];
 

@@ -153,7 +153,7 @@ export default function Home() {
                   <div className="flex flex-col gap-1.5 w-full mt-2">
                     <div className="flex items-center justify-center md:justify-start gap-2">
                       <GitFork size={14} className="text-emerald-500 shrink-0" />
-                      <span className="text-xs text-zinc-600 dark:text-zinc-400">TCS → Teradata → Continental → Bosch → Rivian</span>
+                      <span className="text-xs text-zinc-600 dark:text-zinc-400">TCS → Teradata → Continental → Bosch → Fannie Mae → ADP</span>
                     </div>
                   </div>
                 }
@@ -320,21 +320,21 @@ export default function Home() {
 
               <div className="space-y-4 text-zinc-700 dark:text-zinc-300">
                 <p className="text-lg leading-relaxed">
-                  <strong className="text-purple-700 dark:text-purple-400">ML Engineer</strong> with hands-on experience in ML and LLM integration, supported by <strong>10+ years</strong> of overall software engineering experience.
+                  <strong className="text-purple-700 dark:text-purple-400">AI Senior Advance Tech Developer</strong> at <strong>ADP</strong>, building upgrade automation tools and autonomous AI agents for <strong>ADP Assist</strong>, supported by <strong>10+ years</strong> of overall engineering leadership across Fannie Mae, Rivian, Bosch, and Continental.
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-4 pt-4">
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-purple-500 shrink-0 mt-1" size={18} />
-                    <span>Proven impact architecting <strong>AI-driven systems</strong> that reduced operational risk and cut manual effort by 60–70%</span>
+                    <span>Architecting <strong>autonomous AI agents and upgrade automation tools</strong> at ADP (ADP Assist)</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-purple-500 shrink-0 mt-1" size={18} />
-                    <span>Experienced in building and deploying <strong>ML- and LLM-powered components</strong> in production workflows</span>
+                    <span>Proven impact building <strong>AI-driven systems</strong> that cut false positives >30% and manual triage by 70% (Beacon)</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-purple-500 shrink-0 mt-1" size={18} />
-                    <span>Expertise in system architecture, <strong>performance optimization</strong>, and automation across the full SDLC</span>
+                    <span>Expertise in system architecture, <strong>performance optimization</strong>, and enterprise automation across the full SDLC</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="text-purple-500 shrink-0 mt-1" size={18} />
@@ -374,6 +374,19 @@ export default function Home() {
 
         {/* PROJECTS */}
         <BentoGrid className="pb-12">
+          <BentoCard colSpan={2} noFade={true} id="proj-adp" className="mb-4 scroll-mt-24">
+            <ProjectDeepDive
+              title="ADP Assist: AI Agents & Upgrade Automation"
+              role="AI Senior Advance Tech Developer @ ADP"
+              projectType="Generative AI / Autonomous Agents"
+              problem="Enterprise HCM workflows and system upgrade lifecycles required heavy manual engineering coordination, creating latency and downtime risk across high-scale applications."
+              solution="Architecting intelligent automation tools for zero-downtime framework upgrades and building autonomous conversational agents as part of ADP Assist with multi-tool execution, deterministic guardrails, and enterprise LLM orchestration."
+              parameters={['Agentic Workflows', 'Upgrade Automation', 'ADP Assist Orchestration', 'Multi-Tool Execution', 'Deterministic Guardrails']}
+              tags={['Python', 'Generative AI', 'Agentic Workflows', 'ADP Assist', 'Automation Tools', 'LLMs', 'APIs']}
+              kpis={['Zero-downtime upgrades', 'Autonomous agent reasoning', 'Enterprise HCM scale', 'Deterministic validation']}
+            />
+          </BentoCard>
+
           <BentoCard colSpan={2} noFade={true} id="proj-1" className="mb-4 scroll-mt-24">
             <ProjectDeepDive
               title="Beacon: AI-Assisted SAST Platform"

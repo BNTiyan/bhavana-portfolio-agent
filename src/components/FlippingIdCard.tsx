@@ -89,10 +89,10 @@ export default function FlippingIdCard({ className }: { className?: string }) {
                 Bhavana Nare
               </h4>
               <p className="text-xs text-purple-600 dark:text-purple-400 font-medium">
-                Senior Software Engineer
+                AI Senior Advance Tech Developer
               </p>
               <p className="text-[11px] text-zinc-500 font-mono mt-0.5">
-                Rivian • Ex-Bosch • Ex-Continental
+                ADP • Ex-Fannie Mae • Ex-Rivian
               </p>
             </div>
           </div>
@@ -110,7 +110,7 @@ export default function FlippingIdCard({ className }: { className?: string }) {
                     BADGE ID
                   </span>
                   <span className="text-[10px] font-mono font-bold text-zinc-800 dark:text-zinc-200">
-                    RIV-84920-ML
+                    ADP-2026-AI
                   </span>
                 </div>
               </div>
@@ -163,13 +163,13 @@ export default function FlippingIdCard({ className }: { className?: string }) {
               </div>
               <div className="flex flex-wrap gap-1.5">
                 {[
+                  'ADP Assist (GenAI Agents)',
+                  'Upgrade Automation Tools',
+                  'Agentic Workflows',
                   'Vertex AI (Gemini)',
-                  'MLOps Pipelines',
-                  'AI-Assisted SAST',
                   'pgvector / RAG',
-                  'AWS Lambda & DynamoDB',
-                  'ISO 26262 / 21434',
-                  'Python & C++'
+                  'Fannie Mae Cloud CI/CD',
+                  'Python & Multi-Tool LLMs'
                 ].map((tag) => (
                   <span
                     key={tag}

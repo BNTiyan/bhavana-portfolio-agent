@@ -36,23 +36,23 @@ export interface VideoChapter {
 const CHAPTERS: VideoChapter[] = [
   {
     id: 'intro',
-    title: '01. Intro & Role',
+    title: '01. ADP & Role',
     time: 0,
-    badge: 'SENIOR ENGINEER',
+    badge: 'AI SENIOR DEV @ ADP',
     caption:
-      "Hello! I'm Bhavana Nare — a Senior Software Engineer specializing in MLOps, AI Security, and production LLMs with 10+ years of engineering experience.",
-    codeSnippet: 'const engineer = new MLEngineer({ name: "Bhavana", yoe: 10+ });',
-    keyMetric: '10+ Years Software Experience'
+      "Hello! I'm Bhavana Nare — AI Senior Advance Tech Developer at ADP, where I build automation tools for system upgrades and develop autonomous agents for ADP Assist.",
+    codeSnippet: 'const engineer = new ADPAgentDeveloper({ name: "Bhavana", role: "AI Senior Advance Tech Developer" });',
+    keyMetric: 'ADP Assist & Upgrade Automation'
   },
   {
     id: 'rivian',
-    title: '02. Rivian & Beacon',
+    title: '02. Fannie Mae & Rivian',
     time: 14,
-    badge: 'AI SECURITY @ RIVIAN',
+    badge: 'FANNIE MAE & RIVIAN',
     caption:
-      "At Rivian, I architected 'Beacon' using Google Vertex AI (Gemini) — cutting security false positives by >30% and triage time by 70% across 120+ repositories.",
+      "Previously at Fannie Mae and Rivian, I engineered enterprise cloud systems and architected 'Beacon' using Vertex AI — cutting CI/CD security noise by over 70%.",
     codeSnippet: 'await beacon.triageMR({ model: "Gemini-2.5-Pro", rag: "pgvector" });',
-    keyMetric: '70% Effort Cut // >30% Noise Cut'
+    keyMetric: '70% Effort Cut // Fannie Mae (Sep 2026)'
   },
   {
     id: 'telemetry',
@@ -504,7 +504,7 @@ export default function TalkingHeroVideo({
                   <CheckCircle2 size={14} className="text-purple-400 inline" />
                 </div>
                 <div className="text-[11px] font-mono text-zinc-400">
-                  Senior Software Engineer • Rivian / Ex-Bosch
+                  AI Senior Advance Tech Developer • ADP / Ex-Fannie Mae
                 </div>
               </div>
             </div>
@@ -516,7 +516,7 @@ export default function TalkingHeroVideo({
               <div className="bg-black/80 rounded-xl border border-purple-500/30 p-4 shadow-2xl backdrop-blur-md">
                 <div className="flex items-center justify-between pb-2 mb-3 border-b border-zinc-800 text-[10px] text-zinc-400 uppercase">
                   <span className="flex items-center gap-1.5 text-purple-400 font-bold">
-                    <Terminal size={12} /> Beacon AI Pipeline Telemetry
+                    <Terminal size={12} /> ADP Assist & Agent Upgrade Telemetry
                   </span>
                   <span className="text-emerald-400 font-bold">STATUS: STREAMING</span>
                 </div>

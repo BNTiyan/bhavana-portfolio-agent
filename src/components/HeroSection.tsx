@@ -61,24 +61,24 @@ const HeroSection = () => {
 
           {/* Title */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-zinc-900 dark:text-white leading-[1.1]">
-            Senior Software<br />
+            AI Senior Advance<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-500">
-              Engineer
+              Tech Developer
             </span>
           </h1>
 
           <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl mb-6">
-            MLOps & AI Security expert building secure, scalable AI/ML systems for automotive and enterprise.
+            Building intelligent automation tools for system upgrades and autonomous AI agents as part of <strong>ADP Assist</strong>.
           </p>
 
           {/* Trust Signals */}
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-8">
             {[
-              { label: 'MLOps', icon: TrendingUp, variant: 'success' as const },
-              { label: 'AI/ML', icon: Briefcase, variant: 'innovation' as const },
-              { label: 'Security', icon: TrendingDown, variant: 'risk' as const },
+              { label: 'ADP Assist', icon: Sparkles, variant: 'innovation' as const },
+              { label: 'AI Agents', icon: Bot, variant: 'innovation' as const },
+              { label: 'Upgrade Automation', icon: TrendingUp, variant: 'success' as const },
+              { label: 'AI Security', icon: TrendingDown, variant: 'risk' as const },
               { label: 'ISO 26262', icon: ShieldCheck, variant: 'compliance' as const },
-              { label: 'ISO 21434', icon: ShieldCheck, variant: 'compliance' as const },
             ].map((badge) => (
               <TrustBadge
                 key={badge.label}

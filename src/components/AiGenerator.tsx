@@ -10,9 +10,9 @@ type Message = {
 };
 
 const SUGGESTED_QUESTIONS = [
-  "Tell me about Bhavana's experience",
-  "What is her tech stack?",
-  "What projects has she worked on?"
+  "What is Bhavana's work at ADP on ADP Assist?",
+  "Tell me about her upgrade automation tools",
+  "What is her background across Fannie Mae & Rivian?"
 ];
 
 export default function AiGenerator() {

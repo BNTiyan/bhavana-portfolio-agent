@@ -35,11 +35,34 @@ skills:
     keywords: ["Microservices", "System Design", "Performance Optimization", "Agile Development"]
 
 work:
+  - company: "ADP"
+    position: "AI Senior Advance Tech Developer"
+    location: "USA (Hybrid/Remote)"
+    startDate: "September 2026"
+    endDate: "Present"
+    technologies: ["Python", "Generative AI", "Agentic Workflows", "ADP Assist", "Automation Tools", "LLM Orchestration", "Enterprise APIs"]
+    highlights:
+      - "Architected and built automation tools to streamline end-to-end system and framework upgrades with zero manual downtime."
+      - "Engineered autonomous AI agents as part of ADP Assist, enabling multi-step workflow automation and generative AI reasoning across enterprise HCM systems."
+      - "Designed deterministic guardrails, tool orchestration, and automated validation pipelines for reliable, production-grade agent execution."
+      - "Integrated multi-agent architectures and LLM reasoning loops to modernize legacy upgrade procedures."
+
+  - company: "Fannie Mae"
+    position: "Senior AI / Software Engineer"
+    location: "USA"
+    startDate: "May 2025"
+    endDate: "September 2026"
+    technologies: ["Python", "Cloud Architecture", "CI/CD", "Risk Automation", "Governance", "AWS"]
+    highlights:
+      - "Engineered enterprise cloud systems and automated risk evaluation pipelines under strict compliance and security standards."
+      - "Automated deployment verification workflows, reducing manual release overhead and cycle time."
+      - "Collaborated across architecture and compliance teams to ensure auditability and deterministic governance in automated workflows."
+
   - company: "Rivian Automotive"
-    position: "Cybersecurity AI Analyst"
+    position: "Cybersecurity AI Analyst / AI Engineer"
     location: Remote, USA
     startDate: "May 2025"
-    endDate: "Present"
+    endDate: "September 2026"
     technologies: ["Python", "Google Vertex AI", "pgvector", "Databricks", "Pydantic", "AWS (Lambda, S3)"]
     highlights:
       - "Architected and deployed Python tool Beacon, a low-latency AI-powered risk decisioning and automated remediation system operating across ~120 repositories and ~400–600 merge requests per day."
@@ -150,3 +173,20 @@ publications:
     url: "https://www.atlantis-press.com/proceedings/icsiaiml-25/126021208"
     summary: "Analyzed approximately 1.88 million U.S. wildfire incidents using supervised machine learning and large-scale structured datasets. Performed feature engineering on geospatial and temporal variables to model wildfire occurrence risk and built visualization dashboards to identify patterns and contributing causes."
     skills: ["Python", "scikit-learn", "Random Forest", "Gradient Boosting", "Plotly", "GeoPandas", "Folium"]
+
+certifications:
+  - name: "Build a Computer Vision App with Azure Cognitive Service"
+    issuer: "Microsoft"
+    date: "February 2026"
+  - name: "Dataiku Advanced Designer"
+    issuer: "Dataiku"
+    date: "March 2026"
+  - name: "Dataiku Core Designer"
+    issuer: "Dataiku"
+    date: "March 2026"
+  - name: "Dataiku ML Practitioner"
+    issuer: "Dataiku"
+    date: "March 2026"
+  - name: "ISTQB Certified Tester (CTFL)"
+    issuer: "ITB"
+    date: "December 2020"
