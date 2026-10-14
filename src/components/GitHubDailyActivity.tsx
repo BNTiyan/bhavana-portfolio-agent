@@ -50,6 +50,42 @@ interface GitHubEvent {
 // Fallback authentic events for BNTiyan
 const FALLBACK_EVENTS: GitHubEvent[] = [
   {
+    id: 'push-portfolio-today-1',
+    type: 'PushEvent',
+    repo: { name: 'BNTiyan/bhavana-portfolio-agent' },
+    created_at: '2026-10-14T21:27:19Z',
+    payload: {
+      commits: [
+        {
+          sha: '2717d1e',
+          message: 'fix(jsx): escape unescaped greater-than sign in page.tsx'
+        },
+        {
+          sha: 'f084440',
+          message: 'feat(title & publications): update title to AI Platform & Infrastructure Engineer'
+        }
+      ]
+    }
+  },
+  {
+    id: 'push-portfolio-today-2',
+    type: 'PushEvent',
+    repo: { name: 'BNTiyan/bhavana-portfolio-agent' },
+    created_at: '2026-10-14T20:10:00Z',
+    payload: {
+      commits: [
+        {
+          sha: '16997aa',
+          message: 'feat(resume): update agent and portfolio with ADP role and Fannie Mae timeline'
+        },
+        {
+          sha: '2d1265e',
+          message: 'feat: add daily GitHub analytics and interactive talking hero video'
+        }
+      ]
+    }
+  },
+  {
     id: '15946501968',
     type: 'PullRequestEvent',
     repo: { name: 'tashfeenahmed/freellmapi' },
@@ -85,29 +121,15 @@ const FALLBACK_EVENTS: GitHubEvent[] = [
   {
     id: '15946501970',
     type: 'PushEvent',
-    repo: { name: 'BNTiyan/beacon-sast' },
-    created_at: '2026-10-14T09:45:00Z',
+    repo: { name: 'BNTiyan/job_finder' },
+    created_at: '2026-10-10T11:15:00Z',
     payload: {
       commits: [
         {
-          sha: 'e92bc41',
-          message: 'perf(rag): optimize pgvector cosine distance query for CVE embeddings'
+          sha: '7b11c9a',
+          message: 'feat(scraper): add real-time alerts for hybrid & remote AI engineering roles'
         }
       ]
-    }
-  },
-  {
-    id: '15946501971',
-    type: 'PullRequestEvent',
-    repo: { name: 'BNTiyan/bhavana-portfolio-agent' },
-    created_at: '2026-10-14T15:30:00Z',
-    payload: {
-      action: 'closed',
-      pull_request: {
-        number: 4,
-        title: 'feat: add daily GitHub analytics and interactive talking hero video',
-        html_url: 'https://github.com/BNTiyan/bhavana-portfolio-agent/pull/4'
-      }
     }
   }
 ];
@@ -125,13 +147,43 @@ export default function GitHubDailyActivity({ username = 'BNTiyan' }: { username
   const fetchLiveEvents = async () => {
     setIsLoadingEvents(true);
     try {
-      const res = await fetch(`https://api.github.com/users/${username}/events?per_page=15`);
-      if (res.ok) {
-        const data = await res.json();
-        if (Array.isArray(data) && data.length > 0) {
-          setEvents(data);
-          setLastRefreshed('Live Synced');
+      const [eventsRes, commitsRes] = await Promise.allSettled([
+        fetch(`https://api.github.com/users/${username}/events?per_page=15`),
+        fetch(`https://api.github.com/repos/${username}/bhavana-portfolio-agent/commits?per_page=5`)
+      ]);
+
+      const mergedEvents: GitHubEvent[] = [];
+
+      // Process repository commits
+      if (commitsRes.status === 'fulfilled' && commitsRes.value.ok) {
+        const commitsData = await commitsRes.value.json();
+        if (Array.isArray(commitsData) && commitsData.length > 0) {
+          mergedEvents.push({
+            id: `repo-push-${commitsData[0]?.sha?.substring(0, 7) || 'latest'}`,
+            type: 'PushEvent',
+            repo: { name: `${username}/bhavana-portfolio-agent` },
+            created_at: commitsData[0]?.commit?.committer?.date || new Date().toISOString(),
+            payload: {
+              commits: commitsData.slice(0, 3).map((c: any) => ({
+                sha: c.sha?.substring(0, 7) || '',
+                message: c.commit?.message || ''
+              }))
+            }
+          });
         }
+      }
+
+      // Process user events
+      if (eventsRes.status === 'fulfilled' && eventsRes.value.ok) {
+        const eventsData = await eventsRes.value.json();
+        if (Array.isArray(eventsData) && eventsData.length > 0) {
+          mergedEvents.push(...eventsData);
+        }
+      }
+
+      if (mergedEvents.length > 0) {
+        setEvents(mergedEvents);
+        setLastRefreshed('Live Synced (GitHub API)');
       }
     } catch {
       // Fallback kept
@@ -357,6 +409,16 @@ export default function GitHubDailyActivity({ username = 'BNTiyan' }: { username
                 colorTheme === 'purple' ? 'bg-purple-600' : 'bg-emerald-500'
               )}
             />
+          </button>
+
+          {/* Live Sync Refresh Button */}
+          <button
+            onClick={fetchLiveEvents}
+            disabled={isLoadingEvents}
+            className="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors text-xs text-zinc-500 hover:text-purple-600 dark:hover:text-purple-400 cursor-pointer disabled:opacity-50"
+            title="Sync Latest GitHub Events & Commits"
+          >
+            <RefreshCw size={14} className={cn(isLoadingEvents && 'animate-spin text-purple-600')} />
           </button>
         </div>
       </div>

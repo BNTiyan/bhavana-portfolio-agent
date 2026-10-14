@@ -32,10 +32,10 @@ const GitHubStats = () => {
                     <div className="p-6 flex flex-col justify-between bg-zinc-50 dark:bg-zinc-900/50 min-h-[280px]">
                         <div className="grid grid-cols-2 gap-4">
                             {[
-                                { label: 'Public Repos', value: '42', icon: <Github size={14} className="text-purple-500" /> },
-                                { label: 'Total Stars', value: '128', icon: <Star size={14} className="text-amber-500" /> },
+                                { label: 'Public Repos', value: '34', icon: <Github size={14} className="text-purple-500" /> },
+                                { label: 'Active Repos', value: '14', icon: <Star size={14} className="text-amber-500" /> },
                                 { label: 'Daily Streak', value: '18 Days', icon: <Terminal size={14} className="text-emerald-500" /> },
-                                { label: 'Pull Requests', value: '340', icon: <GitFork size={14} className="text-blue-500" /> },
+                                { label: 'Contributions', value: '1,120+', icon: <GitFork size={14} className="text-blue-500" /> },
                             ].map((stat) => (
                                 <div key={stat.label} className="bg-white dark:bg-zinc-800/50 p-3 rounded-xl border border-zinc-100 dark:border-zinc-700/50 shadow-xs">
                                     <div className="flex items-center gap-2 mb-1">
@@ -47,7 +47,7 @@ const GitHubStats = () => {
                             ))}
                         </div>
                         <div className="mt-4 p-3 bg-purple-500/10 rounded-xl border border-purple-500/20 text-center">
-                            <div className="text-xs font-bold text-purple-600 dark:text-purple-400">Top 5% Contributor in AI/ML Repos</div>
+                            <div className="text-xs font-bold text-purple-600 dark:text-purple-400">Top 5% Contributor in AI/ML & Agent Systems</div>
                         </div>
                     </div>
                 </div>
@@ -62,12 +62,11 @@ const GitHubStats = () => {
                     <div className="p-6 bg-zinc-50 dark:bg-zinc-900/50 min-h-[280px] flex flex-col justify-center">
                         <div className="space-y-4">
                             {[
-                                { name: 'Python', percent: 65, color: 'bg-blue-500' },
-                                { name: 'JavaScript / TS', percent: 15, color: 'bg-yellow-500' },
-                                { name: 'Java', percent: 10, color: 'bg-orange-600' },
-                                { name: 'C++', percent: 5, color: 'bg-pink-600' },
-                                { name: 'Shell/Bash', percent: 3, color: 'bg-zinc-500' },
-                                { name: 'Other', percent: 2, color: 'bg-zinc-300' },
+                                { name: 'Python', percent: 45, color: 'bg-blue-500' },
+                                { name: 'TypeScript / React', percent: 32, color: 'bg-yellow-500' },
+                                { name: 'Jupyter (ML / Modeling)', percent: 14, color: 'bg-orange-500' },
+                                { name: 'Shell / Bash', percent: 5, color: 'bg-emerald-500' },
+                                { name: 'C++ & Systems', percent: 4, color: 'bg-pink-600' },
                             ].map((lang) => (
                                 <div key={lang.name} className="space-y-1">
                                     <div className="flex justify-between text-[11px] font-bold text-zinc-600 dark:text-zinc-400 uppercase">
