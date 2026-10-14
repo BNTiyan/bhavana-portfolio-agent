@@ -89,10 +89,10 @@ export default function FlippingIdCard({ className }: { className?: string }) {
                 Bhavana Nare
               </h4>
               <p className="text-xs text-purple-600 dark:text-purple-400 font-medium">
-                AI Senior Advance Tech Developer
+                AI Platform &amp; Infrastructure Engineer
               </p>
               <p className="text-[11px] text-zinc-500 font-mono mt-0.5">
-                ADP • Ex-Fannie Mae • Ex-Rivian
+                AI Senior Dev @ ADP • Ex-Fannie Mae
               </p>
             </div>
           </div>

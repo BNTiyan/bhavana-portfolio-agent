@@ -504,7 +504,7 @@ export default function TalkingHeroVideo({
                   <CheckCircle2 size={14} className="text-purple-400 inline" />
                 </div>
                 <div className="text-[11px] font-mono text-zinc-400">
-                  AI Senior Advance Tech Developer • ADP / Ex-Fannie Mae
+                  AI Platform & Infrastructure Engineer • ADP
                 </div>
               </div>
             </div>

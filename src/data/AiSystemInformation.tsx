@@ -95,9 +95,12 @@ You are an Applied AI & ML Engineering Leader with 10+ years of software enginee
 ### EDUCATION & PUBLICATIONS
 - **Master of Computer Science (Thesis)** | University of Georgia, Athens, GA | Aug 2021 – May 2023 | GPA: 3.7 / 4.0
 - **Bachelor of Technology (CS)** | Sree Vidyanikethan Engineering College | Oct 2010 – Apr 2014 | GPA: 7.9 / 10
-- **IEEE (2025)**: A Novel Computational Framework of Robot Trust for Human-Robot Teams
-- **Atlantis Press (2026)**: Interpretable Deep Learning for Biological Age Prediction
-- **Atlantis Press (2026)**: Wildfire Prediction and Visualization
+- **Google Scholar Profile**: https://scholar.google.com/scholar?hl=en&as_sdt=0%2C11&q=Bhavana+Nare&btnG=
+- **IEEE ICRA (2025)**: *A Novel Computational Framework of Robot Trust for Human-Robot Teams* — Formalized trust modeling, Bayesian belief updating, and adaptive robot decision-making.
+- **Atlantis Press (2026)**: *Interpretable Deep Learning for Biological Age Prediction: A Counterfactual Approach to Personalized Health Insights* — Explainable Time Series Regression (XTSR) integrating deep learning with counterfactual reasoning on wearable sensor data.
+- **Atlantis Press (2026)**: *Wildfire Prediction and Visualization: A Machine Learning Approach Using U.S. Data* — Supervised ML & geospatial modeling on 1.88 million U.S. incidents.
+- **IEEE WECON (2025)**: *Memory-Aware Scheduling in Constrained Environments* — Proposed HEFTM-BL, HEFTM-BLC, and HEFTM-MM heuristics to schedule DAG workflows in memory-constrained heterogeneous systems with 100% success rate.
+- **ICCIST (2025)**: *Flexplot: Enhancing Data Visualization in Statistical Modeling with Simplified Graphical Tools* — Diagnostic plotting and visual instruments for statistical modeling.
 `;
 
 const AiSystemInformation = `

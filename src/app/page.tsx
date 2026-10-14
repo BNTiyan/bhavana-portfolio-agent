@@ -531,6 +531,14 @@ export default function Home() {
                     >
                       <FileText size={16} /> IEEE Publication <ExternalLink size={12} className="opacity-50" />
                     </a>
+                    <a
+                      href="https://scholar.google.com/scholar?hl=en&as_sdt=0%2C11&q=Bhavana+Nare&btnG="
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-300 hover:text-purple-600 transition-colors"
+                    >
+                      <GraduationCap size={16} /> Google Scholar Profile <ExternalLink size={12} className="opacity-50" />
+                    </a>
                   </div>
 
                   {/* Presentation CTA */}

@@ -15,19 +15,21 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: {
     template: "%s | Bhavana Nare",
-    default: "Bhavana Nare | Software Engineer & MLOps Architect",
+    default: "Bhavana Nare | AI Platform & Infrastructure Engineer",
   },
-  description: "Software Engineer specializing in MLOps, Cloud Security, AI/ML pipelines, and full-stack development. MS Computer Science from University of Georgia.",
+  description: "AI Platform & Infrastructure Engineer and AI Senior Advance Tech Developer specializing in autonomous AI agents, enterprise upgrade automation (ADP Assist), LLM reliability, and cloud platform infrastructure.",
   keywords: [
     "Bhavana Nare",
-    "Software Engineer",
+    "AI Platform Engineer",
+    "AI Infrastructure",
+    "ADP Assist",
+    "Autonomous Agents",
     "MLOps",
-    "Cloud Security",
-    "AI/ML",
+    "Cloud Infrastructure",
+    "AWS Bedrock",
     "Python",
-    "AWS",
-    "Azure",
-    "Cybersecurity"
+    "Enterprise Automation",
+    "Software Engineer"
   ],
   authors: [{ name: "Bhavana Nare" }],
   creator: "Bhavana Nare",
@@ -35,14 +37,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://bhavana-nare.vercel.app",
-    title: "Bhavana Nare | Software Engineer & MLOps Architect",
-    description: "Building secure, scalable AI/ML systems. From automotive safety to cybersecurity AI.",
+    title: "Bhavana Nare | AI Platform & Infrastructure Engineer",
+    description: "AI Platform & Infrastructure Engineer | AI Senior Advance Tech Developer building autonomous agents & upgrade automation for ADP Assist.",
     siteName: "Bhavana Nare Portfolio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bhavana Nare | Software Engineer & MLOps Architect",
-    description: "Building secure, scalable AI/ML systems. From automotive safety to cybersecurity AI.",
+    title: "Bhavana Nare | AI Platform & Infrastructure Engineer",
+    description: "AI Platform & Infrastructure Engineer | AI Senior Advance Tech Developer building autonomous agents & upgrade automation for ADP Assist.",
   },
   icons: {
     icon: "/favicon.ico",

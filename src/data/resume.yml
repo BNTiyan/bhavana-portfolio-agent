@@ -1,6 +1,6 @@
 basics:
   name: Bhavana Nare
-  label: "ML Engineer | Software Engineer"
+  label: "AI Platform & Infrastructure Engineer"
   email: n.bhavana.reddy5@gmail.com
   phone: "706-715-9912"
   profiles:
@@ -173,6 +173,20 @@ publications:
     url: "https://www.atlantis-press.com/proceedings/icsiaiml-25/126021208"
     summary: "Analyzed approximately 1.88 million U.S. wildfire incidents using supervised machine learning and large-scale structured datasets. Performed feature engineering on geospatial and temporal variables to model wildfire occurrence risk and built visualization dashboards to identify patterns and contributing causes."
     skills: ["Python", "scikit-learn", "Random Forest", "Gradient Boosting", "Plotly", "GeoPandas", "Folium"]
+
+  - name: "Memory-Aware Scheduling in Constrained Environments"
+    publisher: "IEEE (WECON)"
+    releaseDate: "2025"
+    url: "https://ieeexplore.ieee.org/document/11019623"
+    summary: "Proposed novel memory-aware heuristics based on the HEFT (Heterogeneous Earliest Finish Time) algorithm—HEFTM-BL, HEFTM-BLC, and HEFTM-MM—to schedule Directed Acyclic Graph (DAG) tasks in memory-constrained heterogeneous environments, achieving 100% success rate without runtime memory failures."
+    skills: ["HEFT Algorithm", "DAG Workflow Scheduling", "Heterogeneous Computing", "Memory Optimization", "Distributed Systems", "C++", "Python"]
+
+  - name: "Flexplot: Enhancing Data Visualization in Statistical Modeling with Simplified Graphical Tools"
+    publisher: "ICCIST"
+    releaseDate: "2025"
+    url: "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C11&q=Bhavana+Nare&btnG="
+    summary: "Evaluated simplified graphical instruments and visual diagnostics to streamline and enhance exploratory data analysis and model validation within statistical modeling workflows."
+    skills: ["Statistical Modeling", "Data Visualization", "Python", "R", "Exploratory Data Analysis", "Diagnostic Plots"]
 
 certifications:
   - name: "Build a Computer Vision App with Azure Cognitive Service"

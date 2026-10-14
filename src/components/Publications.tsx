@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, ExternalLink, Download, Calendar, Award } from 'lucide-react';
+import { FileText, ExternalLink, Download, Calendar, Award, GraduationCap } from 'lucide-react';
 import Badge from '@/components/Badge';
 
 interface Publication {
@@ -21,13 +21,23 @@ const Publications: React.FC<PublicationsProps> = ({ publications }) => {
   return (
     <section id="publications" className="py-12 scroll-mt-24">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-4 flex items-center justify-center gap-3">
+        <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-3 flex items-center justify-center gap-3">
           <FileText className="text-purple-600" size={32} />
           Publications & Research
         </h2>
-        <p className="text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto">
-          Academic and industrial research papers, technical reports, and whitepapers.
+        <p className="text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto mb-4">
+          Peer-reviewed conference papers, IEEE publications, and machine learning research indexed on Google Scholar.
         </p>
+        <a
+          href="https://scholar.google.com/scholar?hl=en&as_sdt=0%2C11&q=Bhavana+Nare&btnG="
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800 hover:bg-purple-200 dark:hover:bg-purple-800 hover:scale-105 active:scale-95 transition-all shadow-xs"
+        >
+          <GraduationCap size={14} />
+          <span>View on Google Scholar</span>
+          <ExternalLink size={12} />
+        </a>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2">

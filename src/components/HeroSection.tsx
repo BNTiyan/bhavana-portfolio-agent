@@ -61,14 +61,14 @@ const HeroSection = () => {
 
           {/* Title */}
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4 text-zinc-900 dark:text-white leading-[1.1]">
-            AI Senior Advance<br />
+            AI Platform &amp;<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-indigo-500">
-              Tech Developer
+              Infrastructure Engineer
             </span>
           </h1>
 
           <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl mb-6">
-            Building intelligent automation tools for system upgrades and autonomous AI agents as part of <strong>ADP Assist</strong>.
+            AI Senior Advance Tech Developer at <strong>ADP</strong>, building intelligent automation tools for system upgrades and autonomous AI agents as part of <strong>ADP Assist</strong>.
           </p>
 
           {/* Trust Signals */}
