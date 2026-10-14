@@ -45,10 +45,11 @@ export default function Home() {
 
           <nav className="hidden sm:flex gap-8 text-sm font-medium text-zinc-500 dark:text-zinc-400">
             {[
+              { label: 'Video Intro', href: '#hero-video' },
               { label: 'Live Agent', href: '#agent' },
+              { label: 'Daily GitHub', href: '#github-stats' },
               { label: 'Impact', href: '#impact' },
               { label: 'Skills', href: '#skills' },
-              { label: 'GitHub Analytics', href: '#github-stats' },
               { label: 'Projects', href: '#projects' },
               { label: 'Publications', href: '#publications' },
               { label: 'Profile', href: '#about' },

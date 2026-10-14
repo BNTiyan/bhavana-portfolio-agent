@@ -4,6 +4,8 @@ import React from 'react';
 import { Github, Star, GitFork, Code2, Brain, Cpu, Terminal } from 'lucide-react';
 import { BentoCard } from './BentoGrid';
 
+import GitHubDailyActivity from './GitHubDailyActivity';
+
 const GitHubStats = () => {
     const username = 'BNTiyan';
 
@@ -12,10 +14,10 @@ const GitHubStats = () => {
             <div className="text-center mb-10">
                 <h2 className="text-3xl font-bold text-zinc-900 dark:text-white mb-2 flex items-center justify-center gap-3">
                     <Github className="text-purple-600" size={32} />
-                    Open Source Analytics
+                    Open Source & Daily GitHub Analytics
                 </h2>
                 <p className="text-zinc-500 dark:text-zinc-400 max-w-2xl mx-auto">
-                    Real-time visibility into development activity, tech stack distribution, and repository impact.
+                    Real-time visibility into daily commit activity, 365-day contribution heatmap, tech stack distribution, and repository impact.
                 </p>
             </div>
 
@@ -32,7 +34,7 @@ const GitHubStats = () => {
                             {[
                                 { label: 'Public Repos', value: '42', icon: <Github size={14} className="text-purple-500" /> },
                                 { label: 'Total Stars', value: '128', icon: <Star size={14} className="text-amber-500" /> },
-                                { label: 'Commits (2024)', value: '1.2k+', icon: <Terminal size={14} className="text-emerald-500" /> },
+                                { label: 'Daily Streak', value: '18 Days', icon: <Terminal size={14} className="text-emerald-500" /> },
                                 { label: 'Pull Requests', value: '340', icon: <GitFork size={14} className="text-blue-500" /> },
                             ].map((stat) => (
                                 <div key={stat.label} className="bg-white dark:bg-zinc-800/50 p-3 rounded-xl border border-zinc-100 dark:border-zinc-700/50 shadow-xs">
@@ -137,6 +139,11 @@ const GitHubStats = () => {
                         <Github size={16} /> View Documentation
                     </a>
                 </div>
+            </div>
+
+            {/* DEDICATED GITHUB DAILY ACTIVITY & HEATMAP SECTION */}
+            <div className="mt-8">
+                <GitHubDailyActivity username={username} />
             </div>
 
             <div className="mt-8 grid grid-cols-1 xl:grid-cols-3 gap-6">
